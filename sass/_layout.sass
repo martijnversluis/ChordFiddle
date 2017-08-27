@@ -1,0 +1,37 @@
+*
+  box-sizing: border-box
+
+body
+  background-color: $page-background
+  color: $page-text
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  font-family: "Lucida Console", Monaco, monospace
+  margin: 50px 0 0 0
+  padding: $spacing-m
+
+header
+  height: 50px
+  margin-top: -50px
+
+  .wrapper
+    padding: $spacing-m
+
+a
+  color: $link-color
+  text-decoration: underline
+
+  &:hover
+    text-decoration: none
+
+.column
+  display: inline-block
+  height: 100%
+  padding: $spacing-m
+  width: 50%
+
+.sheet-editor, .sheet-viewer
+  background: $sheet-background
+  color: $sheet-text
+  height: 100%
+  width: 100%

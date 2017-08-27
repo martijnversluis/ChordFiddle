@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #404040;
+  color: #000;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: "Lucida Console", Monaco, monospace;
+  margin: 50px 0 0 0;
+  padding: 10px; }
+
+header {
+  height: 50px;
+  margin-top: -50px; }
+  header .wrapper {
+    padding: 10px; }
+
+a {
+  color: #f8f8f8;
+  text-decoration: underline; }
+  a:hover {
+    text-decoration: none; }
+
+.column {
+  display: inline-block;
+  height: 100%;
+  padding: 10px;
+  width: 50%; }
+
+.sheet-editor, .sheet-viewer {
+  background: #606060;
+  color: #f8f8f8;
+  height: 100%;
+  width: 100%; }
+
+header .site-name {
+  display: inline-block;
+  margin: 0; }
+  header .site-name a,
+  header .site-name a:hover {
+    color: #000;
+    text-decoration: none; }
+
+header .meta {
+  display: inline-block;
+  list-style: none; }
+  header .meta li {
+    display: inline-block; }
+    header .meta li + * {
+      border-left: 1px #f8f8f8 solid;
+      margin-left: 20px;
+      padding-left: 20px; }
+
+.sheet-editor {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  outline-color: #f8f8f8;
+  padding: 10px;
+  transition: background-color 100ms ease-out; }
+  .sheet-editor:focus {
+    background-color: #747474; }

@@ -1,0 +1,21 @@
+header
+  .site-name
+    display: inline-block
+    margin: 0
+
+    a,
+    a:hover
+      color: $page-text
+      text-decoration: none
+
+  .meta
+    display: inline-block
+    list-style: none
+
+    li
+      display: inline-block
+
+      & + *
+        border-left: 1px $header-meta-separator-color solid
+        margin-left: $spacing-l
+        padding-left: $spacing-l

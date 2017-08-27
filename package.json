@@ -1,0 +1,41 @@
+{
+  "name": "ChordFiddle",
+  "version": "0.0.1",
+  "description": "Online playground for chord sheets. Convert ChordPro to chord sheet.",
+  "main": "index.html",
+  "scripts": {
+    "build-js": "browserify js/main.js -t [ babelify --presets [ es2015 ] ] --outfile bundle.js",
+    "build-css": "node-sass sass/main.sass bundle.css",
+    "build": "npm run build-js && npm run build-css && $(npm bin)/jake build-html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martijnversluis/chordfiddle.git"
+  },
+  "keywords": [
+    "javascript",
+    "chords",
+    "parsing",
+    "convert",
+    "chord-sheet",
+    "chordpro"
+  ],
+  "author": "martijnversluis@gmail.com",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/martijnversluis/chordfiddle/issues"
+  },
+  "homepage": "https://github.com/martijnversluis/chordfiddle#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "haml": "^0.4.3",
+    "jake": "^8.0.15",
+    "node-sass": "^4.5.0"
+  },
+  "dependencies": {
+    "chordsheetjs": "^1.4.0"
+  }
+}

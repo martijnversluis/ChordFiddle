@@ -1,0 +1,39 @@
+!!! html5
+
+%html{ lang: "en" }
+
+%head
+  %meta{ charset: "utf-8" }
+  %title #{package.name}
+  %meta{ name: "description", content: package.description }
+  %meta{ name: "keywords", content: package.keywords.join(", ") }
+  %link{ rel: "stylesheet", href: "bundle.css?v=#{cssLastModified}" }
+
+%body
+  %header
+    .wrapper
+      %h1.site-name
+        %a{ href: "" }#{package.name}
+      %ul.meta
+        %li Version #{package.version}
+        %li
+          Built with#{' '}
+          %a{ href: "https://github.com/martijnversluis/ChordSheetJS", target: "_blank" }ChordSheetJS
+        %li
+          %a{ href: package.bugs.url, target: "_blank"}Issues
+  %main
+    %section.column.column-left
+      %textarea.sheet-editor{ data-id: "chordProEditor" } Chordpro source
+    %section.column.column-right
+      %textarea.sheet-editor{ data-id: "chordSheetTextViewer" }
+  %script{ src: "bundle.js?v=#{jsLastModified}" }
+
+  :javascript
+    if (window.location.hostname == 'martijnversluis.github.io') {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-105335431-1', 'auto');
+      ga('send', 'pageview');
+    }
