@@ -25,9 +25,9 @@
           %a{ href: "#readme" }About
   %main
     %section.column.column-left
-      %textarea.sheet-editor{ data-id: "chordProEditor" } Chordpro source
+      %textarea.sheet-editor{ data-id: "chordProEditor" } = exampleChordProSheet
     %section.column.column-right
-      %textarea.sheet-editor{ data-id: "chordSheetTextViewer" }
+      %textarea.sheet-editor{ data-id: "chordSheetTextViewer", readonly: true }
   %section.mod-readme#readme
     %a.close{ href: "#" }&times;
     .contents != readmeHTML
