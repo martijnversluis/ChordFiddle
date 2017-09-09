@@ -4,7 +4,7 @@
 
 %head
   %meta{ charset: "utf-8" }
-  %title #{package.name}
+  %title = package.name
   %meta{ name: "description", content: package.description }
   %meta{ name: "keywords", content: package.keywords.join(", ") }
   %link{ rel: "stylesheet", href: "bundle.css?v=#{cssLastModified}" }
@@ -13,7 +13,7 @@
   %header
     .wrapper
       %h1.site-name
-        %a{ href: "" }#{package.name}
+        %a{ href: "" } = package.name
       %ul.meta
         %li Version #{package.version}
         %li
@@ -21,11 +21,16 @@
           %a{ href: "https://github.com/martijnversluis/ChordSheetJS", target: "_blank" }ChordSheetJS
         %li
           %a{ href: package.bugs.url, target: "_blank"}Issues
+        %li
+          %a{ href: "#readme" }About
   %main
     %section.column.column-left
       %textarea.sheet-editor{ data-id: "chordProEditor" } Chordpro source
     %section.column.column-right
       %textarea.sheet-editor{ data-id: "chordSheetTextViewer" }
+  %section.mod-readme#readme
+    %a.close{ href: "#" }&times;
+    .contents != readmeHTML
   %script{ src: "bundle.js?v=#{jsLastModified}" }
 
   :javascript
