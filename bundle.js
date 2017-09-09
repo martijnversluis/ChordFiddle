@@ -49,7 +49,7 @@ var _chord_fiddle2 = _interopRequireDefault(_chord_fiddle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-new _chord_fiddle2.default(document.body);
+new _chord_fiddle2.default(document.body).onChordProEditorChange();
 
 },{"./chord_fiddle":1}],3:[function(require,module,exports){
 'use strict';

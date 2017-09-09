@@ -1,3 +1,3 @@
 import ChordFiddle from './chord_fiddle';
 
-new ChordFiddle(document.body);
+new ChordFiddle(document.body).onChordProEditorChange();
