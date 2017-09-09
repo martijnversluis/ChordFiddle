@@ -7,6 +7,7 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   font-family: "Lucida Console", Monaco, monospace;
+  font-size: 1em;
   margin: 50px 0 0 0;
   padding: 10px; }
 
@@ -60,3 +61,38 @@ header .meta {
   transition: background-color 100ms ease-out; }
   .sheet-editor:focus {
     background-color: #747474; }
+
+.mod-readme {
+  background: #f8f8f8;
+  bottom: 0;
+  display: none;
+  left: 0;
+  margin: auto;
+  max-height: 90vh;
+  max-width: 90vw;
+  overflow: auto;
+  padding: 5vw;
+  position: absolute;
+  right: 0;
+  top: 0; }
+  .mod-readme:target {
+    display: block; }
+  .mod-readme .close {
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 10px;
+    position: absolute;
+    right: 15px;
+    text-decoration: none;
+    top: 15px; }
+    .mod-readme .close:hover {
+      text-decoration: none; }
+  .mod-readme a {
+    color: #404040;
+    text-decoration: underline; }
+    .mod-readme a:hover {
+      text-decoration: none; }
+  .mod-readme code {
+    background: #d0d0d0;
+    font-size: 1.2em;
+    padding: 0.1em; }

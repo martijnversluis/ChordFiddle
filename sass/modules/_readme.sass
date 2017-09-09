@@ -1,0 +1,40 @@
+.mod-readme
+  background: $modal-background
+  bottom: 0
+  display: none
+  left: 0
+  margin: auto
+  max-height: 90vh
+  max-width: 90vw
+  overflow: auto
+  padding: 5vw
+  position: absolute
+  right: 0
+  top: 0
+
+  &:target
+    display: block
+
+  .close
+    font-size: 1.5em
+    font-weight: 700
+    line-height: 10px
+    position: absolute
+    right: 15px
+    text-decoration: none
+    top: 15px
+
+    &:hover
+      text-decoration: none
+
+  a
+    color: $modal-link-color
+    text-decoration: underline
+
+    &:hover
+      text-decoration: none
+
+  code
+    background: $modal-code-background
+    font-size: 1.2em
+    padding: 0.1em
