@@ -2,7 +2,13 @@
 
 ## [martijnversluis.github.io/ChordFiddle](https://martijnversluis.github.io/ChordFiddle/)
 
-ChordFiddle is an online playground for ChordPro chord sheets. It currently supports editing you ChordPro file and translating to normal chords sheets. On the [project board](https://github.com/martijnversluis/ChordFiddle/projects/1) you can find future features.
+ChordFiddle is an online playground for ChordPro chord sheets. It currently supports:
+
+- editing your ChordPro file
+- translating to normal chords sheets
+- transposing the ChordPro sheet up and down
+
+On the [project board](https://github.com/martijnversluis/ChordFiddle/projects/1) you can find future features.
 
 Technically speaking ChordFiddle is just a user interface to [ChordSheetJS](https://github.com/martijnversluis/ChordSheetJS).
 
