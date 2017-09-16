@@ -10,9 +10,9 @@ const chordProEditor = new ChordProEditor({
 });
 
 getElementByDataId('transpose-up').addEventListener('click', () => {
-  chordProEditor.transposeUp()
+  chordProEditor.transposeUp();
 });
 
 getElementByDataId('transpose-down').addEventListener('click', () => {
-  chordProEditor.transposeDown()
+  chordProEditor.transposeDown();
 });

@@ -19,7 +19,8 @@
         %li
           Built with
           #{' '}
-          %a{ href: "https://github.com/martijnversluis/ChordSheetJS", target: "_blank" }ChordSheetJS
+          %a{ href: "https://github.com/martijnversluis/ChordSheetJS",
+              target: "_blank" }ChordSheetJS
           #{' '}
           and
           #{' '}
@@ -32,9 +33,9 @@
     %section.column.column-left
       %ul.mod-toolbar
         %li
-          %button{ data-id: "transpose-down"}Transpose down
+          %button{ data-id: "transpose-down" }Transpose down
         %li
-          %button{ data-id: "transpose-up"}Transpose up
+          %button{ data-id: "transpose-up" }Transpose up
       %textarea.sheet-editor{ data-id: "chordProEditor" } = exampleChordProSheet
     %section.column.column-right
       %textarea.sheet-editor{ data-id: "chordSheetTextViewer", readonly: true }
