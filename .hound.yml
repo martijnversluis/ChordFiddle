@@ -1,3 +1,6 @@
+haml:
+  enabled: true
+  config_file: .haml-lint.yml
 jshint:
   enabled: true
   config_file: .jshintrc
