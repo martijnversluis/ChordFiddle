@@ -1,19 +1,20 @@
 *
-  box-sizing: border-box
+  -webkit-box-sizing: border-box
+     -moz-box-sizing: border-box
+          box-sizing: border-box
 
 body
   background-color: $page-background
   color: $page-text
-  -webkit-box-sizing: border-box
-  -moz-box-sizing: border-box
+  display: flex
+  flex-direction: column
   font-family: "Lucida Console", Monaco, monospace
   font-size: 1em
-  margin: 50px 0 0 0
+  margin: 0
   padding: $spacing-m
 
 header
-  height: 50px
-  margin-top: -50px
+  flex: 0 0 50px
 
   .wrapper
     padding: $spacing-m
@@ -25,14 +26,25 @@ a
   &:hover
     text-decoration: none
 
+main
+  display: flex
+  flex: 1 0 auto
+  flex-direction: row
+
 .column
-  display: inline-block
-  height: 100%
+  display: flex
+  flex: 1 1 50%
+  flex-direction: column
   padding: $spacing-m
-  width: 50%
+
+  .toolbar
+    flex: 0 0 auto
+
+  .sheet-editor,
+  .sheet-viewer
+    flex: 1 1 auto
 
 .sheet-editor, .sheet-viewer
   background: $sheet-background
   color: $sheet-text
-  height: 100%
   width: 100%

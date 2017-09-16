@@ -1,19 +1,20 @@
 * {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+    -webkit-box-sizing--moz-box-sizing: border-box;
+      -webkit-box-sizing--moz-box-sizing-box-sizing: border-box; }
 
 body {
   background-color: #404040;
   color: #000;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 1em;
-  margin: 50px 0 0 0;
+  margin: 0;
   padding: 10px; }
 
 header {
-  height: 50px;
-  margin-top: -50px; }
+  flex: 0 0 50px; }
   header .wrapper {
     padding: 10px; }
 
@@ -23,16 +24,25 @@ a {
   a:hover {
     text-decoration: none; }
 
+main {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row; }
+
 .column {
-  display: inline-block;
-  height: 100%;
-  padding: 10px;
-  width: 50%; }
+  display: flex;
+  flex: 1 1 50%;
+  flex-direction: column;
+  padding: 10px; }
+  .column .toolbar {
+    flex: 0 0 auto; }
+  .column .sheet-editor,
+  .column .sheet-viewer {
+    flex: 1 1 auto; }
 
 .sheet-editor, .sheet-viewer {
   background: #606060;
   color: #f8f8f8;
-  height: 100%;
   width: 100%; }
 
 header .site-name {
@@ -96,3 +106,20 @@ header .meta {
     background: #d0d0d0;
     font-size: 1.2em;
     padding: 0.1em; }
+
+.mod-toolbar {
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0; }
+  .mod-toolbar li {
+    display: inline-block; }
+    .mod-toolbar li + li {
+      margin-left: 10px; }
+  .mod-toolbar button {
+    -webkit-appearance: none;
+      -webkit-appearance--moz-appearance: none;
+    background-color: #f8f8f8;
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 5px 10px; }
