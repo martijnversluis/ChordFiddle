@@ -1,0 +1,4 @@
+exclude_paths:
+- "bundle.css"
+- "bundle.js"
+- "index.html"
