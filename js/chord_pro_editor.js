@@ -56,4 +56,12 @@ export default class ChordFiddle {
   transposeDown() {
     this.transitChords(chord => chord.transposeDown());
   }
+
+  switchToSharp() {
+    this.transitChords(chord => chord.useModifier('#'));
+  }
+
+  switchToFlat() {
+    this.transitChords(chord => chord.useModifier('b'));
+  }
 }

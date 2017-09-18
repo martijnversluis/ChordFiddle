@@ -16,3 +16,11 @@ getElementByDataId('transpose-up').addEventListener('click', () => {
 getElementByDataId('transpose-down').addEventListener('click', () => {
   chordProEditor.transposeDown();
 });
+
+getElementByDataId('switch-to-sharp').addEventListener('click', () => {
+  chordProEditor.switchToSharp();
+});
+
+getElementByDataId('switch-to-flat').addEventListener('click', () => {
+  chordProEditor.switchToFlat();
+});

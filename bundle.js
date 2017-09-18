@@ -93,6 +93,20 @@ var ChordFiddle = function () {
         return chord.transposeDown();
       });
     }
+  }, {
+    key: 'switchToSharp',
+    value: function switchToSharp() {
+      this.transitChords(function (chord) {
+        return chord.useModifier('#');
+      });
+    }
+  }, {
+    key: 'switchToFlat',
+    value: function switchToFlat() {
+      this.transitChords(function (chord) {
+        return chord.useModifier('b');
+      });
+    }
   }]);
 
   return ChordFiddle;
@@ -124,6 +138,14 @@ getElementByDataId('transpose-up').addEventListener('click', function () {
 
 getElementByDataId('transpose-down').addEventListener('click', function () {
   chordProEditor.transposeDown();
+});
+
+getElementByDataId('switch-to-sharp').addEventListener('click', function () {
+  chordProEditor.switchToSharp();
+});
+
+getElementByDataId('switch-to-flat').addEventListener('click', function () {
+  chordProEditor.switchToFlat();
 });
 
 },{"./chord_pro_editor":1}],3:[function(require,module,exports){

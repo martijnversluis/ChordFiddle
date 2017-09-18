@@ -108,13 +108,11 @@ header .meta {
     padding: 0.1em; }
 
 .mod-toolbar {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  margin: 0 0 10px 0;
+  margin: 0;
   padding: 0; }
-  .mod-toolbar li {
-    display: inline-block; }
-    .mod-toolbar li + li {
-      margin-left: 10px; }
   .mod-toolbar button {
     -webkit-appearance: none;
       -webkit-appearance--moz-appearance: none;
@@ -122,4 +120,6 @@ header .meta {
     border: 0;
     font-family: inherit;
     font-size: inherit;
+    height: 31px;
+    margin: 0 10px 10px 0;
     padding: 5px 10px; }
