@@ -27,24 +27,26 @@ export default class ChordFiddle {
     return parser.parse(this.editor.value);
   }
 
-  transitChords(callback) {
+  transitChords(processor) {
     const formatter = new ChordSheetJS.ChordProFormatter();
     const song = this.parseChordProSheet();
 
     song.lines.forEach(line => {
       line.items.forEach(item => {
-        if (item instanceof ChordSheetJS.ChordLyricsPair && item.chords) {
-          const parsedChord = Chord.parse(item.chords);
-          item.chords = callback(parsedChord).toString();
-        }
-
-        return item;
+        this.processChord(item, processor);
       });
     });
 
     const transposedSong = formatter.format(song);
     this.editor.value = transposedSong;
     this.onEditorChange();
+  }
+
+  processChord(item, processor) {
+    if (item instanceof ChordSheetJS.ChordLyricsPair && item.chords) {
+      const parsedChord = Chord.parse(item.chords);
+      item.chords = processor(parsedChord).toString();
+    }
   }
 
   transposeUp() {

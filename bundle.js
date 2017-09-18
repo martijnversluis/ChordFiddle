@@ -55,24 +55,29 @@ var ChordFiddle = function () {
     }
   }, {
     key: 'transitChords',
-    value: function transitChords(callback) {
+    value: function transitChords(processor) {
+      var _this = this;
+
       var formatter = new _chordsheetjs2.default.ChordProFormatter();
       var song = this.parseChordProSheet();
 
       song.lines.forEach(function (line) {
         line.items.forEach(function (item) {
-          if (item instanceof _chordsheetjs2.default.ChordLyricsPair && item.chords) {
-            var parsedChord = _chordjs2.default.parse(item.chords);
-            item.chords = callback(parsedChord).toString();
-          }
-
-          return item;
+          _this.processChord(item, processor);
         });
       });
 
       var transposedSong = formatter.format(song);
       this.editor.value = transposedSong;
       this.onEditorChange();
+    }
+  }, {
+    key: 'processChord',
+    value: function processChord(item, processor) {
+      if (item instanceof _chordsheetjs2.default.ChordLyricsPair && item.chords) {
+        var parsedChord = _chordjs2.default.parse(item.chords);
+        item.chords = processor(parsedChord).toString();
+      }
     }
   }, {
     key: 'transposeUp',
