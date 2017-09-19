@@ -80,7 +80,6 @@ header .meta {
   margin: auto;
   max-height: 90vh;
   max-width: 90vw;
-  overflow: auto;
   padding: 5vw;
   position: absolute;
   right: 0;
@@ -97,6 +96,8 @@ header .meta {
     top: 15px; }
     .mod-readme .close:hover {
       text-decoration: none; }
+  .mod-readme .contents {
+    overflow: auto; }
   .mod-readme a {
     color: #404040;
     text-decoration: underline; }
