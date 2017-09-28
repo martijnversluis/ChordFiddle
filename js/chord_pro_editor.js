@@ -1,6 +1,6 @@
 import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
-import Textarea from './textarea';
+import TextareaSelection from './textarea_selection';
 
 export default class ChordFiddle {
   constructor({editor, previewer = null}) {
@@ -29,20 +29,22 @@ export default class ChordFiddle {
   }
 
   transitChords(processor) {
-    (new Textarea(this.editor)).replaceSelectedText(selection => {
+    (new TextareaSelection(this.editor)).replace(selection => {
       const song = new ChordSheetJS.ChordProParser().parse(selection);
-
-      song.lines.forEach(line => {
-        line.items.forEach(item => {
-          this.processChord(item, processor);
-        });
-      });
-
+      this.transitSong(song, processor);
       const transposedSong = new ChordSheetJS.ChordProFormatter().format(song);
       return transposedSong;
     });
 
     this.onEditorChange();
+  }
+
+  transitSong(song, processor) {
+    song.lines.forEach(line => {
+      line.items.forEach(item => {
+        this.processChord(item, processor);
+      });
+    });
   }
 
   processChord(item, processor) {

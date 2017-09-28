@@ -15,9 +15,9 @@ var _chordjs = require('chordjs');
 
 var _chordjs2 = _interopRequireDefault(_chordjs);
 
-var _textarea = require('./textarea');
+var _textarea_selection = require('./textarea_selection');
 
-var _textarea2 = _interopRequireDefault(_textarea);
+var _textarea_selection2 = _interopRequireDefault(_textarea_selection);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -62,20 +62,25 @@ var ChordFiddle = function () {
     value: function transitChords(processor) {
       var _this = this;
 
-      new _textarea2.default(this.editor).replaceSelectedText(function (selection) {
+      new _textarea_selection2.default(this.editor).replace(function (selection) {
         var song = new _chordsheetjs2.default.ChordProParser().parse(selection);
-
-        song.lines.forEach(function (line) {
-          line.items.forEach(function (item) {
-            _this.processChord(item, processor);
-          });
-        });
-
+        _this.transitSong(song, processor);
         var transposedSong = new _chordsheetjs2.default.ChordProFormatter().format(song);
         return transposedSong;
       });
 
       this.onEditorChange();
+    }
+  }, {
+    key: 'transitSong',
+    value: function transitSong(song, processor) {
+      var _this2 = this;
+
+      song.lines.forEach(function (line) {
+        line.items.forEach(function (item) {
+          _this2.processChord(item, processor);
+        });
+      });
     }
   }, {
     key: 'processChord',
@@ -120,7 +125,7 @@ var ChordFiddle = function () {
 
 exports.default = ChordFiddle;
 
-},{"./textarea":3,"chordjs":4,"chordsheetjs":9}],2:[function(require,module,exports){
+},{"./textarea_selection":3,"chordjs":4,"chordsheetjs":9}],2:[function(require,module,exports){
 'use strict';
 
 var _chord_pro_editor = require('./chord_pro_editor');
@@ -155,7 +160,7 @@ getElementByDataId('switch-to-flat').addEventListener('click', function () {
 });
 
 },{"./chord_pro_editor":1}],3:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -165,92 +170,44 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Textarea = function () {
-  function Textarea(textarea) {
-    _classCallCheck(this, Textarea);
+var TextareaSelection = function () {
+  function TextareaSelection(textarea) {
+    _classCallCheck(this, TextareaSelection);
 
     this.textarea = textarea;
+    this.hasSelectionRange = textarea.selectionStart !== textarea.selectionEnd;
+
+    if (this.hasSelectionRange) {
+      this.selectionStart = textarea.selectionStart;
+      this.selectionEnd = textarea.selectionEnd;
+    } else {
+      this.selectionStart = 0;
+      this.selectionEnd = textarea.value.length;
+    }
   }
 
-  _createClass(Textarea, [{
-    key: 'getInputSelection',
-    value: function getInputSelection(el) {
-      if (typeof this.textarea.selectionStart == 'number' && typeof this.textarea.selectionEnd == 'number') {
-        return { start: this.textarea.selectionStart, end: this.textarea.selectionEnd };
-      } else {
-        return this.getInputSelectionFallback();
-      }
-    }
-  }, {
-    key: 'getInputSelectionFallback',
-    value: function getInputSelectionFallback() {
-      var range = document.selection.createRange();
-      var length = this.textarea.value.length;
-
-      if (range && range.parentElement() == this.textarea) {
-        var textInputRange = this.textarea.createTextRange();
-        textInputRange.moveToBookmark(range.getBookmark());
-
-        var endRange = this.textarea.createTextRange();
-        endRange.collapse(false);
-
-        if (textInputRange.compareEndPoints('StartToEnd', endRange) > -1) {
-          return { start: length, end: length };
-        } else {
-          return this.determineSelection(textInputRange, length, endRange);
-        }
-      } else {
-        return { start: 0, end: length };
-      }
-    }
-  }, {
-    key: 'determineSelection',
-    value: function determineSelection(textInputRange, len, endRange) {
-      var normalizedValue = this.textarea.value.replace(/\r\n/g, "\n");
-      var start = -textInputRange.moveStart('character', -len);
-      start += normalizedValue.slice(0, start).split('\n').length - 1;
-
-      var end = void 0;
-
-      if (textInputRange.compareEndPoints('EndToEnd', endRange) > -1) {
-        end = len;
-      } else {
-        end = -textInputRange.moveEnd('character', -len);
-        end += normalizedValue.slice(0, end).split('\n').length - 1;
-      }
-
-      return { start: start, end: end };
-    }
-  }, {
-    key: 'replaceSelectedText',
-    value: function replaceSelectedText(callback) {
+  _createClass(TextareaSelection, [{
+    key: "replace",
+    value: function replace(callback) {
       var currentValue = this.textarea.value;
-      var selectionStart = this.textarea.selectionStart;
-      var selectionEnd = this.textarea.selectionEnd;
-      var hasSelection = selectionStart != selectionEnd;
-
-      if (!hasSelection) {
-        selectionStart = 0;
-        selectionEnd = this.textarea.value.length;
-      }
-
-      var selectedValue = currentValue.slice(selectionStart, selectionEnd);
-      var prefix = currentValue.slice(0, selectionStart);
-      var suffix = currentValue.slice(selectionEnd);
+      var selectedValue = currentValue.slice(this.selectionStart, this.selectionEnd);
+      var prefix = currentValue.slice(0, this.selectionStart);
+      var suffix = currentValue.slice(this.selectionEnd);
       var replacement = callback(selectedValue);
+
       this.textarea.value = prefix + replacement + suffix;
       this.textarea.focus();
 
-      if (hasSelection) {
+      if (this.hasSelectionRange) {
         this.textarea.setSelectionRange(prefix.length, prefix.length + replacement.length);
       }
     }
   }]);
 
-  return Textarea;
+  return TextareaSelection;
 }();
 
-exports.default = Textarea;
+exports.default = TextareaSelection;
 
 },{}],4:[function(require,module,exports){
 'use strict';
