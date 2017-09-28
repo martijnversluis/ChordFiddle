@@ -144,7 +144,7 @@ rules:
   no-use-before-define: off
 
   # Node.js and CommonJS
-  callback-return: error
+  callback-return: off
   global-require: error
   handle-callback-err: error
   no-mixed-requires: off

@@ -1,7 +1,7 @@
 import ChordProEditor from './chord_pro_editor';
 
 function getElementByDataId(dataId) {
-  return document.querySelector(`[data-id="${dataId}"]`);
+  return document.querySelector(`[data-id='${dataId}']`);
 }
 
 const chordProEditor = new ChordProEditor({

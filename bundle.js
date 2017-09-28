@@ -15,6 +15,10 @@ var _chordjs = require('chordjs');
 
 var _chordjs2 = _interopRequireDefault(_chordjs);
 
+var _textarea_selection = require('./textarea_selection');
+
+var _textarea_selection2 = _interopRequireDefault(_textarea_selection);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58,18 +62,25 @@ var ChordFiddle = function () {
     value: function transitChords(processor) {
       var _this = this;
 
-      var formatter = new _chordsheetjs2.default.ChordProFormatter();
-      var song = this.parseChordProSheet();
+      new _textarea_selection2.default(this.editor).replace(function (selection) {
+        var song = new _chordsheetjs2.default.ChordProParser().parse(selection);
+        _this.transitSong(song, processor);
+        var transposedSong = new _chordsheetjs2.default.ChordProFormatter().format(song);
+        return transposedSong;
+      });
+
+      this.onEditorChange();
+    }
+  }, {
+    key: 'transitSong',
+    value: function transitSong(song, processor) {
+      var _this2 = this;
 
       song.lines.forEach(function (line) {
         line.items.forEach(function (item) {
-          _this.processChord(item, processor);
+          _this2.processChord(item, processor);
         });
       });
-
-      var transposedSong = formatter.format(song);
-      this.editor.value = transposedSong;
-      this.onEditorChange();
     }
   }, {
     key: 'processChord',
@@ -114,7 +125,7 @@ var ChordFiddle = function () {
 
 exports.default = ChordFiddle;
 
-},{"chordjs":3,"chordsheetjs":8}],2:[function(require,module,exports){
+},{"./textarea_selection":3,"chordjs":4,"chordsheetjs":9}],2:[function(require,module,exports){
 'use strict';
 
 var _chord_pro_editor = require('./chord_pro_editor');
@@ -124,7 +135,7 @@ var _chord_pro_editor2 = _interopRequireDefault(_chord_pro_editor);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getElementByDataId(dataId) {
-  return document.querySelector('[data-id="' + dataId + '"]');
+  return document.querySelector('[data-id=\'' + dataId + '\']');
 }
 
 var chordProEditor = new _chord_pro_editor2.default({
@@ -149,6 +160,56 @@ getElementByDataId('switch-to-flat').addEventListener('click', function () {
 });
 
 },{"./chord_pro_editor":1}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var TextareaSelection = function () {
+  function TextareaSelection(textarea) {
+    _classCallCheck(this, TextareaSelection);
+
+    this.textarea = textarea;
+    this.hasSelectionRange = textarea.selectionStart !== textarea.selectionEnd;
+
+    if (this.hasSelectionRange) {
+      this.selectionStart = textarea.selectionStart;
+      this.selectionEnd = textarea.selectionEnd;
+    } else {
+      this.selectionStart = 0;
+      this.selectionEnd = textarea.value.length;
+    }
+  }
+
+  _createClass(TextareaSelection, [{
+    key: "replace",
+    value: function replace(callback) {
+      var currentValue = this.textarea.value;
+      var selectedValue = currentValue.slice(this.selectionStart, this.selectionEnd);
+      var prefix = currentValue.slice(0, this.selectionStart);
+      var suffix = currentValue.slice(this.selectionEnd);
+      var replacement = callback(selectedValue);
+
+      this.textarea.value = prefix + replacement + suffix;
+      this.textarea.focus();
+
+      if (this.hasSelectionRange) {
+        this.textarea.setSelectionRange(prefix.length, prefix.length + replacement.length);
+      }
+    }
+  }]);
+
+  return TextareaSelection;
+}();
+
+exports.default = TextareaSelection;
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -435,7 +496,7 @@ var Chord = function () {
 }();
 
 exports.default = Chord;
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -452,7 +513,7 @@ var ChordLyricsPair = function ChordLyricsPair() {
 };
 
 exports.default = ChordLyricsPair;
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -521,7 +582,7 @@ var Line = function () {
 }();
 
 exports.default = Line;
-},{"../utilities":15,"./chord_lyrics_pair":4,"./tag":7}],6:[function(require,module,exports){
+},{"../utilities":16,"./chord_lyrics_pair":5,"./tag":8}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -623,7 +684,7 @@ var Song = function () {
 }();
 
 exports.default = Song;
-},{"../utilities":15,"./line":5,"./tag":7}],7:[function(require,module,exports){
+},{"../utilities":16,"./line":6,"./tag":8}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -695,7 +756,7 @@ var Tag = function () {
 }();
 
 exports.default = Tag;
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -751,7 +812,7 @@ exports.default = {
   Song: _song2.default,
   Tag: _tag2.default
 };
-},{"./chord_sheet/chord_lyrics_pair":4,"./chord_sheet/line":5,"./chord_sheet/song":6,"./chord_sheet/tag":7,"./formatter/chord_pro_formatter":9,"./formatter/html_formatter":11,"./formatter/text_formatter":12,"./parser/chord_pro_parser":13,"./parser/chord_sheet_parser":14}],9:[function(require,module,exports){
+},{"./chord_sheet/chord_lyrics_pair":5,"./chord_sheet/line":6,"./chord_sheet/song":7,"./chord_sheet/tag":8,"./formatter/chord_pro_formatter":10,"./formatter/html_formatter":12,"./formatter/text_formatter":13,"./parser/chord_pro_parser":14,"./parser/chord_sheet_parser":15}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -827,7 +888,7 @@ var ChordProFormatter = function (_FormatterBase) {
 }(_formatter_base2.default);
 
 exports.default = ChordProFormatter;
-},{"../chord_sheet/tag":7,"./formatter_base":10}],10:[function(require,module,exports){
+},{"../chord_sheet/tag":8,"./formatter_base":11}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -877,7 +938,7 @@ var FormatterBase = function () {
 }();
 
 exports.default = FormatterBase;
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -997,7 +1058,7 @@ var HtmlFormatter = function (_FormatterBase) {
 }(_formatter_base2.default);
 
 exports.default = HtmlFormatter;
-},{"../chord_sheet/tag":7,"./formatter_base":10}],12:[function(require,module,exports){
+},{"../chord_sheet/tag":8,"./formatter_base":11}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1130,7 +1191,7 @@ var TextFormatter = function (_FormatterBase) {
 }(_formatter_base2.default);
 
 exports.default = TextFormatter;
-},{"../chord_sheet/tag":7,"./formatter_base":10}],13:[function(require,module,exports){
+},{"../chord_sheet/tag":8,"./formatter_base":11}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1287,7 +1348,7 @@ var ChordProParser = function () {
 }();
 
 exports.default = ChordProParser;
-},{"../chord_sheet/song":6}],14:[function(require,module,exports){
+},{"../chord_sheet/song":7}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1407,7 +1468,7 @@ var ChordSheetParser = function () {
 }();
 
 exports.default = ChordSheetParser;
-},{"../chord_sheet/song":6}],15:[function(require,module,exports){
+},{"../chord_sheet/song":7}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
