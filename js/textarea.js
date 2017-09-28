@@ -7,7 +7,7 @@ export default class Textarea {
     const currentValue = this.textarea.value;
     let selectionStart = this.textarea.selectionStart;
     let selectionEnd = this.textarea.selectionEnd;
-    const hasSelection = (selectionStart != selectionEnd);
+    const hasSelection = (selectionStart !== selectionEnd);
 
     if (!hasSelection) {
       selectionStart = 0;
