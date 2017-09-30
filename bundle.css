@@ -8,7 +8,7 @@ body {
   color: #2F3131;
   display: flex;
   flex-direction: column;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1em;
   margin: 0;
   padding: 20px; }
@@ -48,12 +48,14 @@ main {
 .sheet-editor, .sheet-viewer {
   background: #F8F8F8;
   color: #2F3131;
+  font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
   width: 100%; }
 
 header {
   color: #F8F8F8; }
   header .site-name {
     display: inline-block;
+    font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
     margin: 0; }
     header .site-name a,
     header .site-name a:hover {
