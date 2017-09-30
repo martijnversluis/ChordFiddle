@@ -4,8 +4,8 @@
       -webkit-box-sizing--moz-box-sizing-box-sizing: border-box; }
 
 body {
-  background-color: #404040;
-  color: #000;
+  background-color: #2F3131;
+  color: #2F3131;
   display: flex;
   flex-direction: column;
   font-family: "Lucida Console", Monaco, monospace;
@@ -19,7 +19,7 @@ header {
     padding: 10px; }
 
 a {
-  color: #f8f8f8;
+  color: #A3ABB0;
   text-decoration: underline; }
   a:hover {
     text-decoration: none; }
@@ -41,8 +41,8 @@ main {
     flex: 1 1 auto; }
 
 .sheet-editor, .sheet-viewer {
-  background: #606060;
-  color: #f8f8f8;
+  background: #F8F8F8;
+  color: #2F3131;
   width: 100%; }
 
 header .site-name {
@@ -50,7 +50,7 @@ header .site-name {
   margin: 0; }
   header .site-name a,
   header .site-name a:hover {
-    color: #000;
+    color: #F9BA32;
     text-decoration: none; }
 
 header .meta {
@@ -59,21 +59,23 @@ header .meta {
   header .meta li {
     display: inline-block; }
     header .meta li + * {
-      border-left: 1px #f8f8f8 solid;
+      border-left: 1px #F8F8F8 solid;
       margin-left: 20px;
       padding-left: 20px; }
 
 .sheet-editor {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 14px;
-  outline-color: #f8f8f8;
+  outline-color: rgba(248, 248, 248, 0.5);
   padding: 10px;
   transition: background-color 100ms ease-out; }
   .sheet-editor:focus {
-    background-color: #747474; }
+    background-color: #F8F8F8; }
 
 .mod-readme {
-  background: #f8f8f8;
+  background: #F8F8F8;
+  border: 1px #426E86 solid;
+  box-shadow: 0 0 5px #426E86;
   bottom: 0;
   display: none;
   left: 0;
@@ -99,7 +101,7 @@ header .meta {
   .mod-readme .contents {
     overflow: auto; }
   .mod-readme a {
-    color: #404040;
+    color: #426E86;
     text-decoration: underline; }
     .mod-readme a:hover {
       text-decoration: none; }
@@ -117,8 +119,9 @@ header .meta {
   .mod-toolbar button {
     -webkit-appearance: none;
       -webkit-appearance--moz-appearance: none;
-    background-color: #f8f8f8;
+    background-color: #426E86;
     border: 0;
+    color: #F8F8F8;
     font-family: inherit;
     font-size: inherit;
     height: 31px;
