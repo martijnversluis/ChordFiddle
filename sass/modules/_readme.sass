@@ -17,18 +17,20 @@
     display: block
 
   .close
-    font-size: 1.5em
+    $close-button-height: 16px
+    font-size: $close-button-height * 2.4
     font-weight: 700
-    line-height: 10px
+    line-height: $close-button-height
     position: absolute
-    right: 15px
+    right: 2.5vw
     text-decoration: none
-    top: 15px
+    top: 2.5vw
 
     &:hover
       text-decoration: none
 
   .contents
+    max-height: 100%
     overflow: auto
 
   a
@@ -42,3 +44,6 @@
     background: $modal-code-background
     font-size: 1.2em
     padding: 0.1em
+
+  li
+    line-height: 160%
