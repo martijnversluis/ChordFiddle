@@ -11,12 +11,12 @@ body {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 1em;
   margin: 0;
-  padding: 10px; }
+  padding: 20px; }
 
 header {
   flex: 0 0 50px; }
   header .wrapper {
-    padding: 10px; }
+    padding: 10px 0; }
 
 a {
   color: #A3ABB0;
@@ -27,13 +27,18 @@ a {
 main {
   display: flex;
   flex: 1 0 auto;
-  flex-direction: row; }
+  flex-direction: column; }
+  main .columns {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row; }
 
 .column {
   display: flex;
   flex: 1 1 50%;
-  flex-direction: column;
-  padding: 10px; }
+  flex-direction: column; }
+  .column + .column {
+    margin-left: 20px; }
   .column .toolbar {
     flex: 0 0 auto; }
   .column .sheet-editor,
@@ -119,7 +124,7 @@ header {
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 10px 0; }
   .mod-toolbar button {
     -webkit-appearance: none;
       -webkit-appearance--moz-appearance: none;
@@ -129,5 +134,5 @@ header {
     font-family: inherit;
     font-size: inherit;
     height: 31px;
-    margin: 0 10px 10px 0;
+    margin: 0 10px 0 0;
     padding: 5px 10px; }
