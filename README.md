@@ -6,8 +6,8 @@ ChordFiddle is an online playground for ChordPro chord sheets. It currently supp
 
 - editing your ChordPro file
 - translating to normal chords sheets
-- transposing the ChordPro sheet up and down
-- switching between sharp (♯) and flat (♭) chords
+- transposing the ChordPro sheet up and down (complete sheet or selection)
+- switching between sharp (♯) and flat (♭) chords (complete sheet or selection)
 
 On the [project board](https://github.com/martijnversluis/ChordFiddle/projects/1) you can find 
 future features.
