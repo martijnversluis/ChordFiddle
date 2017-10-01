@@ -4,22 +4,20 @@
       -webkit-box-sizing--moz-box-sizing-box-sizing: border-box; }
 
 body {
-  background-color: #404040;
-  color: #000;
+  background-color: #2F3131;
+  color: #2F3131;
   display: flex;
   flex-direction: column;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1em;
   margin: 0;
-  padding: 10px; }
+  padding: 20px; }
 
 header {
   flex: 0 0 50px; }
-  header .wrapper {
-    padding: 10px; }
 
 a {
-  color: #f8f8f8;
+  color: #A3ABB0;
   text-decoration: underline; }
   a:hover {
     text-decoration: none; }
@@ -27,13 +25,18 @@ a {
 main {
   display: flex;
   flex: 1 0 auto;
-  flex-direction: row; }
+  flex-direction: column; }
+  main .columns {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row; }
 
 .column {
   display: flex;
   flex: 1 1 50%;
-  flex-direction: column;
-  padding: 10px; }
+  flex-direction: column; }
+  .column + .column {
+    margin-left: 20px; }
   .column .toolbar {
     flex: 0 0 auto; }
   .column .sheet-editor,
@@ -41,65 +44,76 @@ main {
     flex: 1 1 auto; }
 
 .sheet-editor, .sheet-viewer {
-  background: #606060;
-  color: #f8f8f8;
+  background: #F8F8F8;
+  color: #2F3131;
+  font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
   width: 100%; }
 
-header .site-name {
-  display: inline-block;
-  margin: 0; }
-  header .site-name a,
-  header .site-name a:hover {
-    color: #000;
-    text-decoration: none; }
-
-header .meta {
-  display: inline-block;
-  list-style: none; }
-  header .meta li {
-    display: inline-block; }
-    header .meta li + * {
-      border-left: 1px #f8f8f8 solid;
-      margin-left: 20px;
-      padding-left: 20px; }
+header {
+  color: #F8F8F8; }
+  header .wrapper {
+    display: flex;
+    padding: 10px 5px; }
+  header .site-name {
+    display: inline-block;
+    flex: 1 0 auto;
+    font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    margin: 0; }
+    header .site-name a,
+    header .site-name a:hover {
+      color: #FFAE00;
+      text-decoration: none; }
+  header .meta {
+    display: inline-block;
+    flex: 0 0 auto;
+    list-style: none; }
+    header .meta li {
+      display: inline-block; }
+      header .meta li + * {
+        border-left: 1px #F8F8F8 solid;
+        margin-left: 20px;
+        padding-left: 20px; }
 
 .sheet-editor {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 14px;
-  outline-color: #f8f8f8;
+  outline-color: rgba(248, 248, 248, 0.5);
   padding: 10px;
   transition: background-color 100ms ease-out; }
   .sheet-editor:focus {
-    background-color: #747474; }
+    background-color: #F8F8F8; }
 
 .mod-readme {
-  background: #f8f8f8;
+  background: #F8F8F8;
+  border: 1px #3C82A9 solid;
+  box-shadow: 0 0 5px #3C82A9;
   bottom: 0;
   display: none;
   left: 0;
   margin: auto;
   max-height: 90vh;
   max-width: 90vw;
-  padding: 5vw;
+  padding: 30px 50px;
   position: absolute;
   right: 0;
   top: 0; }
   .mod-readme:target {
     display: block; }
   .mod-readme .close {
-    font-size: 1.5em;
+    font-size: 38.4px;
     font-weight: 700;
-    line-height: 10px;
+    line-height: 16px;
     position: absolute;
-    right: 15px;
+    right: 2.5vw;
     text-decoration: none;
-    top: 15px; }
+    top: 2.5vw; }
     .mod-readme .close:hover {
       text-decoration: none; }
   .mod-readme .contents {
+    max-height: 100%;
     overflow: auto; }
   .mod-readme a {
-    color: #404040;
+    color: #3C82A9;
     text-decoration: underline; }
     .mod-readme a:hover {
       text-decoration: none; }
@@ -107,20 +121,23 @@ header .meta {
     background: #d0d0d0;
     font-size: 1.2em;
     padding: 0.1em; }
+  .mod-readme li {
+    line-height: 160%; }
 
 .mod-toolbar {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 10px 0; }
   .mod-toolbar button {
     -webkit-appearance: none;
       -webkit-appearance--moz-appearance: none;
-    background-color: #f8f8f8;
+    background-color: #3C82A9;
     border: 0;
+    color: #F8F8F8;
     font-family: inherit;
     font-size: inherit;
     height: 31px;
-    margin: 0 10px 10px 0;
+    margin: 0 10px 0 0;
     padding: 5px 10px; }

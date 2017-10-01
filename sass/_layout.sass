@@ -8,16 +8,13 @@ body
   color: $page-text
   display: flex
   flex-direction: column
-  font-family: "Lucida Console", Monaco, monospace
+  font-family: $default-font
   font-size: 1em
   margin: 0
-  padding: $spacing-m
+  padding: $spacing-l
 
 header
   flex: 0 0 50px
-
-  .wrapper
-    padding: $spacing-m
 
 a
   color: $link-color
@@ -29,13 +26,20 @@ a
 main
   display: flex
   flex: 1 0 auto
-  flex-direction: row
+  flex-direction: column
+
+  .columns
+    display: flex
+    flex: 1 0 auto
+    flex-direction: row
 
 .column
   display: flex
   flex: 1 1 50%
   flex-direction: column
-  padding: $spacing-m
+
+  & + .column
+    margin-left: $spacing-l
 
   .toolbar
     flex: 0 0 auto
@@ -47,4 +51,5 @@ main
 .sheet-editor, .sheet-viewer
   background: $sheet-background
   color: $sheet-text
+  font-family: $monospace-font
   width: 100%

@@ -26,23 +26,27 @@
           #{' '}
           %a{ href: "https://github.com/martijnversluis/ChordJS", target: "_blank" }ChordJS
         %li
-          %a{ href: package.bugs.url, target: "_blank"}Issues
+          %a{ href: package.homepage, target: "_blank" }GitHub
+        %li
+          %a{ href: package.bugs.url, target: "_blank" }Issues
         %li
           %a{ href: "#readme" }About
   %main
-    %section.column.column-left
-      %ul.mod-toolbar
-        %li
-          %button{ data-id: "transpose-down" }Transpose down
-        %li
-          %button{ data-id: "transpose-up" }Transpose up
-        %li
-          %button{ data-id: "switch-to-sharp" }Use ♯
-        %li
-          %button{ data-id: "switch-to-flat" }Use ♭
-      %textarea.sheet-editor{ data-id: "chordProEditor" } = exampleChordProSheet
-    %section.column.column-right
-      %textarea.sheet-editor{ data-id: "chordSheetTextViewer", readonly: true }
+    %ul.mod-toolbar
+      %li
+        %button{ data-id: "transpose-down" }Transpose down
+      %li
+        %button{ data-id: "transpose-up" }Transpose up
+      %li
+        %button{ data-id: "switch-to-sharp" }Use ♯
+      %li
+        %button{ data-id: "switch-to-flat" }Use ♭
+
+    .columns
+      %section.column.column-left
+        %textarea.sheet-editor{ data-id: "chordProEditor" } = exampleChordProSheet
+      %section.column.column-right
+        %textarea.sheet-editor{ data-id: "chordSheetTextViewer", readonly: true }
   %section.mod-readme#readme
     %a.close{ href: "#" }&times;
     .contents != readmeHTML

@@ -1,12 +1,14 @@
 .mod-readme
   background: $modal-background
+  border: 1px $modal-border-color solid
+  box-shadow: 0 0 5px $modal-border-color
   bottom: 0
   display: none
   left: 0
   margin: auto
   max-height: 90vh
   max-width: 90vw
-  padding: 5vw
+  padding: 30px 50px
   position: absolute
   right: 0
   top: 0
@@ -15,18 +17,20 @@
     display: block
 
   .close
-    font-size: 1.5em
+    $close-button-height: 16px
+    font-size: $close-button-height * 2.4
     font-weight: 700
-    line-height: 10px
+    line-height: $close-button-height
     position: absolute
-    right: 15px
+    right: 2.5vw
     text-decoration: none
-    top: 15px
+    top: 2.5vw
 
     &:hover
       text-decoration: none
 
   .contents
+    max-height: 100%
     overflow: auto
 
   a
@@ -40,3 +44,6 @@
     background: $modal-code-background
     font-size: 1.2em
     padding: 0.1em
+
+  li
+    line-height: 160%

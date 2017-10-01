@@ -1,15 +1,24 @@
 header
+  color: $header-text
+
+  .wrapper
+    display: flex
+    padding: $spacing-m $spacing-s
+
   .site-name
     display: inline-block
+    flex: 1 0 auto
+    font-family: $monospace-font
     margin: 0
 
     a,
     a:hover
-      color: $page-text
+      color: $header-site-name-color
       text-decoration: none
 
   .meta
     display: inline-block
+    flex: 0 0 auto
     list-style: none
 
     li
