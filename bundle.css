@@ -15,8 +15,6 @@ body {
 
 header {
   flex: 0 0 50px; }
-  header .wrapper {
-    padding: 10px 0; }
 
 a {
   color: #A3ABB0;
@@ -53,8 +51,12 @@ main {
 
 header {
   color: #F8F8F8; }
+  header .wrapper {
+    display: flex;
+    padding: 10px 5px; }
   header .site-name {
     display: inline-block;
+    flex: 1 0 auto;
     font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
     margin: 0; }
     header .site-name a,
@@ -63,6 +65,7 @@ header {
       text-decoration: none; }
   header .meta {
     display: inline-block;
+    flex: 0 0 auto;
     list-style: none; }
     header .meta li {
       display: inline-block; }
