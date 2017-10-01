@@ -1,7 +1,7 @@
 {
   "name": "ChordFiddle",
   "version": "1.1.0",
-  "description": "ChordPro editor. Tranpose your chord sheet. Convert ChordPro to chord sheet.",
+  "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "main": "index.html",
   "scripts": {
     "build-js": "browserify js/main.js -t [ babelify --presets [ es2015 ] ] --outfile bundle.js",
