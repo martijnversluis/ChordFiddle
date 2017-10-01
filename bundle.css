@@ -59,7 +59,7 @@ header {
     margin: 0; }
     header .site-name a,
     header .site-name a:hover {
-      color: #F9BA32;
+      color: #FFAE00;
       text-decoration: none; }
   header .meta {
     display: inline-block;
@@ -82,8 +82,8 @@ header {
 
 .mod-readme {
   background: #F8F8F8;
-  border: 1px #426E86 solid;
-  box-shadow: 0 0 5px #426E86;
+  border: 1px #3C82A9 solid;
+  box-shadow: 0 0 5px #3C82A9;
   bottom: 0;
   display: none;
   left: 0;
@@ -110,7 +110,7 @@ header {
     max-height: 100%;
     overflow: auto; }
   .mod-readme a {
-    color: #426E86;
+    color: #3C82A9;
     text-decoration: underline; }
     .mod-readme a:hover {
       text-decoration: none; }
@@ -130,7 +130,7 @@ header {
   .mod-toolbar button {
     -webkit-appearance: none;
       -webkit-appearance--moz-appearance: none;
-    background-color: #426E86;
+    background-color: #3C82A9;
     border: 0;
     color: #F8F8F8;
     font-family: inherit;
