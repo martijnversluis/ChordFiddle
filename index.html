@@ -1,11 +1,11 @@
 
-<html lang="en"></html><head><meta charset="utf-8" /><title>ChordFiddle</title><meta name="description" content="ChordPro editor. Tranpose your chord sheet. Convert ChordPro to chord sheet." /><meta name="keywords" content="javascript, chords, parsing, convert, chord-sheet, chordpro" /><link rel="stylesheet" href="bundle.css?v=1506869077000" /></head><body><header><div class="wrapper"><h1 class="site-name"><a>ChordFiddle</a></h1><ul class="meta"><li>Version 1.0.0</li><li>Built with <a href="https://github.com/martijnversluis/ChordSheetJS" target="_blank">ChordSheetJS</a> and <a href="https://github.com/martijnversluis/ChordJS" target="_blank">ChordJS</a></li><li><a href="https://github.com/martijnversluis/chordfiddle" target="_blank">GitHub</a></li><li><a href="https://github.com/martijnversluis/chordfiddle/issues" target="_blank">Issues</a></li><li><a href="#readme">About</a></li></ul></div></header><main><ul class="mod-toolbar"><li><button data-id="transpose-down">Transpose down</button></li><li><button data-id="transpose-up">Transpose up</button></li><li><button data-id="switch-to-sharp">Use ♯</button></li><li><button data-id="switch-to-flat">Use ♭</button></li></ul><div class="columns"><section class="column column-left"><textarea data-id="chordProEditor" class="sheet-editor">{title: Let it be}
+<html lang="en"></html><head><meta charset="utf-8" /><title>ChordFiddle</title><meta name="description" content="ChordPro editor. Tranpose your chord sheet. Convert ChordPro to chord sheet." /><meta name="keywords" content="javascript, chords, parsing, convert, chord-sheet, chordpro" /><link rel="stylesheet" href="bundle.css?v=1506870112000" /></head><body><header><div class="wrapper"><h1 class="site-name"><a>ChordFiddle</a></h1><ul class="meta"><li>Version 1.0.0</li><li>Built with <a href="https://github.com/martijnversluis/ChordSheetJS" target="_blank">ChordSheetJS</a> and <a href="https://github.com/martijnversluis/ChordJS" target="_blank">ChordJS</a></li><li><a href="https://github.com/martijnversluis/chordfiddle" target="_blank">GitHub</a></li><li><a href="https://github.com/martijnversluis/chordfiddle/issues" target="_blank">Issues</a></li><li><a href="#readme">About</a></li></ul></div></header><main><div class="columns"><section class="column column-left"><ul class="mod-toolbar"><li><button data-id="transpose-down">Transpose down</button></li><li><button data-id="transpose-up">Transpose up</button></li><li><button data-id="switch-to-sharp">Use ♯</button></li><li><button data-id="switch-to-flat">Use ♭</button></li></ul><textarea data-id="chordProEditor" class="sheet-editor active">{title: Let it be}
 {subtitle: ChordSheetJS example version}
 {Chorus}
 
 Let it [Am]be, let it [C/G]be, let it [F]be, let it [C]be
 [C]Whisper words of [G]wisdom, let it [F]be [C/E] [Dm] [C]
-</textarea></section><section class="column column-right"><textarea data-id="chordSheetTextViewer" readonly="readonly" class="sheet-editor"></textarea></section></div></main><section class="mod-readme" id="readme"><a href="#" class="close">&times;</a><div class="contents"><h1 id="chordfiddle">ChordFiddle</h1>
+</textarea></section><section class="column column-right"><ul class="mod-radio-group"><li><input checked="checked" data-id="view-type-plain" id="view-type-plain" name="view_type" type="radio" value="plain" /><label for="view-type-plain">Text</label></li><li><input data-id="view-type-html" id="view-type-html" name="view_type" type="radio" value="html" /><label for="view-type-html">HTML</label></li></ul><textarea data-id="chordSheetTextViewer" readonly="readonly" class="sheet-editor active"></textarea><div data-id="chordSheetHTMLViewer" class="sheet-viewer mod-html-preview"></div></section></div></main><section class="mod-readme" id="readme"><a href="#" class="close">&times;</a><div class="contents"><h1 id="chordfiddle">ChordFiddle</h1>
 <h2 id="-martijnversluis-github-io-chordfiddle-https-martijnversluis-github-io-chordfiddle-"><a href="https://martijnversluis.github.io/ChordFiddle/">martijnversluis.github.io/ChordFiddle</a></h2>
 <p>ChordFiddle is an online playground for ChordPro chord sheets. It currently supports:</p>
 <ul>
@@ -32,7 +32,7 @@ future features.</p>
 <li>commit and push your changes</li>
 <li>open a pull request</li>
 </ul>
-</div></section><script src="bundle.js?v=1506869076000"></script>
+</div></section><script src="bundle.js?v=1506870112000"></script>
 <script type="text/javascript">
 //<![CDATA[
 if (window.location.hostname == 'martijnversluis.github.io') {

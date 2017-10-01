@@ -3,24 +3,28 @@ import Chord from 'chordjs';
 import TextareaSelection from './textarea_selection';
 
 export default class ChordFiddle {
-  constructor({editor, previewer = null}) {
+  constructor({editor, textPreviewer = null, htmlPreviewer = null}) {
     this.editor = editor;
-    this.previewer = previewer;
+    this.textPreviewer = textPreviewer;
+    this.htmlPreviewer = htmlPreviewer;
 
-    if (this.previewer) {
-      this.editor.addEventListener('input', this.onEditorChange.bind(this));
+    this.editor.addEventListener('input', this.onEditorChange.bind(this));
 
-      if (this.editor.value.length) {
-        this.onEditorChange();
-      }
+    if (this.editor.value.length) {
+      this.onEditorChange();
     }
   }
 
   onEditorChange() {
     const song = this.parseChordProSheet();
-    const formatter = new ChordSheetJS.TextFormatter();
-    const chordSheet = formatter.format(song);
-    this.previewer.value = chordSheet;
+
+    if (this.textPreviewer) {
+      this.textPreviewer.value = new ChordSheetJS.TextFormatter().format(song);
+    }
+
+    if (this.htmlPreviewer) {
+      this.htmlPreviewer.innerHTML = new ChordSheetJS.HtmlFormatter().format(song);
+    }
   }
 
   parseChordProSheet() {
