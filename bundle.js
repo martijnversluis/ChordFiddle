@@ -26,20 +26,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var ChordFiddle = function () {
   function ChordFiddle(_ref) {
     var editor = _ref.editor,
-        _ref$previewer = _ref.previewer,
-        previewer = _ref$previewer === undefined ? null : _ref$previewer;
+        _ref$textPreviewer = _ref.textPreviewer,
+        textPreviewer = _ref$textPreviewer === undefined ? null : _ref$textPreviewer,
+        _ref$htmlPreviewer = _ref.htmlPreviewer,
+        htmlPreviewer = _ref$htmlPreviewer === undefined ? null : _ref$htmlPreviewer;
 
     _classCallCheck(this, ChordFiddle);
 
     this.editor = editor;
-    this.previewer = previewer;
+    this.textPreviewer = textPreviewer;
+    this.htmlPreviewer = htmlPreviewer;
 
-    if (this.previewer) {
-      this.editor.addEventListener('input', this.onEditorChange.bind(this));
+    this.editor.addEventListener('input', this.onEditorChange.bind(this));
 
-      if (this.editor.value.length) {
-        this.onEditorChange();
-      }
+    if (this.editor.value.length) {
+      this.onEditorChange();
     }
   }
 
@@ -47,9 +48,14 @@ var ChordFiddle = function () {
     key: 'onEditorChange',
     value: function onEditorChange() {
       var song = this.parseChordProSheet();
-      var formatter = new _chordsheetjs2.default.TextFormatter();
-      var chordSheet = formatter.format(song);
-      this.previewer.value = chordSheet;
+
+      if (this.textPreviewer) {
+        this.textPreviewer.value = new _chordsheetjs2.default.TextFormatter().format(song);
+      }
+
+      if (this.htmlPreviewer) {
+        this.htmlPreviewer.innerHTML = new _chordsheetjs2.default.HtmlFormatter().format(song);
+      }
     }
   }, {
     key: 'parseChordProSheet',
@@ -134,13 +140,19 @@ var _chord_pro_editor2 = _interopRequireDefault(_chord_pro_editor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var viewTypeHTMLRadio = getElementByDataId('view-type-html');
+var viewTypePlainRadio = getElementByDataId('view-type-plain');
+var textPreviewer = getElementByDataId('chordSheetTextViewer');
+var htmlPreviewer = getElementByDataId('chordSheetHTMLViewer');
+
 function getElementByDataId(dataId) {
   return document.querySelector('[data-id=\'' + dataId + '\']');
 }
 
 var chordProEditor = new _chord_pro_editor2.default({
   editor: getElementByDataId('chordProEditor'),
-  previewer: getElementByDataId('chordSheetTextViewer')
+  textPreviewer: textPreviewer,
+  htmlPreviewer: htmlPreviewer
 });
 
 getElementByDataId('transpose-up').addEventListener('click', function () {
@@ -157,6 +169,18 @@ getElementByDataId('switch-to-sharp').addEventListener('click', function () {
 
 getElementByDataId('switch-to-flat').addEventListener('click', function () {
   chordProEditor.switchToFlat();
+});
+
+viewTypePlainRadio.addEventListener('change', function (event) {
+  var html = !event.target.checked;
+  textPreviewer.classList.toggle('active', !html);
+  htmlPreviewer.classList.toggle('active', html);
+});
+
+viewTypeHTMLRadio.addEventListener('change', function (event) {
+  var html = event.target.checked;
+  textPreviewer.classList.toggle('active', !html);
+  htmlPreviewer.classList.toggle('active', html);
 });
 
 },{"./chord_pro_editor":1}],3:[function(require,module,exports){

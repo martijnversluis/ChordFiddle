@@ -5,7 +5,7 @@
 
 body {
   background-color: #2F3131;
-  color: #2F3131;
+  color: #F8F8F8;
   display: flex;
   flex-direction: column;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -46,8 +46,20 @@ main {
 .sheet-editor, .sheet-viewer {
   background: #F8F8F8;
   color: #2F3131;
-  font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  display: none;
   width: 100%; }
+  .sheet-editor.active, .sheet-viewer.active {
+    display: block; }
+
+.sheet-editor {
+  font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace; }
+
+.sheet-viewer {
+  padding: 10px; }
+  .sheet-viewer h2 {
+    font-size: 1.1em; }
+  .sheet-viewer table {
+    color: inherit; }
 
 header {
   color: #F8F8F8; }
@@ -118,7 +130,7 @@ header {
     .mod-readme a:hover {
       text-decoration: none; }
   .mod-readme code {
-    background: #d0d0d0;
+    background: #D0D0D0;
     font-size: 1.2em;
     padding: 0.1em; }
   .mod-readme li {
@@ -141,3 +153,41 @@ header {
     height: 31px;
     margin: 0 10px 0 0;
     padding: 5px 10px; }
+
+.mod-radio-group {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0; }
+  .mod-radio-group input[type='radio'] {
+    opacity: 0;
+    width: 0; }
+    .mod-radio-group input[type='radio'] + label {
+      padding-left: 21px;
+      position: relative; }
+      .mod-radio-group input[type='radio'] + label:before, .mod-radio-group input[type='radio'] + label:after {
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(0, -50%);
+        top: 50%; }
+      .mod-radio-group input[type='radio'] + label:before {
+        background-color: #F8F8F8;
+        content: '';
+        height: 14px;
+        left: 0;
+        width: 14px; }
+    .mod-radio-group input[type='radio']:focus + label:before {
+      border-color: #3C82A9;
+      box-shadow: 0 0 3px 3px #3C82A9; }
+    .mod-radio-group input[type='radio']:checked + label:after {
+      background-color: #3C82A9;
+      content: '';
+      height: 8px;
+      left: 3px;
+      width: 8px; }
+  .mod-radio-group label {
+    cursor: pointer;
+    line-height: 31px; }
+  .mod-radio-group li {
+    display: inline-block; }
+    .mod-radio-group li + li {
+      margin-left: 20px; }

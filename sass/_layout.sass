@@ -51,5 +51,20 @@ main
 .sheet-editor, .sheet-viewer
   background: $sheet-background
   color: $sheet-text
-  font-family: $monospace-font
+  display: none
   width: 100%
+
+  &.active
+    display: block
+
+.sheet-editor
+  font-family: $monospace-font
+
+.sheet-viewer
+  padding: $spacing-m
+
+  h2
+    font-size: 1.1em
+
+  table
+    color: inherit

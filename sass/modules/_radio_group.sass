@@ -1,0 +1,52 @@
+.mod-radio-group
+  $radio-border-size: 1px
+  $radio-size: 14px
+  $radio-bullet-size: 8px
+  $radio-right-margin: $spacing-s
+
+  list-style: none
+  margin: 0
+  padding: $toolbar-spacing 0
+
+  input[type='radio']
+    opacity: 0
+    width: 0
+
+    & + label
+      padding-left: $radio-size + $radio-right-margin + (2 * $radio-border-size)
+      position: relative
+
+      &:before,
+      &:after
+        border-radius: 50%
+        position: absolute
+        transform: translate(0, -50%)
+        top: 50%
+
+      &:before
+        background-color: $radio-background
+        content: ''
+        height: $radio-size
+        left: 0
+        width: $radio-size
+
+    &:focus + label:before
+      border-color: $radio-outline
+      box-shadow: 0 0 3px 3px $radio-outline
+
+    &:checked + label:after
+      background-color: $radio-foreground
+      content: ''
+      height: $radio-bullet-size
+      left: ($radio-size - $radio-bullet-size) / 2
+      width: $radio-bullet-size
+
+  label
+    cursor: pointer
+    line-height: 31px
+
+  li
+    display: inline-block
+
+    & + li
+      margin-left: $spacing-l

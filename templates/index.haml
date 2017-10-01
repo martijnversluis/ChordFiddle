@@ -32,21 +32,28 @@
         %li
           %a{ href: "#readme" }About
   %main
-    %ul.mod-toolbar
-      %li
-        %button{ data-id: "transpose-down" }Transpose down
-      %li
-        %button{ data-id: "transpose-up" }Transpose up
-      %li
-        %button{ data-id: "switch-to-sharp" }Use ♯
-      %li
-        %button{ data-id: "switch-to-flat" }Use ♭
-
     .columns
       %section.column.column-left
-        %textarea.sheet-editor{ data-id: "chordProEditor" } = exampleChordProSheet
+        %ul.mod-toolbar
+          %li
+            %button{ data-id: "transpose-down" }Transpose down
+          %li
+            %button{ data-id: "transpose-up" }Transpose up
+          %li
+            %button{ data-id: "switch-to-sharp" }Use ♯
+          %li
+            %button{ data-id: "switch-to-flat" }Use ♭
+        %textarea.sheet-editor.active{ data-id: "chordProEditor" } = exampleChordProSheet
       %section.column.column-right
-        %textarea.sheet-editor{ data-id: "chordSheetTextViewer", readonly: true }
+        %ul.mod-radio-group
+          %li
+            %input{ checked: true, data-id: "view-type-plain", id: "view-type-plain", name: "view_type", type: "radio", value: "plain" }
+            %label{ for: "view-type-plain" }Text
+          %li
+            %input{ data-id: "view-type-html", id: "view-type-html", name: "view_type", type: "radio", value: "html" }
+            %label{ for: "view-type-html" }HTML
+        %textarea.sheet-editor.active{ data-id: "chordSheetTextViewer", readonly: true }
+        .sheet-viewer.mod-html-preview{ data-id: "chordSheetHTMLViewer" }
   %section.mod-readme#readme
     %a.close{ href: "#" }&times;
     .contents != readmeHTML
