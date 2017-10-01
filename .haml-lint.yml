@@ -33,7 +33,7 @@ linters:
 
   LineLength:
     enabled: true
-    max: 100
+    max: 140
 
   MultilinePipe:
     enabled: true
