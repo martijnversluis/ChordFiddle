@@ -31,7 +31,7 @@ task('build-html', function () {
     },
 
     function (data, callback) {
-      fs.stat("./bundle.js", function (error, jsStats) {
+      fs.stat('./bundle.js', function (error, jsStats) {
         if (!error) console.log('JS bundle mtime: ' + jsStats.mtime);
         var jsLastModified = jsStats.mtime.getTime();
         callback(error, assign(data, { jsLastModified: jsLastModified }));
@@ -39,7 +39,7 @@ task('build-html', function () {
     },
 
     function (data, callback) {
-      fs.stat("./bundle.css", function (error, cssStats) {
+      fs.stat('./bundle.css', function (error, cssStats) {
         if (!error) console.log('CSS bundle mtime: ' + cssStats.mtime);
         var cssLastModified = cssStats.mtime.getTime();
         callback(error, assign(data, { cssLastModified: cssLastModified }));
