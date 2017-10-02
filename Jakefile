@@ -2,7 +2,8 @@ var fs = require('fs'),
     Haml = require('haml'),
     async = require('async'),
     marked = require('marked'),
-    package = require('./package.json');
+    package = require('./package.json'),
+    assign = require('fast.js').assign;
 
 desc('Build the index.html page');
 task('build-html', function () {
@@ -10,45 +11,44 @@ task('build-html', function () {
     function (callback) {
       fs.readFile('./templates/index.haml', 'utf8', function (error, hamlData) {
         if (!error) console.log('Loaded HAML template');
-        callback(error, hamlData);
+        callback(error, { hamlData: hamlData });
       })
     },
 
-    function (hamlData, callback) {
+    function (data, callback) {
       fs.readFile('./README.md', 'utf8', function (error, readmeMarkdown) {
         if (!error) console.log('Loaded README markdown template');
-        callback(error, hamlData, readmeMarkdown);
+        var readmeHTML = marked(readmeMarkdown);
+        callback(error, assign(data, { readmeHTML: readmeHTML }));
       });
     },
 
-    function (hamlData, readmeMarkdown, callback) {
+    function (data, callback) {
       fs.readFile('./example.chordpro', 'utf8', function (error, exampleChordProSheet) {
         if (!error) console.log('Loaded example Chordpro chord sheet');
-        callback(error, hamlData, readmeMarkdown, exampleChordProSheet);
+        callback(error, assign(data, { exampleChordProSheet: exampleChordProSheet }));
       });
     },
 
-    function (hamlData, readmeMarkdown, exampleChordProSheet, callback) {
-      fs.stat("./bundle.js", function (error, jsStats) {
+    function (data, callback) {
+      fs.stat('./bundle.js', function (error, jsStats) {
         if (!error) console.log('JS bundle mtime: ' + jsStats.mtime);
-        callback(error, hamlData, readmeMarkdown, exampleChordProSheet, jsStats);
+        var jsLastModified = jsStats.mtime.getTime();
+        callback(error, assign(data, { jsLastModified: jsLastModified }));
       });
     },
 
-    function (hamlData, readmeMarkdown, exampleChordProSheet, jsStats, callback) {
-      fs.stat("./bundle.css", function (error, cssStats) {
+    function (data, callback) {
+      fs.stat('./bundle.css', function (error, cssStats) {
         if (!error) console.log('CSS bundle mtime: ' + cssStats.mtime);
-        callback(error, hamlData, readmeMarkdown, exampleChordProSheet, jsStats, cssStats);
+        var cssLastModified = cssStats.mtime.getTime();
+        callback(error, assign(data, { cssLastModified: cssLastModified }));
       });
     },
 
-    function (hamlData, readmeMarkdown, exampleChordProSheet, jsStats, cssStats, callback) {
-      var template = Haml(hamlData),
-          args = { package: package,
-                   jsLastModified: jsStats.mtime.getTime(),
-                   cssLastModified: cssStats.mtime.getTime(),
-                   readmeHTML: marked(readmeMarkdown),
-                   exampleChordProSheet: exampleChordProSheet };
+    function (data, callback) {
+      var template = Haml(data.hamlData),
+          args = assign(data, { package: package });
 
       fs.writeFile('./index.html', template(args), function (error) {
         if (!error) console.log('Wrote HTML file');
