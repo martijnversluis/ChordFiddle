@@ -93,7 +93,10 @@ var ChordFiddle = function () {
     value: function processChord(item, processor) {
       if (item instanceof _chordsheetjs2.default.ChordLyricsPair && item.chords) {
         var parsedChord = _chordjs2.default.parse(item.chords);
-        item.chords = processor(parsedChord).toString();
+
+        if (parsedChord) {
+          item.chords = processor(parsedChord).toString();
+        }
       }
     }
   }, {

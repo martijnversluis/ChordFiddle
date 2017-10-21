@@ -54,7 +54,10 @@ export default class ChordFiddle {
   processChord(item, processor) {
     if (item instanceof ChordSheetJS.ChordLyricsPair && item.chords) {
       const parsedChord = Chord.parse(item.chords);
-      item.chords = processor(parsedChord).toString();
+
+      if (parsedChord) {
+        item.chords = processor(parsedChord).toString();
+      }
     }
   }
 
