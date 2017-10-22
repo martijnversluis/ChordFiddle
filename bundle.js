@@ -1130,12 +1130,17 @@ var TextFormatter = function (_FormatterBase) {
     key: 'finishLine',
     value: function finishLine() {
       var output = '';
+      var hasChords = !!this.chordsLine.trim().length;
+      var hasLyrics = !!this.lyricsLine.trim().length;
 
-      if (this.chordsLine.trim().length) {
+      if (hasChords) {
         output += this.chordsLine.trimRight() + NEW_LINE;
       }
 
-      output += this.lyricsLine.trimRight() + NEW_LINE;
+      if (hasLyrics || !hasChords) {
+        output += this.lyricsLine.trimRight() + NEW_LINE;
+      }
+
       this.output(output);
       this.chordsLine = '';
       this.lyricsLine = '';
