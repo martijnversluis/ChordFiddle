@@ -99,7 +99,7 @@ header {
   .sheet-editor:focus {
     background-color: #F8F8F8; }
 
-.mod-readme {
+.mod-modal {
   background: #F8F8F8;
   border: 1px #3C82A9 solid;
   box-shadow: 0 0 5px #3C82A9;
@@ -114,9 +114,9 @@ header {
   position: absolute;
   right: 0;
   top: 0; }
-  .mod-readme:target {
+  .mod-modal:target {
     display: block; }
-  .mod-readme .close {
+  .mod-modal .close {
     font-size: 38.4px;
     font-weight: 700;
     line-height: 16px;
@@ -124,22 +124,11 @@ header {
     right: 2.5vw;
     text-decoration: none;
     top: 2.5vw; }
-    .mod-readme .close:hover {
+    .mod-modal .close:hover {
       text-decoration: none; }
-  .mod-readme .contents {
+  .mod-modal .contents {
     max-height: 100%;
     overflow: auto; }
-  .mod-readme a {
-    color: #3C82A9;
-    text-decoration: underline; }
-    .mod-readme a:hover {
-      text-decoration: none; }
-  .mod-readme code {
-    background: #D0D0D0;
-    font-size: 1.2em;
-    padding: 0.1em; }
-  .mod-readme li {
-    line-height: 160%; }
 
 .mod-toolbar {
   display: flex;
@@ -196,3 +185,17 @@ header {
     display: inline-block; }
     .mod-radio-group li + li {
       margin-left: 20px; }
+
+.mod-readme a {
+  color: #3C82A9;
+  text-decoration: underline; }
+  .mod-readme a:hover {
+    text-decoration: none; }
+
+.mod-readme code {
+  background: #D0D0D0;
+  font-size: 1.2em;
+  padding: 0.1em; }
+
+.mod-readme li {
+  line-height: 160%; }

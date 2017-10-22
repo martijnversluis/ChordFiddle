@@ -54,7 +54,7 @@
             %label{ for: "view-type-html" }HTML
         %textarea.sheet-editor.active{ data-id: "chordSheetTextViewer", readonly: true }
         .sheet-viewer.mod-html-preview{ data-id: "chordSheetHTMLViewer" }
-  %section.mod-readme#readme
+  %section.mod-modal.mod-readme#readme
     %a.close{ href: "#" }&times;
     .contents != readmeHTML
   %script{ src: "bundle.js?v=#{jsLastModified}" }
