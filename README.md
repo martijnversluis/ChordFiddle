@@ -6,6 +6,7 @@ ChordFiddle is an online playground for ChordPro chord sheets. It currently supp
 
 - editing your ChordPro file
 - translating to normal chords sheets
+- importing a normal chord sheet and have it converted to ChordPro
 - transposing the ChordPro sheet up and down (complete sheet or selection)
 - switching between sharp (♯) and flat (♭) chords (complete sheet or selection)
 
