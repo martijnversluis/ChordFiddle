@@ -99,13 +99,12 @@ header {
   .sheet-editor:focus {
     background-color: #F8F8F8; }
 
-.mod-readme {
+.mod-modal {
   background: #F8F8F8;
   border: 1px #3C82A9 solid;
   box-shadow: 0 0 5px #3C82A9;
   bottom: 0;
   color: #2F3131;
-  display: none;
   left: 0;
   margin: auto;
   max-height: 90vh;
@@ -114,9 +113,9 @@ header {
   position: absolute;
   right: 0;
   top: 0; }
-  .mod-readme:target {
-    display: block; }
-  .mod-readme .close {
+  .mod-modal:not(:target) {
+    display: none; }
+  .mod-modal .close {
     font-size: 38.4px;
     font-weight: 700;
     line-height: 16px;
@@ -124,40 +123,38 @@ header {
     right: 2.5vw;
     text-decoration: none;
     top: 2.5vw; }
-    .mod-readme .close:hover {
+    .mod-modal .close:hover {
       text-decoration: none; }
-  .mod-readme .contents {
+  .mod-modal .contents {
     max-height: 100%;
     overflow: auto; }
-  .mod-readme a {
-    color: #3C82A9;
-    text-decoration: underline; }
-    .mod-readme a:hover {
-      text-decoration: none; }
-  .mod-readme code {
-    background: #D0D0D0;
-    font-size: 1.2em;
-    padding: 0.1em; }
-  .mod-readme li {
-    line-height: 160%; }
 
 .mod-toolbar {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 10px 0; }
-  .mod-toolbar button {
+  padding: 10px 0 0 0; }
+  .mod-toolbar button,
+  .mod-toolbar .button {
     -webkit-appearance: none;
       -webkit-appearance--moz-appearance: none;
     background-color: #3C82A9;
     border: 0;
     color: #F8F8F8;
+    cursor: pointer;
+    display: inline-block;
     font-family: inherit;
     font-size: inherit;
-    height: 31px;
-    margin: 0 10px 0 0;
-    padding: 5px 10px; }
+    margin: 0 10px 10px 0;
+    padding: 5px 10px;
+    text-decoration: none; }
+    .mod-toolbar button:hover,
+    .mod-toolbar .button:hover {
+      text-decoration: none; }
+    .mod-toolbar button.large,
+    .mod-toolbar .button.large {
+      padding: 10px 20px; }
 
 .mod-radio-group {
   list-style: none;
@@ -196,3 +193,30 @@ header {
     display: inline-block; }
     .mod-radio-group li + li {
       margin-left: 20px; }
+
+.mod-readme a {
+  color: #3C82A9;
+  text-decoration: underline; }
+  .mod-readme a:hover {
+    text-decoration: none; }
+
+.mod-readme code {
+  background: #D0D0D0;
+  font-size: 1.2em;
+  padding: 0.1em; }
+
+.mod-readme li {
+  line-height: 160%; }
+
+.mod-import-chord-sheet {
+  display: flex; }
+  .mod-import-chord-sheet .contents {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column; }
+  .mod-import-chord-sheet .sheet-editor {
+    flex: 1 0 auto; }
+
+.mod-main-toolbar .button,
+.mod-main-toolbar button {
+  height: 31px; }

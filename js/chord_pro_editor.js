@@ -15,6 +15,12 @@ export default class ChordFiddle {
     }
   }
 
+  importChordSheet(chordSheet) {
+    const song = new ChordSheetJS.ChordSheetParser().parse(chordSheet);
+    this.editor.value = new ChordSheetJS.ChordProFormatter().format(song);
+    this.onEditorChange();
+  }
+
   onEditorChange() {
     const song = this.parseChordProSheet();
 
