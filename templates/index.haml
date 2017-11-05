@@ -34,7 +34,7 @@
   %main
     .columns
       %section.column.column-left
-        %ul.mod-toolbar
+        %ul.mod-toolbar.mod-main-toolbar
           %li
             %button{ data-id: "transpose-down" }Transpose down
           %li
@@ -43,6 +43,8 @@
             %button{ data-id: "switch-to-sharp" }Use ♯
           %li
             %button{ data-id: "switch-to-flat" }Use ♭
+          %li
+            %a.button{ href: "#import-chord-sheet-modal" }Import chord sheet
         %textarea.sheet-editor.active{ data-id: "chordProEditor" } = exampleChordProSheet
       %section.column.column-right
         %ul.mod-radio-group
@@ -57,6 +59,13 @@
   %section.mod-modal.mod-readme#readme
     %a.close{ href: "#" }&times;
     .contents != readmeHTML
+  %section.mod-modal.mod-import-chord-sheet#import-chord-sheet-modal
+    %a.close{ href: "#" }&times;
+    .contents
+      %h1 Import chord sheet
+      %textarea.sheet-editor.active{ data-id: "chord-sheet-import-area" }
+      .mod-toolbar
+        %button.large{ data-id: "import-chord-sheet-submit" }Import chord sheet
   %script{ src: "bundle.js?v=#{jsLastModified}" }
 
   :javascript

@@ -45,6 +45,13 @@ var ChordFiddle = function () {
   }
 
   _createClass(ChordFiddle, [{
+    key: 'importChordSheet',
+    value: function importChordSheet(chordSheet) {
+      var song = new _chordsheetjs2.default.ChordSheetParser().parse(chordSheet);
+      this.editor.value = new _chordsheetjs2.default.ChordProFormatter().format(song);
+      this.onEditorChange();
+    }
+  }, {
     key: 'onEditorChange',
     value: function onEditorChange() {
       var song = this.parseChordProSheet();
@@ -147,6 +154,7 @@ var viewTypeHTMLRadio = getElementByDataId('view-type-html');
 var viewTypePlainRadio = getElementByDataId('view-type-plain');
 var textPreviewer = getElementByDataId('chordSheetTextViewer');
 var htmlPreviewer = getElementByDataId('chordSheetHTMLViewer');
+var chordSheetImportArea = getElementByDataId('chord-sheet-import-area');
 
 function getElementByDataId(dataId) {
   return document.querySelector('[data-id=\'' + dataId + '\']');
@@ -184,6 +192,12 @@ viewTypeHTMLRadio.addEventListener('change', function (event) {
   var html = event.target.checked;
   textPreviewer.classList.toggle('active', !html);
   htmlPreviewer.classList.toggle('active', html);
+});
+
+getElementByDataId('import-chord-sheet-submit').addEventListener('click', function () {
+  chordProEditor.importChordSheet(chordSheetImportArea.value);
+  chordSheetImportArea.value = '';
+  window.location = '#';
 });
 
 },{"./chord_pro_editor":1}],3:[function(require,module,exports){

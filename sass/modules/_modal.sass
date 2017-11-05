@@ -4,7 +4,6 @@
   box-shadow: 0 0 5px $modal-border-color
   bottom: 0
   color: $modal-text
-  display: none
   left: 0
   margin: auto
   max-height: 90vh
@@ -14,8 +13,8 @@
   right: 0
   top: 0
 
-  &:target
-    display: block
+  &:not(:target)
+    display: none
 
   .close
     $close-button-height: 16px
