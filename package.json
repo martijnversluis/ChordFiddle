@@ -27,6 +27,7 @@
     "url": "https://github.com/martijnversluis/chordfiddle/issues"
   },
   "homepage": "https://github.com/martijnversluis/chordfiddle",
+  "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
   "devDependencies": {
     "async": "^2.5.0",
     "babel-preset-es2015": "^6.24.1",
@@ -35,7 +36,6 @@
     "fast.js": "^0.1.1",
     "haml": "^0.4.3",
     "jake": "^8.0.15",
-    "marked": "^0.3.6",
     "node-sass": "^4.5.0"
   },
   "dependencies": {

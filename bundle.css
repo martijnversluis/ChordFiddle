@@ -194,20 +194,6 @@ header {
     .mod-radio-group li + li {
       margin-left: 20px; }
 
-.mod-readme a {
-  color: #3C82A9;
-  text-decoration: underline; }
-  .mod-readme a:hover {
-    text-decoration: none; }
-
-.mod-readme code {
-  background: #D0D0D0;
-  font-size: 1.2em;
-  padding: 0.1em; }
-
-.mod-readme li {
-  line-height: 160%; }
-
 .mod-import-chord-sheet {
   display: flex; }
   .mod-import-chord-sheet .contents {

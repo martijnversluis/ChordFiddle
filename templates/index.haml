@@ -30,7 +30,7 @@
         %li
           %a{ href: package.bugs.url, target: "_blank" }Issues
         %li
-          %a{ href: "#readme" }About
+          %a{ href: package.about, target: "_blank" }About
   %main
     .columns
       %section.column.column-left
@@ -56,9 +56,6 @@
             %label{ for: "view-type-html" }HTML
         %textarea.sheet-editor.active{ data-id: "chordSheetTextViewer", readonly: true }
         .sheet-viewer.mod-html-preview{ data-id: "chordSheetHTMLViewer" }
-  %section.mod-modal.mod-readme#readme
-    %a.close{ href: "#" }&times;
-    .contents != readmeHTML
   %section.mod-modal.mod-import-chord-sheet#import-chord-sheet-modal
     %a.close{ href: "#" }&times;
     .contents

@@ -1,7 +1,6 @@
 var fs = require('fs'),
     Haml = require('haml'),
     async = require('async'),
-    marked = require('marked'),
     package = require('./package.json'),
     assign = require('fast.js').assign;
 
@@ -13,14 +12,6 @@ task('build-html', function () {
         if (!error) console.log('Loaded HAML template');
         callback(error, { hamlData: hamlData });
       })
-    },
-
-    function (data, callback) {
-      fs.readFile('./README.md', 'utf8', function (error, readmeMarkdown) {
-        if (!error) console.log('Loaded README markdown template');
-        var readmeHTML = marked(readmeMarkdown);
-        callback(error, assign(data, { readmeHTML: readmeHTML }));
-      });
     },
 
     function (data, callback) {
