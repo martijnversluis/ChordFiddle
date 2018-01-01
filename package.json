@@ -1,6 +1,6 @@
 {
   "name": "ChordFiddle",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "main": "index.html",
   "scripts": {
