@@ -1,39 +1,11 @@
 
-<html lang="en"></html><head><meta charset="utf-8" /><title>ChordFiddle</title><meta name="description" content="ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet." /><meta name="keywords" content="javascript, chords, parsing, convert, chord-sheet, chordpro" /><link rel="stylesheet" href="bundle.css?v=1509896298000" /></head><body><header><div class="wrapper"><h1 class="site-name"><a>ChordFiddle</a></h1><ul class="meta"><li>Version 1.2.0</li><li>Built with <a href="https://github.com/martijnversluis/ChordSheetJS" target="_blank">ChordSheetJS</a> and <a href="https://github.com/martijnversluis/ChordJS" target="_blank">ChordJS</a></li><li><a href="https://github.com/martijnversluis/chordfiddle" target="_blank">GitHub</a></li><li><a href="https://github.com/martijnversluis/chordfiddle/issues" target="_blank">Issues</a></li><li><a href="#readme">About</a></li></ul></div></header><main><div class="columns"><section class="column column-left"><ul class="mod-toolbar mod-main-toolbar"><li><button data-id="transpose-down">Transpose down</button></li><li><button data-id="transpose-up">Transpose up</button></li><li><button data-id="switch-to-sharp">Use ♯</button></li><li><button data-id="switch-to-flat">Use ♭</button></li><li><a href="#import-chord-sheet-modal" class="button">Import chord sheet</a></li></ul><textarea data-id="chordProEditor" class="sheet-editor active">{title: Let it be}
+<html lang="en"></html><head><meta charset="utf-8" /><title>ChordFiddle</title><meta name="description" content="ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet." /><meta name="keywords" content="javascript, chords, parsing, convert, chord-sheet, chordpro" /><link rel="stylesheet" href="bundle.css?v=1514832808000" /></head><body><header><div class="wrapper"><h1 class="site-name"><a>ChordFiddle</a></h1><ul class="meta"><li>Version 1.2.1</li><li>Built with <a href="https://github.com/martijnversluis/ChordSheetJS" target="_blank">ChordSheetJS</a> and <a href="https://github.com/martijnversluis/ChordJS" target="_blank">ChordJS</a></li><li><a href="https://github.com/martijnversluis/chordfiddle" target="_blank">GitHub</a></li><li><a href="https://github.com/martijnversluis/chordfiddle/issues" target="_blank">Issues</a></li><li><a href="https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle" target="_blank">About</a></li></ul></div></header><main><div class="columns"><section class="column column-left"><ul class="mod-toolbar mod-main-toolbar"><li><button data-id="transpose-down">Transpose down</button></li><li><button data-id="transpose-up">Transpose up</button></li><li><button data-id="switch-to-sharp">Use ♯</button></li><li><button data-id="switch-to-flat">Use ♭</button></li><li><a href="#import-chord-sheet-modal" class="button">Import chord sheet</a></li></ul><textarea data-id="chordProEditor" class="sheet-editor active">{title: Let it be}
 {subtitle: ChordSheetJS example version}
 {Chorus}
 
 Let it [Am]be, let it [C/G]be, let it [F]be, let it [C]be
 [C]Whisper words of [G]wisdom, let it [F]be [C/E] [Dm] [C]
-</textarea></section><section class="column column-right"><ul class="mod-radio-group"><li><input checked="checked" data-id="view-type-plain" id="view-type-plain" name="view_type" type="radio" value="plain" /><label for="view-type-plain">Text</label></li><li><input data-id="view-type-html" id="view-type-html" name="view_type" type="radio" value="html" /><label for="view-type-html">HTML</label></li></ul><textarea data-id="chordSheetTextViewer" readonly="readonly" class="sheet-editor active"></textarea><div data-id="chordSheetHTMLViewer" class="sheet-viewer mod-html-preview"></div></section></div></main><section class="mod-modal mod-readme" id="readme"><a href="#" class="close">&times;</a><div class="contents"><h1 id="chordfiddle">ChordFiddle</h1>
-<h2 id="-martijnversluis-github-io-chordfiddle-https-martijnversluis-github-io-chordfiddle-"><a href="https://martijnversluis.github.io/ChordFiddle/">martijnversluis.github.io/ChordFiddle</a></h2>
-<p>ChordFiddle is an online playground for ChordPro chord sheets. It currently supports:</p>
-<ul>
-<li>editing your ChordPro file</li>
-<li>translating to normal chords sheets</li>
-<li>importing a normal chord sheet and have it converted to ChordPro</li>
-<li>transposing the ChordPro sheet up and down (complete sheet or selection)</li>
-<li>switching between sharp (♯) and flat (♭) chords (complete sheet or selection)</li>
-</ul>
-<p>On the <a href="https://github.com/martijnversluis/ChordFiddle/projects/1">project board</a> you can find 
-future features.</p>
-<p>Technically speaking ChordFiddle is just a user interface to the combination of 
-<a href="https://github.com/martijnversluis/ChordSheetJS">ChordSheetJS</a> and
-<a href="https://github.com/martijnversluis/ChordJS">ChordJS</a>.</p>
-<h2 id="feature-requests-bugs">Feature requests/bugs</h2>
-<p>To issue a feature request or file a bug, please feel free to 
-<a href="https://github.com/martijnversluis/ChordFiddle/issues/new">open an issue</a>.</p>
-<h2 id="contributing">Contributing</h2>
-<p>Of course pull requests are more than welcome too. To get started:</p>
-<ul>
-<li><code>git clone git@github.com:martijnversluis/ChordFiddle.git</code> or 
-<code>git clone https://github.com/martijnversluis/ChordFiddle.git</code></li>
-<li><code>npm install</code> to install dependencies</li>
-<li><code>npm run build</code> to compile the Haml template, SASS files and ES2015 JavaScript files.</li>
-<li>commit and push your changes</li>
-<li>open a pull request</li>
-</ul>
-</div></section><section class="mod-modal mod-import-chord-sheet" id="import-chord-sheet-modal"><a href="#" class="close">&times;</a><div class="contents"><h1>Import chord sheet</h1><textarea data-id="chord-sheet-import-area" class="sheet-editor active"></textarea><div class="mod-toolbar"><button data-id="import-chord-sheet-submit" class="large">Import chord sheet</button></div></div></section><script src="bundle.js?v=1509896298000"></script>
+</textarea></section><section class="column column-right"><ul class="mod-radio-group"><li><input checked="checked" data-id="view-type-plain" id="view-type-plain" name="view_type" type="radio" value="plain" /><label for="view-type-plain">Text</label></li><li><input data-id="view-type-html" id="view-type-html" name="view_type" type="radio" value="html" /><label for="view-type-html">HTML</label></li></ul><textarea data-id="chordSheetTextViewer" readonly="readonly" class="sheet-editor active"></textarea><div data-id="chordSheetHTMLViewer" class="sheet-viewer mod-html-preview"></div></section></div></main><section class="mod-modal mod-import-chord-sheet" id="import-chord-sheet-modal"><a href="#" class="close">&times;</a><div class="contents"><h1>Import chord sheet</h1><textarea data-id="chord-sheet-import-area" class="sheet-editor active"></textarea><div class="mod-toolbar"><button data-id="import-chord-sheet-submit" class="large">Import chord sheet</button></div></div></section><script src="bundle.js?v=1514832807000"></script>
 <script type="text/javascript">
 //<![CDATA[
 if (window.location.hostname == 'martijnversluis.github.io') {
