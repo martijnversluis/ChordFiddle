@@ -5,9 +5,14 @@
   "main": "index.html",
   "scripts": {
     "build-js": "browserify js/main.js -t [ babelify --presets [ es2015 ] ] --outfile bundle.js",
-    "build-css": "node-sass sass/main.sass bundle.css",
-    "build": "npm run build-js && npm run build-css && $(npm bin)/jake build-html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-css": "node-sass sass/main.sass bundle.css && cp bundle.css public/",
+    "build-old": "npm run build-js && npm run build-css && $(npm bin)/jake build-html",
+    "test-old": "echo \"Error: no test specified\" && exit 1",
+
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -40,6 +45,9 @@
   },
   "dependencies": {
     "chordjs": "^1.2.0",
-    "chordsheetjs": "^1.5.3"
+    "chordsheetjs": "^1.5.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
   }
 }
