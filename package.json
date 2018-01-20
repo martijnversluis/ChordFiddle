@@ -4,11 +4,7 @@
   "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "main": "index.html",
   "scripts": {
-    "build-js": "browserify js/main.js -t [ babelify --presets [ es2015 ] ] --outfile bundle.js",
     "build-css": "node-sass sass/main.sass bundle.css && cp bundle.css public/",
-    "build-old": "npm run build-js && npm run build-css && $(npm bin)/jake build-html",
-    "test-old": "echo \"Error: no test specified\" && exit 1",
-
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -33,16 +29,6 @@
   },
   "homepage": "https://github.com/martijnversluis/chordfiddle",
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
-  "devDependencies": {
-    "async": "^2.5.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
-    "fast.js": "^0.1.1",
-    "haml": "^0.4.3",
-    "jake": "^8.0.15",
-    "node-sass": "^4.5.0"
-  },
   "dependencies": {
     "chordjs": "^1.2.0",
     "chordsheetjs": "^1.5.3",

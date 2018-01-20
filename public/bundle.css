@@ -17,6 +17,15 @@ body {
   min-height: 100%;
   padding: 20px; }
 
+#root {
+  display: flex;
+  flex: 1 1 auto; }
+
+.App-container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column; }
+
 header {
   flex: 0 0 50px; }
 
@@ -113,8 +122,6 @@ header {
   position: absolute;
   right: 0;
   top: 0; }
-  .mod-modal:not(:target) {
-    display: none; }
   .mod-modal .close {
     font-size: 38.4px;
     font-weight: 700;
