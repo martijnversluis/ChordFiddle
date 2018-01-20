@@ -60,15 +60,27 @@ class App extends Component {
               </li>
 
               <li>
-                <a href={ packageInfo.homepage } target="_blank">GitHub</a>
+                <a
+                  href={ packageInfo.homepage }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >GitHub</a>
               </li>
 
               <li>
-                <a href={ packageInfo.bugs.url } target="_blank">Issues</a>
+                <a
+                  href={ packageInfo.bugs.url }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Issues</a>
               </li>
 
               <li>
-                <a href={ packageInfo.about } target="_blank">About</a>
+                <a
+                  href={ packageInfo.about }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >About</a>
               </li>
             </ul>
           </div>
