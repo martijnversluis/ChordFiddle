@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
 import Header from './Header';
+import Toolbar from './Toolbar';
 
 const EXAMPLE_CHORD_PRO_SHEET =
 `{title: Let it be}
@@ -40,27 +41,13 @@ class App extends Component {
         <main>
           <div className="columns">
             <section className="column column-left">
-              <ul className="mod-toolbar mod-main-toolbar">
-                <li>
-                  <button onClick={this.transposeDown}>Transpose down</button>
-                </li>
-
-                <li>
-                  <button onClick={this.transposeUp}>Transpose up</button>
-                </li>
-
-                <li>
-                  <button onClick={this.switchToSharp}>Use ♯</button>
-                </li>
-
-                <li>
-                  <button onClick={this.switchToFlat}>Use ♭</button>
-                </li>
-
-                <li>
-                  <button onClick={this.showImportChordSheetDialog}>Import chord sheet</button>
-                </li>
-              </ul>
+              <Toolbar
+                onTransposeDown={this.transposeDown}
+                onTransposeUp={this.transposeUp}
+                onSwitchToSharp={this.switchToSharp}
+                onSwitchToFlat={this.switchToFlat}
+                onShowImportChordSheetDialog={this.showImportChordSheetDialog}
+              />
 
               <textarea
                 className="sheet-editor active"
