@@ -74,31 +74,6 @@ main {
   .sheet-viewer table {
     color: inherit; }
 
-header {
-  color: #F8F8F8; }
-  header .wrapper {
-    display: flex;
-    padding: 10px 5px; }
-  header .site-name {
-    display: inline-block;
-    flex: 1 0 auto;
-    font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
-    margin: 0; }
-    header .site-name a,
-    header .site-name a:hover {
-      color: #FFAE00;
-      text-decoration: none; }
-  header .meta {
-    display: inline-block;
-    flex: 0 0 auto;
-    list-style: none; }
-    header .meta li {
-      display: inline-block; }
-      header .meta li + * {
-        border-left: 1px #F8F8F8 solid;
-        margin-left: 20px;
-        padding-left: 20px; }
-
 .sheet-editor {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 14px;

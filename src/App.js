@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import packageInfo from '../package.json';
 import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
+import Header from './Header';
 
 const EXAMPLE_CHORD_PRO_SHEET =
 `{title: Let it be}
@@ -35,56 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App-container">
-        <header>
-          <div className="wrapper">
-            <h1 className="site-name">
-              <a href="/">{ packageInfo.name }</a>
-            </h1>
-
-            <ul className="meta">
-              <li>Version { packageInfo.version }</li>
-
-              <li>
-                <span>Built with </span>
-                <a
-                  href="https://github.com/martijnversluis/ChordSheetJS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >ChordSheetJS</a>
-                <span> and </span>
-                <a
-                  href="https://github.com/martijnversluis/ChordJS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >ChordJS</a>
-              </li>
-
-              <li>
-                <a
-                  href={ packageInfo.homepage }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >GitHub</a>
-              </li>
-
-              <li>
-                <a
-                  href={ packageInfo.bugs.url }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Issues</a>
-              </li>
-
-              <li>
-                <a
-                  href={ packageInfo.about }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >About</a>
-              </li>
-            </ul>
-          </div>
-        </header>
+        <Header/>
 
         <main>
           <div className="columns">
