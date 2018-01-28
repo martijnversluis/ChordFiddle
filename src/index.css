@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    --page-background: var(--theme-background);
+    --page-foreground: var(--theme-foreground);
+    --page-font: var(--font-base);
+    --page-padding: var(--spacing-l);
+
+    background-color: var(--page-background);
+    color: var(--page-foreground);
+    display: flex;
+    font-family: var(--page-font);
+    font-size: 1em;
+    margin: 0;
+    min-height: 100%;
+    padding: var(--page-padding);
+}
+
+#root {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+button,
+.button
+{
+    --button-background: var(--theme-secondary);
+    --button-foreground: var(--theme-foreground);
+    --button-padding: var(--spacing-s) var(--spacing-m);
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--button-background);
+    border: 0;
+    color: var(--button-foreground);
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0 var(--toolbar-spacing) var(--toolbar-spacing) 0;
+    padding: var(--button-padding);
+    text-decoration: none;
+}
+
+button.large,
+.button.large
+{
+    --button-padding-large: var(--spacing-m) var(--spacing-l);
+
+    padding: var(--button-padding-large);
+}
+
+button:hover,
+.button:hover
+{
+    text-decoration: none;
+}

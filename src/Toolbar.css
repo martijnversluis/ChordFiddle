@@ -1,7 +1,4 @@
 .Toolbar {
-    --button-background: var(--theme-secondary);
-    --button-foreground: var(--theme-foreground);
-    --button-padding: var(--spacing-s) var(--spacing-m);
     --toolbar-spacing: var(--spacing-m);
 
     display: flex;
@@ -14,17 +11,5 @@
 .Toolbar button,
 .Toolbar .button
 {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: var(--button-background);
-    border: 0;
-    color: var(--button-foreground);
-    cursor: pointer;
-    display: inline-block;
-    font-family: inherit;
-    font-size: inherit;
     height: 31px;
-    margin: 0 var(--toolbar-spacing) var(--toolbar-spacing) 0;
-    padding: var(--button-padding);
-    text-decoration: none;
 }
