@@ -163,7 +163,8 @@ class App extends Component {
     });
   };
 
-  getSelectionRange() {
+  getTextRanges() {
+    const {chordSheet} = this.state;
     let {selectionStart, selectionEnd} = this.state;
 
     if (selectionStart === selectionEnd) {
@@ -171,24 +172,30 @@ class App extends Component {
       selectionEnd = this.state.chordSheet.length;
     }
 
-    return {selectionStart, selectionEnd};
+    const selection = chordSheet.slice(selectionStart, selectionEnd);
+    const prefix = chordSheet.slice(0, selectionStart);
+    const suffix = chordSheet.slice(selectionEnd);
+
+    return {selection, prefix, suffix};
   }
 
   transitChords(processor) {
-    const {chordSheet} = this.state;
-    const {selectionStart, selectionEnd} = this.getSelectionRange();
-    const selectedValue = chordSheet.slice(selectionStart, selectionEnd);
-    const prefix = chordSheet.slice(0, selectionStart);
-    const suffix = chordSheet.slice(selectionEnd);
-    const song = new ChordSheetJS.ChordProParser().parse(selectedValue);
+    const {selectionStart, selectionEnd} = this.state;
+    const {selection, prefix, suffix} = this.getTextRanges();
+    const song = new ChordSheetJS.ChordProParser().parse(selection);
     this.transitSong(song, processor);
     const replacement = new ChordSheetJS.ChordProFormatter().format(song);
 
     this.setState({
-      chordSheet: prefix + replacement + suffix,
-      selectionStart: prefix.length,
-      selectionEnd: prefix.length + replacement.length
-    }, () => { this.adjustSelection() });
+      chordSheet: prefix + replacement + suffix
+    });
+
+    if (selectionStart !== selectionEnd) {
+      this.setState({
+        selectionStart: prefix.length,
+        selectionEnd: prefix.length + replacement.length
+      }, () => { this.adjustSelection() });
+    }
   }
 
   transitSong(song, processor) {
