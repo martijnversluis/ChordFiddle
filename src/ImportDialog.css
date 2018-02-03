@@ -1,0 +1,54 @@
+.ImportDialog {
+    --modal-background: var(--theme-foreground);
+    --modal-border-color: var(--theme-secondary);
+    --modal-code-background: var(--theme-silver);
+    --modal-foreground: var(--theme-background);
+
+    background: var(--modal-background);
+    border: 1px var(--modal-border-color) solid;
+    box-shadow: 0 0 5px var(--modal-border-color);
+    bottom: 0;
+    color: var(--modal-foreground);
+    display: flex;
+    left: 0;
+    margin: auto;
+    max-height: 90vh;
+    max-width: 90vw;
+    padding: 30px 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.ImportDialog__close-button {
+    --close-button-height: 16px;
+    --close-button-color: var(--theme-grey);
+
+    background: transparent;
+    color: var(--close-button-color);
+    font-size: calc(var(--close-button-height) * 2.4);
+    font-weight: 700;
+    line-height: var(--close-button-height);
+    position: absolute;
+    right: 2.5vw;
+    text-decoration: none;
+    top: 2.5vw;
+}
+
+.ImportDialog__contents {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.ImportDialog__buttons {
+    --buttons-top-padding: var(--spacing-m);
+
+    padding-top: var(--buttons-top-padding);
+}
+
+.ImportDialog .sheet-editor {
+    flex: 1 0 auto;
+}

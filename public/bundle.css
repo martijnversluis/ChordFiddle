@@ -60,38 +60,6 @@ main {
   .sheet-editor:focus {
     background-color: #F8F8F8; }
 
-.mod-modal {
-  background: #F8F8F8;
-  border: 1px #3C82A9 solid;
-  box-shadow: 0 0 5px #3C82A9;
-  bottom: 0;
-  color: #2F3131;
-  left: 0;
-  margin: auto;
-  max-height: 90vh;
-  max-width: 90vw;
-  padding: 30px 50px;
-  position: absolute;
-  right: 0;
-  top: 0; }
-  .mod-modal .close {
-    background: transparent;
-    color: #A3ABB0;
-    font-size: 38.4px;
-    font-weight: 700;
-    line-height: 16px;
-    position: absolute;
-    right: 2.5vw;
-    text-decoration: none;
-    top: 2.5vw; }
-    .mod-modal .close:hover {
-      text-decoration: none; }
-  .mod-modal .contents {
-    max-height: 100%;
-    overflow: auto; }
-  .mod-modal .mod-toolbar {
-    padding: 10px 0 0 0; }
-
 .mod-radio-group {
   list-style: none;
   margin: 0;
@@ -129,12 +97,3 @@ main {
     display: inline-block; }
     .mod-radio-group li + li {
       margin-left: 20px; }
-
-.mod-import-chord-sheet {
-  display: flex; }
-  .mod-import-chord-sheet .contents {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: column; }
-  .mod-import-chord-sheet .sheet-editor {
-    flex: 1 0 auto; }

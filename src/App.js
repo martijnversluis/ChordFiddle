@@ -3,6 +3,7 @@ import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
 import Header from './Header';
 import Toolbar from './Toolbar';
+import ImportDialog from './ImportDialog';
 
 const EXAMPLE_CHORD_PRO_SHEET =
 `{title: Let it be}
@@ -23,7 +24,7 @@ class App extends Component {
       htmlPreviewActive: false,
       selectionStart: 0,
       selectionEnd: 0,
-      importChordSheetModalVisible: false
+      showImportDialog: false
     };
   }
 
@@ -92,7 +93,10 @@ class App extends Component {
           </div>
         </main>
 
-        {this.renderImportChordSheetModal()}
+        <ImportDialog
+          onSubmit={this.importChordSheet}
+          onCancel={this.hideImportChordSheetDialog}
+          show={this.state.showImportDialog}/>
       </div>
     );
   }
@@ -124,28 +128,6 @@ class App extends Component {
       className="sheet-viewer mod-html-preview active"
       dangerouslySetInnerHTML={{__html: htmlChordSheet}}
     ></div>;
-  }
-
-  renderImportChordSheetModal() {
-    if (!this.state.importChordSheetModalVisible) {
-      return null;
-    }
-
-    return <section className="mod-modal mod-import-chord-sheet" id="import-chord-sheet-modal">
-      <button className="close" onClick={this.hideImportChordSheetDialog}>×</button>
-
-      <div className="contents">
-        <h1>Import chord sheet</h1>
-        <textarea
-          className="sheet-editor active"
-          ref={importChordSheetEditor => this.importChordSheetEditor = importChordSheetEditor}
-        ></textarea>
-
-        <div className="mod-toolbar">
-          <button className="large" onClick={this.importChordSheet}>Import chord sheet</button>
-        </div>
-      </div>
-    </section>;
   }
 
   onChordSheetChange = () => {
@@ -233,16 +215,16 @@ class App extends Component {
   };
 
   showImportChordSheetDialog = () => {
-    this.setState({importChordSheetModalVisible: true});
+    this.setState({showImportDialog: true});
   };
 
   hideImportChordSheetDialog = () => {
-    this.setState({importChordSheetModalVisible: false});
+    this.setState({showImportDialog: false});
   };
 
-  importChordSheet = () => {
+  importChordSheet = (sheet) => {
     this.hideImportChordSheetDialog();
-    const song = new ChordSheetJS.ChordSheetParser().parse(this.importChordSheetEditor.value);
+    const song = new ChordSheetJS.ChordSheetParser().parse(sheet);
     const chordSheet = new ChordSheetJS.ChordProFormatter().format(song);
 
     this.setState({chordSheet});
