@@ -6,8 +6,7 @@ let instanceCount = 0;
 export default class RadioGroup extends Component {
   constructor(props) {
     super(props);
-    const {selected} = this.props;
-    this.state = {selected};
+    this.groupId = instanceCount++;
   }
 
   render() {
@@ -19,21 +18,19 @@ export default class RadioGroup extends Component {
   }
 
   renderOptions() {
-    const {options} = this.props;
-    const {selected} = this.state;
-    const groupId = instanceCount++;
+    const {options, selected} = this.props;
 
     return Object.keys(options).map(name => {
-      const radioId = `radio-group-${groupId}-${name}`;
+      const radioId = `radio-group-${this.groupId}-${name}`;
       const label = options[name];
 
-      return <li key={`${groupId}_${name}`} className="RadioGroup__option">
+      return <li key={`${this.groupId}_${name}`} className="RadioGroup__option">
         <input
           className="RadioGroup__radio"
           checked={ selected === name }
           onChange={ this.onChange }
           id={ radioId }
-          name={ `radio-group-${groupId}` }
+          name={ `radio-group-${this.groupId}` }
           type="radio"
           value={ name }
         />
@@ -45,8 +42,6 @@ export default class RadioGroup extends Component {
 
   onChange = (event) => {
     const {onOptionSelected} = this.props;
-    const selected = event.target.value;
-    this.setState({selected});
-    onOptionSelected(selected);
+    onOptionSelected(event.target.value);
   }
 }

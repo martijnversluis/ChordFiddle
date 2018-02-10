@@ -36,6 +36,8 @@ class App extends Component {
   }
 
   render() {
+    const {htmlPreviewActive} = this.state;
+
     return (
       <div className="App-container">
         <Header/>
@@ -61,10 +63,11 @@ class App extends Component {
             </section>
 
             <section className="column column-right">
-              <RadioGroup selected="text" onOptionSelected={this.onPreviewModeChange} options={{
-                text: "Text",
-                html: "HTML"
-              }}/>
+              <RadioGroup
+                selected={htmlPreviewActive ? "html" : "text"}
+                onOptionSelected={this.onPreviewModeChange}
+                options={{text: "Text", html: "HTML"}}
+              />
 
               {this.renderTextPreviewer()}
               {this.renderHtmlPreviewer()}
