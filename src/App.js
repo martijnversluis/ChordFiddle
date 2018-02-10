@@ -4,6 +4,7 @@ import Chord from 'chordjs';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
+import RadioGroup from "./RadioGroup";
 
 const EXAMPLE_CHORD_PRO_SHEET =
 `{title: Let it be}
@@ -60,32 +61,10 @@ class App extends Component {
             </section>
 
             <section className="column column-right">
-              <ul className="mod-radio-group">
-                <li>
-                  <input
-                    checked={!this.state.htmlPreviewActive}
-                    onChange={this.onPreviewModeChange}
-                    id="view-type-plain"
-                    name="view_type"
-                    type="radio"
-                    value="plain"
-                  />
-                  <label htmlFor="view-type-plain">Text</label>
-                </li>
-
-                <li>
-                  <input
-                    checked={this.state.htmlPreviewActive}
-                    ref={checkbox => this.htmlPreviewCheckbox = checkbox}
-                    onChange={this.onPreviewModeChange}
-                    id="view-type-html"
-                    name="view_type"
-                    type="radio"
-                    value="html"
-                  />
-                  <label htmlFor="view-type-html">HTML</label>
-                </li>
-              </ul>
+              <RadioGroup selected="text" onOptionSelected={this.onPreviewModeChange} options={{
+                text: "Text",
+                html: "HTML"
+              }}/>
 
               {this.renderTextPreviewer()}
               {this.renderHtmlPreviewer()}
@@ -134,8 +113,8 @@ class App extends Component {
     this.setState({chordSheet: this.chordSheetEditor.value});
   };
 
-  onPreviewModeChange = () => {
-    this.setState({htmlPreviewActive: this.htmlPreviewCheckbox.checked})
+  onPreviewModeChange = (newMode) => {
+    this.setState({htmlPreviewActive: newMode === "html"})
   };
 
   onSelectionChange = () => {
