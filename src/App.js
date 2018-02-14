@@ -5,21 +5,14 @@ import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
 import RadioGroup from "./RadioGroup";
-
-const EXAMPLE_CHORD_PRO_SHEET =
-`{title: Let it be}
-{subtitle: ChordSheetJS example version}
-{Chorus}
-
-Let it [Am]be, let it [C/G]be, let it [F]be, let it [C]be
-[C]Whisper words of [G]wisdom, let it [F]be [C/E] [Dm] [C]`;
+import exampleChordProSheet from './example_chord_pro_sheet';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      chordSheet: EXAMPLE_CHORD_PRO_SHEET,
+      chordSheet: exampleChordProSheet,
       textPreview: '',
       htmlPreview: '',
       htmlPreviewActive: false,
