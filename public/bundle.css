@@ -1,48 +1,20 @@
-.App-container {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column; }
-
-header {
-  flex: 0 0 50px; }
-
-a {
-  color: #A3ABB0;
-  text-decoration: underline; }
-  a:hover {
-    text-decoration: none; }
-
-main {
-  display: flex;
-  flex: 1 0 auto;
-  flex-direction: column; }
-  main .columns {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: row; }
-
-.column {
-  display: flex;
-  flex: 1 1 50%;
-  flex-direction: column; }
-  .column + .column {
-    margin-left: 20px; }
-  .column .toolbar {
-    flex: 0 0 auto; }
-  .column .sheet-editor,
-  .column .sheet-viewer {
-    flex: 1 1 auto; }
-
 .sheet-editor, .sheet-viewer {
   background: #F8F8F8;
   color: #2F3131;
   display: none;
+  flex: 1 1 auto;
   width: 100%; }
   .sheet-editor.active, .sheet-viewer.active {
     display: block; }
 
 .sheet-editor {
-  font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace; }
+  font-family: Inconsolata, Monaco, "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  font-size: 14px;
+  outline-color: rgba(248, 248, 248, 0.5);
+  padding: 10px;
+  transition: background-color 100ms ease-out; }
+  .sheet-editor:focus {
+    background-color: #F8F8F8; }
 
 .sheet-viewer {
   padding: 10px; }
@@ -50,12 +22,3 @@ main {
     font-size: 1.1em; }
   .sheet-viewer table {
     color: inherit; }
-
-.sheet-editor {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 14px;
-  outline-color: rgba(248, 248, 248, 0.5);
-  padding: 10px;
-  transition: background-color 100ms ease-out; }
-  .sheet-editor:focus {
-    background-color: #F8F8F8; }

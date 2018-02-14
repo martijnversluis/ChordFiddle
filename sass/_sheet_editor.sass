@@ -1,5 +1,15 @@
+.sheet-editor, .sheet-viewer
+  background: $sheet-background
+  color: $sheet-text
+  display: none
+  flex: 1 1 auto
+  width: 100%
+
+  &.active
+    display: block
+
 .sheet-editor
-  font-family: "Lucida Console", Monaco, monospace
+  font-family: $monospace-font
   font-size: 14px
   outline-color: $sheet-outline
   padding: $spacing-m
@@ -7,3 +17,12 @@
 
   &:focus
     background-color: $sheet-focus-background
+
+.sheet-viewer
+  padding: $spacing-m
+
+  h2
+    font-size: 1.1em
+
+  table
+    color: inherit

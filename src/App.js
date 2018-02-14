@@ -6,6 +6,7 @@ import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
 import RadioGroup from "./RadioGroup";
 import exampleChordProSheet from './example_chord_pro_sheet';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -32,12 +33,12 @@ class App extends Component {
     const {htmlPreviewActive} = this.state;
 
     return (
-      <div className="App-container">
+      <div className="App">
         <Header/>
 
-        <main>
-          <div className="columns">
-            <section className="column column-left">
+        <main className="App__container">
+          <div className="App__columns">
+            <section className="App__column">
               <Toolbar
                 onTransposeDown={this.transposeDown}
                 onTransposeUp={this.transposeUp}
@@ -55,7 +56,7 @@ class App extends Component {
               ></textarea>
             </section>
 
-            <section className="column column-right">
+            <section className="App__column">
               <RadioGroup
                 selected={htmlPreviewActive ? "html" : "text"}
                 onOptionSelected={this.onPreviewModeChange}
@@ -71,7 +72,8 @@ class App extends Component {
         <ImportDialog
           onSubmit={this.importChordSheet}
           onCancel={this.hideImportChordSheetDialog}
-          show={this.state.showImportDialog}/>
+          show={this.state.showImportDialog}
+        />
       </div>
     );
   }

@@ -61,3 +61,14 @@ button:hover,
 {
     text-decoration: none;
 }
+
+a {
+    --link-color: var(--theme-grey);
+
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}

@@ -7,6 +7,7 @@
     --wrapper-spacing: var(--spacing-m) var(--spacing-s);
 
     color: var(--header-foreground);
+    flex: 0 0 50px;
 }
 
 .Header__wrapper {

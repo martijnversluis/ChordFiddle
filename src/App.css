@@ -1,5 +1,29 @@
-.App-container {
+.App {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+}
+
+.App__container {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+.App__columns {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+}
+
+.App__column {
+  --column-space-between: var(--spacing-l);
+
+  display: flex;
+  flex: 1 1 50%;
+  flex-direction: column;
+}
+
+.App__column + .App__column {
+  margin-left: var(--column-space-between);
 }
