@@ -63,8 +63,8 @@ class App extends Component {
                 options={{text: "Text", html: "HTML"}}
               />
 
-              {this.renderTextPreviewer()}
-              {this.renderHtmlPreviewer()}
+              {!htmlPreviewActive && this.renderTextPreviewer()}
+              {htmlPreviewActive && this.renderHtmlPreviewer()}
             </section>
           </div>
         </main>
@@ -79,10 +79,6 @@ class App extends Component {
   }
 
   renderTextPreviewer() {
-    if (this.state.htmlPreviewActive) {
-      return null;
-    }
-
     const song = new ChordSheetJS.ChordProParser().parse(this.state.chordSheet);
     const textChordSheet = new ChordSheetJS.TextFormatter().format(song);
 
@@ -94,10 +90,6 @@ class App extends Component {
   }
 
   renderHtmlPreviewer() {
-    if (!this.state.htmlPreviewActive) {
-      return null;
-    }
-
     const song = new ChordSheetJS.ChordProParser().parse(this.state.chordSheet);
     const htmlChordSheet = new ChordSheetJS.HtmlFormatter().format(song);
 
