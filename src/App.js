@@ -19,7 +19,7 @@ export default class App extends Component {
       chordSheet: exampleChordProSheet,
       textPreview: '',
       htmlPreview: '',
-      htmlPreviewActive: false,
+      htmlPreviewActive: true,
       selectionStart: 0,
       selectionEnd: 0,
       showImportDialog: false
@@ -59,7 +59,7 @@ export default class App extends Component {
               <RadioGroup
                 selected={htmlPreviewActive ? "html" : "text"}
                 onOptionSelected={this.onPreviewModeChange}
-                options={{text: "Plain", html: "Markup"}}
+                options={{html: "Markup", text: "Plain"}}
               />
 
               {htmlPreviewActive ? <ChordSheetHTMLViewer song={song}/> : <ChordSheetTextViewer song={song}/>}
