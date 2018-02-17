@@ -5,7 +5,8 @@
     --spacing-s: calc(var(--spacing-base) / 4);
 
     --theme-background: #2F3131;
-    --theme-foreground: #F8F8F8;
+    --theme-foreground-raw: 248, 248, 248;
+    --theme-foreground: rgb(var(--theme-foreground-raw));
     --theme-primary: #FFAE00;
     --theme-secondary: #3C82A9;
     --theme-grey: #A3ABB0;

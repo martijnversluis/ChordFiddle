@@ -5,11 +5,13 @@ import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
 import RadioGroup from './RadioGroup';
+import ChordSheetEditor from './ChordSheetEditor';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
+import ChordSheetTextViewer from './ChordSheetTextViewer';
 import exampleChordProSheet from './example_chord_pro_sheet';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
 
@@ -24,14 +26,8 @@ class App extends Component {
     };
   }
 
-  adjustSelection() {
-    const {selectionStart, selectionEnd} = this.state;
-    this.chordSheetEditor.focus();
-    this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
-  }
-
   render() {
-    const {htmlPreviewActive, chordSheet} = this.state;
+    const {htmlPreviewActive, chordSheet, selectionStart, selectionEnd} = this.state;
     const song = new ChordSheetJS.ChordProParser().parse(chordSheet);
 
     return (
@@ -49,13 +45,14 @@ class App extends Component {
                 onShowImportChordSheetDialog={this.showImportChordSheetDialog}
               />
 
-              <textarea
-                className="sheet-editor active"
-                ref={textarea => this.chordSheetEditor = textarea}
+              <ChordSheetEditor
+                chordSheet={chordSheet}
+                selectionStart={selectionStart}
+                selectionEnd={selectionEnd}
                 onChange={this.onChordSheetChange}
                 onSelect={this.onSelectionChange}
-                value={this.state.chordSheet}
-              ></textarea>
+                textareaRef={textarea => this.chordSheetEditor = textarea}
+              />
             </section>
 
             <section className="App__column">
@@ -65,8 +62,7 @@ class App extends Component {
                 options={{text: "Text", html: "HTML"}}
               />
 
-              {!htmlPreviewActive && this.renderTextPreviewer()}
-              {htmlPreviewActive && <ChordSheetHTMLViewer song={song}/>}
+              {htmlPreviewActive ? <ChordSheetHTMLViewer song={song}/> : <ChordSheetTextViewer song={song}/>}
             </section>
           </div>
         </main>
@@ -80,15 +76,10 @@ class App extends Component {
     );
   }
 
-  renderTextPreviewer() {
-    const song = new ChordSheetJS.ChordProParser().parse(this.state.chordSheet);
-    const textChordSheet = new ChordSheetJS.TextFormatter().format(song);
-
-    return <textarea
-      readOnly="readonly"
-      className="sheet-editor active"
-      value={textChordSheet}
-    ></textarea>;
+  adjustSelection() {
+    const {selectionStart, selectionEnd} = this.state;
+    this.chordSheetEditor.focus();
+    this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
   }
 
   onChordSheetChange = () => {
@@ -99,11 +90,8 @@ class App extends Component {
     this.setState({htmlPreviewActive: newMode === "html"})
   };
 
-  onSelectionChange = () => {
-    this.setState({
-      selectionStart: this.chordSheetEditor.selectionStart,
-      selectionEnd: this.chordSheetEditor.selectionEnd
-    });
+  onSelectionChange = ({selectionStart, selectionEnd}) => {
+    this.setState({selectionStart, selectionEnd});
   };
 
   getTextRanges() {
@@ -191,5 +179,3 @@ class App extends Component {
     this.setState({chordSheet});
   };
 }
-
-export default App;
