@@ -4,7 +4,8 @@ import Chord from 'chordjs';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
-import RadioGroup from "./RadioGroup";
+import RadioGroup from './RadioGroup';
+import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import exampleChordProSheet from './example_chord_pro_sheet';
 import './App.css';
 
@@ -30,7 +31,8 @@ class App extends Component {
   }
 
   render() {
-    const {htmlPreviewActive} = this.state;
+    const {htmlPreviewActive, chordSheet} = this.state;
+    const song = new ChordSheetJS.ChordProParser().parse(chordSheet);
 
     return (
       <div className="App">
@@ -64,7 +66,7 @@ class App extends Component {
               />
 
               {!htmlPreviewActive && this.renderTextPreviewer()}
-              {htmlPreviewActive && this.renderHtmlPreviewer()}
+              {htmlPreviewActive && <ChordSheetHTMLViewer song={song}/>}
             </section>
           </div>
         </main>
@@ -87,16 +89,6 @@ class App extends Component {
       className="sheet-editor active"
       value={textChordSheet}
     ></textarea>;
-  }
-
-  renderHtmlPreviewer() {
-    const song = new ChordSheetJS.ChordProParser().parse(this.state.chordSheet);
-    const htmlChordSheet = new ChordSheetJS.HtmlFormatter().format(song);
-
-    return <div
-      className="sheet-viewer mod-html-preview active"
-      dangerouslySetInnerHTML={{__html: htmlChordSheet}}
-    ></div>;
   }
 
   onChordSheetChange = () => {

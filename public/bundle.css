@@ -1,10 +1,10 @@
-.sheet-editor, .sheet-viewer {
+.sheet-editor {
   background: #F8F8F8;
   color: #2F3131;
   display: none;
   flex: 1 1 auto;
   width: 100%; }
-  .sheet-editor.active, .sheet-viewer.active {
+  .sheet-editor.active {
     display: block; }
 
 .sheet-editor {
@@ -15,10 +15,3 @@
   transition: background-color 100ms ease-out; }
   .sheet-editor:focus {
     background-color: #F8F8F8; }
-
-.sheet-viewer {
-  padding: 10px; }
-  .sheet-viewer h2 {
-    font-size: 1.1em; }
-  .sheet-viewer table {
-    color: inherit; }

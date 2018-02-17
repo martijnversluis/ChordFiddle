@@ -1,0 +1,20 @@
+.ChordSheetHTMLViewer {
+    --viewer-background: var(--theme-foreground);
+    --viewer-foreground: var(--theme-background);
+    --viewer-padding: var(--spacing-m);
+    --viewer-title-font-size: 1.1em;
+
+    background-color: var(--viewer-background);
+    color: var(--viewer-foreground);
+    flex: 1 1 auto;
+    padding: var(--viewer-padding);
+    width: 100%;
+}
+
+.ChordSheetHTMLViewer h2 {
+    font-size: var(--viewer-title-font-size);
+}
+
+.ChordSheetHTMLViewer table {
+    color: inherit;
+}
