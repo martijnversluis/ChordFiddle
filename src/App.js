@@ -59,7 +59,7 @@ export default class App extends Component {
               <RadioGroup
                 selected={htmlPreviewActive ? "html" : "text"}
                 onOptionSelected={this.onPreviewModeChange}
-                options={{text: "Text", html: "HTML"}}
+                options={{text: "Plain", html: "Markup"}}
               />
 
               {htmlPreviewActive ? <ChordSheetHTMLViewer song={song}/> : <ChordSheetTextViewer song={song}/>}
