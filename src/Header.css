@@ -1,3 +1,5 @@
+@import './variables.css';
+
 .Header {
     --header-foreground: var(--theme-foreground);
     --header-meta-separator-color: var(--theme-foreground);

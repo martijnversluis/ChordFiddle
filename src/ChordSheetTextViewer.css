@@ -1,3 +1,5 @@
+@import './variables.css';
+
 .ChordSheetTextViewer {
     --viewer-background: var(--theme-foreground);
     --viewer-foreground: var(--theme-background);

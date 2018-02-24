@@ -1,3 +1,5 @@
+@import './variables.css';
+
 .ImportDialog {
     --modal-background: var(--theme-foreground);
     --modal-border-color: var(--theme-secondary);
