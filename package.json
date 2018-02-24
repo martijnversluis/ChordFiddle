@@ -4,8 +4,8 @@
   "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "main": "index.html",
   "scripts": {
-    "start": "react-scripts-x start",
-    "build": "react-scripts-x build",
+    "start": "REACT_APP_DESCRIPTION=$(node -p 'require(\"./package.json\").description') REACT_APP_NAME=$(node -p 'require(\"./package.json\").name') REACT_APP_KEYWORDS=$(node -p 'require(\"./package.json\").keywords.join(\", \")') react-scripts-x start",
+    "build": "rm -rf static/ && REACT_APP_DESCRIPTION=$(node -p 'require(\"./package.json\").description') REACT_APP_NAME=$(node -p 'require(\"./package.json\").name') REACT_APP_KEYWORDS=$(node -p 'require(\"./package.json\").keywords.join(\", \")') react-scripts-x build && mv ./build/* ./ && rm -rf build/ service-worker.js",
     "test": "react-scripts-x test --env=jsdom",
     "eject": "react-scripts-x eject"
   },
@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/martijnversluis/chordfiddle/issues"
   },
-  "homepage": "https://github.com/martijnversluis/chordfiddle",
+  "homepage": ".",
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
   "dependencies": {
     "chordjs": "^1.2.0",
