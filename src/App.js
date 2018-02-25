@@ -51,7 +51,7 @@ export default class App extends Component {
                 selectionEnd={selectionEnd}
                 onChange={this.onChordSheetChange}
                 onSelect={this.onSelectionChange}
-                textareaRef={textarea => this.chordSheetEditor = textarea}
+                textareaRef={textarea => (this.chordSheetEditor = textarea)}
               />
             </section>
 
