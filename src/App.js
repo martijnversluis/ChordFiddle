@@ -67,11 +67,7 @@ export default class App extends Component {
           </div>
         </main>
 
-        <ImportDialog
-          onSubmit={this.importChordSheet}
-          onCancel={this.hideImportChordSheetDialog}
-          show={this.state.showImportDialog}
-        />
+        <ImportDialog onSubmit={this.importChordSheet} onCancel={this.hideImportChordSheetDialog} show={this.state.showImportDialog}/>
       </div>
     );
   }
