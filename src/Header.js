@@ -15,13 +15,9 @@ export default function Header() {
 
         <li>
           <span>Built with </span>
-          <ExternalLink
-            href="https://github.com/martijnversluis/ChordSheetJS"
-          >ChordSheetJS</ExternalLink>
+          <ExternalLink href="https://github.com/martijnversluis/ChordSheetJS">ChordSheetJS</ExternalLink>
           <span> and </span>
-          <ExternalLink
-            href="https://github.com/martijnversluis/ChordJS"
-          >ChordJS</ExternalLink>
+          <ExternalLink href="https://github.com/martijnversluis/ChordJS">ChordJS</ExternalLink>
         </li>
 
         <li>
