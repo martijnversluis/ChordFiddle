@@ -11,17 +11,17 @@ export default class ChordSheetEditor extends Component {
         className="ChordSheetTextViewer"
         onChange={onChange}
         onSelect={this.onSelectionChange}
-        ref={this.ref}
+        ref={textarea => (this.chordSheetEditor = textarea)}
         value={chordSheet}
       ></textarea>
     );
   }
 
-  ref = (textarea) => {
-    const {textareaRef} = this.props;
-    this.chordSheetEditor = textarea;
-    textareaRef(textarea);
-  };
+  componentDidUpdate() {
+    const {selectionStart, selectionEnd} = this.props;
+    this.chordSheetEditor.focus();
+    this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
+  }
 
   onSelectionChange = () => {
     const {onSelect} = this.props;
