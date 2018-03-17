@@ -27,48 +27,57 @@ export default class App extends Component {
   }
 
   render() {
-    const {htmlPreviewActive, chordSheet, selectionStart, selectionEnd} = this.state;
-    const song = new ChordSheetJS.ChordProParser().parse(chordSheet);
-
     return (
       <div className="App">
         <Header/>
 
         <main className="App__container">
           <div className="App__columns">
-            <section className="App__column">
-              <Toolbar
-                onTransposeDown={this.transposeDown}
-                onTransposeUp={this.transposeUp}
-                onSwitchToSharp={this.switchToSharp}
-                onSwitchToFlat={this.switchToFlat}
-                onShowImportChordSheetDialog={this.showImportChordSheetDialog}
-              />
-
-              <ChordSheetEditor
-                chordSheet={chordSheet}
-                selectionStart={selectionStart}
-                selectionEnd={selectionEnd}
-                onChange={this.onChordSheetChange}
-                onSelect={this.onSelectionChange}
-              />
-            </section>
-
-            <section className="App__column">
-              <RadioGroup
-                selected={htmlPreviewActive ? "html" : "text"}
-                onOptionSelected={this.onPreviewModeChange}
-                options={{html: "Markup", text: "Plain"}}
-              />
-
-              {htmlPreviewActive ? <ChordSheetHTMLViewer song={song}/> : <ChordSheetTextViewer song={song}/>}
-            </section>
+            { this.renderEditorColumn() }
+            { this.renderViewerColumn() }
           </div>
         </main>
 
-        <ImportDialog onSubmit={this.importChordSheet} onCancel={this.hideImportChordSheetDialog} show={this.state.showImportDialog}/>
+        <ImportDialog onSubmit={ this.importChordSheet } onCancel={ this.hideImportChordSheetDialog } show={ this.state.showImportDialog }/>
       </div>
     );
+  }
+
+  renderViewerColumn() {
+    const {htmlPreviewActive, chordSheet} = this.state;
+    const song = new ChordSheetJS.ChordProParser().parse(chordSheet);
+
+    return <section className="App__column">
+      <RadioGroup
+        selected={ htmlPreviewActive ? "html" : "text" }
+        onOptionSelected={ this.onPreviewModeChange }
+        options={ { html: "Markup", text: "Plain" } }
+      />
+
+      { htmlPreviewActive ? <ChordSheetHTMLViewer song={ song }/> : <ChordSheetTextViewer song={ song }/> }
+    </section>;
+  }
+
+  renderEditorColumn() {
+    const {chordSheet, selectionStart, selectionEnd} = this.state;
+
+    return <section className="App__column">
+      <Toolbar
+        onTransposeDown={ this.transposeDown }
+        onTransposeUp={ this.transposeUp }
+        onSwitchToSharp={ this.switchToSharp }
+        onSwitchToFlat={ this.switchToFlat }
+        onShowImportChordSheetDialog={ this.showImportChordSheetDialog }
+      />
+
+      <ChordSheetEditor
+        chordSheet={ chordSheet }
+        selectionStart={ selectionStart }
+        selectionEnd={ selectionEnd }
+        onChange={ this.onChordSheetChange }
+        onSelect={ this.onSelectionChange }
+      />
+    </section>;
   }
 
   onChordSheetChange = () => {
@@ -76,7 +85,7 @@ export default class App extends Component {
   };
 
   onPreviewModeChange = (newMode) => {
-    this.setState({htmlPreviewActive: newMode === "html"})
+    this.setState({htmlPreviewActive: newMode === "html"});
   };
 
   onSelectionChange = ({selectionStart, selectionEnd}) => {
