@@ -49,9 +49,9 @@ export default class App extends Component {
 
     return <section className="App__column">
       <RadioGroup
-        selected={ htmlPreviewActive ? "html" : "text" }
+        selected={ htmlPreviewActive ? 'html' : 'text' }
         onOptionSelected={ this.onPreviewModeChange }
-        options={ { html: "Markup", text: "Plain" } }
+        options={ { html: 'Markup', text: 'Plain' } }
       />
 
       { htmlPreviewActive ? <ChordSheetHTMLViewer song={ song }/> : <ChordSheetTextViewer song={ song }/> }
@@ -85,7 +85,7 @@ export default class App extends Component {
   };
 
   onPreviewModeChange = (newMode) => {
-    this.setState({htmlPreviewActive: newMode === "html"});
+    this.setState({htmlPreviewActive: newMode === 'html'});
   };
 
   onSelectionChange = ({selectionStart, selectionEnd}) => {

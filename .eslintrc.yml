@@ -14,6 +14,8 @@ env:
   jquery: true
   node: true
 
+extends: eslint:recommended
+
 # http://eslint.org/docs/rules/
 rules:
   # Possible Errors
@@ -229,7 +231,9 @@ rules:
   operator-linebreak: off
   padded-blocks: off
   quote-props: off
-  quotes: off
+  quotes:
+    - error
+    - single
   require-jsdoc: off
   semi-spacing: off
   semi: off

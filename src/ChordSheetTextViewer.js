@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './ChordSheetTextViewer.css';
-import ChordSheetJS from "chordsheetjs";
+import ChordSheetJS from 'chordsheetjs';
 
 export default class ChordSheetTextViewer extends Component {
   render() {
