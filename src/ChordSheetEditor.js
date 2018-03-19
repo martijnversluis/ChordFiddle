@@ -7,7 +7,6 @@ export default class ChordSheetEditor extends Component {
 
     return(
       <textarea
-        readOnly="readonly"
         className="ChordSheetTextViewer"
         onChange={this.onChange}
         onSelect={this.onSelectionChange}
