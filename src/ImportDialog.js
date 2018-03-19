@@ -15,7 +15,7 @@ export default class ImportDialog extends Component {
       <div className="ImportDialog__contents">
         <h1>Import chord sheet</h1>
         <textarea
-          className="sheet-editor active"
+          className="ChordSheetEditor"
           ref={importChordSheetEditor => (this.importChordSheetEditor = importChordSheetEditor)}
         ></textarea>
 
