@@ -5,7 +5,7 @@ import './ChordSheetHTMLViewer.css';
 export default class ChordSheetHTMLViewer extends Component {
   render() {
     const {song} = this.props;
-    const htmlChordSheet = new ChordSheetJS.HtmlFormatter().format(song);
+    const htmlChordSheet = new ChordSheetJS.HtmlTableFormatter().format(song);
 
     return(
       <div

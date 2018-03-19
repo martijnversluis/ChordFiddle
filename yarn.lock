@@ -1417,9 +1417,9 @@ chordjs@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-1.2.0.tgz#9b09d6b7840c331c1cb5016084b25aef74f41679"
 
-chordsheetjs@^1.5.3:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-1.5.4.tgz#a4f3896f086d71ab7c5bd5be594ac2c3155294cc"
+chordsheetjs@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.1.0.tgz#479364b82d82b7219ded81b16b53e7cd9bff4dad"
 
 ci-info@^1.0.0:
   version "1.1.2"

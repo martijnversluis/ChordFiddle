@@ -171,7 +171,7 @@ export default class App extends Component {
 
   importChordSheet = (sheet) => {
     this.hideImportChordSheetDialog();
-    const song = new ChordSheetJS.ChordSheetParser().parse(sheet);
+    const song = new ChordSheetJS.ChordSheetParser({preserveWhitespace: false}).parse(sheet);
     const chordSheet = new ChordSheetJS.ChordProFormatter().format(song);
 
     this.setState({chordSheet});
