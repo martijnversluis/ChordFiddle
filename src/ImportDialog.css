@@ -1,6 +1,9 @@
 @import './variables.css';
 
 .ImportDialog {
+    --buttons-top-padding: var(--spacing-m);
+    --close-button-height: 16px;
+    --close-button-color: var(--theme-grey);
     --modal-background: var(--theme-foreground);
     --modal-border-color: var(--theme-secondary);
     --modal-code-background: var(--theme-silver);
@@ -23,9 +26,6 @@
 }
 
 .ImportDialog__close-button {
-    --close-button-height: 16px;
-    --close-button-color: var(--theme-grey);
-
     background: transparent;
     color: var(--close-button-color);
     font-size: calc(var(--close-button-height) * 2.4);
@@ -46,8 +46,6 @@
 }
 
 .ImportDialog__buttons {
-    --buttons-top-padding: var(--spacing-m);
-
     padding-top: var(--buttons-top-padding);
 }
 
