@@ -3,13 +3,13 @@ import './ChordSheetEditor.css';
 
 export default class ChordSheetEditor extends Component {
   render() {
-    const {chordSheet, onChange} = this.props;
+    const {chordSheet} = this.props;
 
     return(
       <textarea
         readOnly="readonly"
         className="ChordSheetTextViewer"
-        onChange={onChange}
+        onChange={this.onChange}
         onSelect={this.onSelectionChange}
         ref={textarea => (this.chordSheetEditor = textarea)}
         value={chordSheet}
@@ -22,6 +22,11 @@ export default class ChordSheetEditor extends Component {
     this.chordSheetEditor.focus();
     this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
   }
+
+  onChange = () => {
+    const {onChange} = this.props;
+    onChange(this.chordSheetEditor.value);
+  };
 
   onSelectionChange = () => {
     const {onSelect} = this.props;

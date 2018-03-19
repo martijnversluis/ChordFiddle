@@ -80,8 +80,8 @@ export default class App extends Component {
     </section>;
   }
 
-  onChordSheetChange = () => {
-    this.setState({chordSheet: this.chordSheetEditor.value});
+  onChordSheetChange = (chordSheet) => {
+    this.setState({chordSheet});
   };
 
   onPreviewModeChange = (newMode) => {
