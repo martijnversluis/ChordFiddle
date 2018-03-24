@@ -1,0 +1,21 @@
+@import './variables.css';
+
+.ChordSheetTextViewer {
+    --viewer-background: var(--theme-foreground);
+    --viewer-foreground: var(--theme-background);
+    --viewer-padding: var(--spacing-m);
+    --viewer-font: var(--font-monospace);
+    --viewer-font-size: 14px;
+    --viewer-outline-color: rgba(var(--theme-foreground-raw), 50%);
+    --viewer-padding: var(--spacing-m);
+
+    background-color: var(--viewer-background);
+    color: var(--viewer-foreground);
+    flex: 1 1 auto;
+    font-family: var(--viewer-font);
+    font-size: var(--viewer-font-size);
+    outline-color: var(--viewer-outline-color);
+    padding: var(--viewer-padding);
+    transition: background-color 100ms ease-out;
+    width: 100%;
+}

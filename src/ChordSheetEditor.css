@@ -1,0 +1,26 @@
+@import './variables.css';
+
+.ChordSheetEditor {
+    --editor-background: var(--theme-foreground);
+    --editor-foreground: var(--theme-background);
+    --editor-padding: var(--spacing-m);
+    --editor-font: var(--font-monospace);
+    --editor-font-size: 14px;
+    --editor-outline-color: rgba(var(--theme-foreground-raw), 50%);
+    --editor-padding: var(--spacing-m);
+    --editor-focus-background: var(--theme-foreground);
+
+    background-color: var(--editor-background);
+    color: var(--editor-foreground);
+    flex: 1 1 auto;
+    font-family: var(--editor-font);
+    font-size: var(--editor-font-size);
+    outline-color: var(--editor-outline-color);
+    padding: var(--editor-padding);
+    transition: background-color 100ms ease-out;
+    width: 100%;
+}
+
+.ChordSheetEditor:focus {
+    background-color: var(--editor-focus-background);
+}

@@ -1,13 +1,14 @@
 {
   "name": "ChordFiddle",
-  "version": "1.2.1",
+  "version": "1.3",
   "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "main": "index.html",
   "scripts": {
-    "build-js": "browserify js/main.js -t [ babelify --presets [ es2015 ] ] --outfile bundle.js",
-    "build-css": "node-sass sass/main.sass bundle.css",
-    "build": "npm run build-js && npm run build-css && $(npm bin)/jake build-html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "REACT_APP_DESCRIPTION=$(node -p 'require(\"./package.json\").description') REACT_APP_NAME=$(node -p 'require(\"./package.json\").name') REACT_APP_KEYWORDS=$(node -p 'require(\"./package.json\").keywords.join(\", \")') react-scripts-x start",
+    "build": "rm -rf static/ && REACT_APP_DESCRIPTION=$(node -p 'require(\"./package.json\").description') REACT_APP_NAME=$(node -p 'require(\"./package.json\").name') REACT_APP_KEYWORDS=$(node -p 'require(\"./package.json\").keywords.join(\", \")') react-scripts-x build && mv ./build/* ./ && rm -rf build/ service-worker.js",
+    "test": "react-scripts-x test --env=jsdom",
+    "eject": "react-scripts-x eject",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -26,20 +27,38 @@
   "bugs": {
     "url": "https://github.com/martijnversluis/chordfiddle/issues"
   },
-  "homepage": "https://github.com/martijnversluis/chordfiddle",
+  "homepage": ".",
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
-  "devDependencies": {
-    "async": "^2.5.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
-    "fast.js": "^0.1.1",
-    "haml": "^0.4.3",
-    "jake": "^8.0.15",
-    "node-sass": "^4.5.0"
-  },
   "dependencies": {
     "chordjs": "^1.2.0",
-    "chordsheetjs": "^1.5.3"
+    "chordsheetjs": "^2.1.0",
+    "postcss-calc": "^6.0.1",
+    "postcss-custom-properties": "^7.0.0",
+    "postcss-import": "^11.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "react-scripts-x": "^0.1.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.19.0",
+    "node-sass": "^4.7.2"
+  },
+  "react-scripts-x": {
+    "postcss": [
+      {
+        "name": "postcss-import"
+      },
+      {
+        "name": "postcss-custom-properties",
+        "config": {
+          "preserve": true
+        }
+      },
+      {
+        "name": "postcss-calc"
+      }
+    ]
   }
 }

@@ -1,0 +1,8 @@
+{
+  "short_name": "ChordFiddle",
+  "name": "ChordFiddle chord sheet editor",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#FFAE00",
+  "background_color": "#2F3131"
+}

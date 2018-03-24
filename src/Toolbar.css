@@ -1,0 +1,17 @@
+@import './variables.css';
+
+.Toolbar {
+    --toolbar-spacing: var(--spacing-m);
+
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: var(--toolbar-spacing) 0 0 0;
+}
+
+.Toolbar button,
+.Toolbar .button
+{
+    height: 31px;
+}

@@ -1,4 +1,7 @@
 ---
+
+parser: babel-eslint
+
 parserOptions:
   sourceType: module
   ecmaFeatures:
@@ -10,6 +13,8 @@ env:
   es6: true
   jquery: true
   node: true
+
+extends: eslint:recommended
 
 # http://eslint.org/docs/rules/
 rules:
@@ -226,7 +231,9 @@ rules:
   operator-linebreak: off
   padded-blocks: off
   quote-props: off
-  quotes: off
+  quotes:
+    - error
+    - single
   require-jsdoc: off
   semi-spacing: off
   semi: off
