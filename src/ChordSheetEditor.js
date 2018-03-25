@@ -18,8 +18,11 @@ export default class ChordSheetEditor extends Component {
 
   componentDidUpdate() {
     const {selectionStart, selectionEnd} = this.props;
-    this.chordSheetEditor.focus();
-    this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
+
+    if (selectionStart !== null && selectionEnd !== null) {
+      this.chordSheetEditor.focus();
+      this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
+    }
   }
 
   onChange = () => {
@@ -29,10 +32,16 @@ export default class ChordSheetEditor extends Component {
 
   onSelectionChange = () => {
     const {onSelect} = this.props;
+    let selectionStart = this.chordSheetEditor.selectionStart;
+    let selectionEnd = this.chordSheetEditor.selectionEnd;
+
+    if (selectionStart === selectionEnd) {
+      selectionStart = selectionEnd = null;
+    }
 
     onSelect({
-      selectionStart: this.chordSheetEditor.selectionStart,
-      selectionEnd: this.chordSheetEditor.selectionEnd
+      selectionStart: selectionStart,
+      selectionEnd: selectionEnd
     });
   };
 }
