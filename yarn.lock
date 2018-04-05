@@ -1417,9 +1417,11 @@ chordjs@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-1.2.0.tgz#9b09d6b7840c331c1cb5016084b25aef74f41679"
 
-chordsheetjs@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.1.0.tgz#479364b82d82b7219ded81b16b53e7cd9bff4dad"
+chordsheetjs@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.2.0.tgz#9b66edde2f7e4c566489b583f9aea2564f6076c0"
+  dependencies:
+    html-entities "^1.2.1"
 
 ci-info@^1.0.0:
   version "1.1.2"
@@ -3228,7 +3230,7 @@ html-encoding-sniffer@^1.0.1:
   dependencies:
     whatwg-encoding "^1.0.1"
 
-html-entities@^1.2.0:
+html-entities@^1.2.0, html-entities@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
 
