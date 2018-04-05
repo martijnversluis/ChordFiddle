@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
+import { compress, decompress } from './string_compression';
 
 import Header from './Header';
 import Toolbar from './Toolbar';
@@ -42,12 +44,31 @@ class App extends Component {
     return processedSong;
   }
 
+  getQueryParam(name, defaultValue) {
+    this.parsedQuery || (this.parsedQuery = queryString.parse(window.location.hash));
+
+    if (name in this.parsedQuery) {
+      return this.parsedQuery[name];
+    }
+
+    return defaultValue;
+  }
+
+  componentDidUpdate() {
+    const {htmlPreviewActive, chordSheet} = this.state;
+
+    window.location.hash = queryString.stringify({
+      preview: htmlPreviewActive ? 'html' : 'text',
+      chord_sheet: compress(chordSheet),
+    });
+  }
+
   constructor() {
     super();
 
     this.state = {
-      chordSheet: exampleChordProSheet,
-      htmlPreviewActive: true,
+      chordSheet: decompress(this.getQueryParam('chord_sheet', '')) || exampleChordProSheet,
+      htmlPreviewActive: this.getQueryParam('preview', 'html') === 'html',
       selectionStart: 0,
       selectionEnd: 0,
       showImportDialog: false,
