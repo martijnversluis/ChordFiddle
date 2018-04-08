@@ -3,8 +3,9 @@ import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
-import { compress, decompress } from './string_compression';
 
+import { compress, decompress } from './string_compression';
+import debounce from './debounce';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
@@ -54,13 +55,17 @@ class App extends Component {
     return defaultValue;
   }
 
-  componentDidUpdate() {
-    const {htmlPreviewActive, chordSheet} = this.state;
+  updateLocationHash = debounce(() => {
+    const { htmlPreviewActive, chordSheet } = this.state;
 
     window.location.hash = queryString.stringify({
       preview: htmlPreviewActive ? 'html' : 'text',
       chord_sheet: compress(chordSheet),
     });
+  });
+
+  componentDidUpdate() {
+    this.updateLocationHash();
   }
 
   constructor() {
