@@ -51,8 +51,6 @@ plugins:
       - .jsx
   fixme:
     enabled: true
-  markdownlint:
-    enabled: true
   nodesecurity:
     enabled: true
 
