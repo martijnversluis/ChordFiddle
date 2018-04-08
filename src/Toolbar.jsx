@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Toolbar.css';
 
-export default function Toolbar(props) {
+function Toolbar(props) {
   const { onTransposeDown, onTransposeUp, onSwitchToSharp, onSwitchToFlat, onShowImportChordSheetDialog } = props;
 
   return (
@@ -28,3 +30,13 @@ export default function Toolbar(props) {
     </ul>
   );
 }
+
+Toolbar.propTypes = {
+  onTransposeDown: PropTypes.func.isRequired,
+  onTransposeUp: PropTypes.func.isRequired,
+  onSwitchToSharp: PropTypes.func.isRequired,
+  onSwitchToFlat: PropTypes.func.isRequired,
+  onShowImportChordSheetDialog: PropTypes.func.isRequired,
+};
+
+export default Toolbar;
