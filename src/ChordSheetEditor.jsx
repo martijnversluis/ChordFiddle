@@ -20,8 +20,7 @@ class ChordSheetEditor extends Component {
 
   onSelectionChange = () => {
     const { onSelect } = this.props;
-    let selectionStart = this.chordSheetEditor.selectionStart;
-    let selectionEnd = this.chordSheetEditor.selectionEnd;
+    let { selectionStart, selectionEnd } = this.chordSheetEditor;
 
     if (selectionStart === selectionEnd) {
       selectionStart = null;
