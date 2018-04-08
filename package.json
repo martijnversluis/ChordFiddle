@@ -28,6 +28,7 @@
     "url": "https://github.com/martijnversluis/chordfiddle/issues"
   },
   "homepage": ".",
+  "githubHome": "https://github.com/martijnversluis/ChordFiddle",
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
   "dependencies": {
     "chordjs": "^1.2.0",
