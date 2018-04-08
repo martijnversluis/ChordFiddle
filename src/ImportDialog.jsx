@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './ImportDialog.css';
 
-export default class ImportDialog extends Component {
+class ImportDialog extends Component {
   onSubmit = () => {
-    this.props.onSubmit(this.importChordSheetEditor.value);
+    const { onSubmit } = this.props;
+    onSubmit(this.importChordSheetEditor.value);
   };
 
   render() {
@@ -32,3 +35,11 @@ export default class ImportDialog extends Component {
     );
   }
 }
+
+ImportDialog.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  onCancel: PropTypes.func.isRequired,
+};
+
+export default ImportDialog;
