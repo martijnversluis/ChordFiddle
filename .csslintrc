@@ -1,1 +1,9 @@
---ignore=import
+{
+  "ignore": [
+    "import"
+  ],
+  "warnings": [
+  ],
+  "errors": [
+  ]
+}
