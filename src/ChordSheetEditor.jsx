@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './ChordSheetEditor.css';
 
-export default class ChordSheetEditor extends Component {
+class ChordSheetEditor extends Component {
   componentDidUpdate() {
     const { selectionStart, selectionEnd } = this.props;
 
@@ -43,3 +45,18 @@ export default class ChordSheetEditor extends Component {
     );
   }
 }
+
+ChordSheetEditor.propTypes = {
+  selectionStart: PropTypes.number,
+  selectionEnd: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  chordSheet: PropTypes.string.isRequired,
+};
+
+ChordSheetEditor.defaultProps = {
+  selectionStart: null,
+  selectionEnd: null,
+};
+
+export default ChordSheetEditor;
