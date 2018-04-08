@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
+import PropTypes from 'prop-types';
+
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
@@ -11,7 +13,7 @@ import ChordSheetTextViewer from './ChordSheetTextViewer';
 import exampleChordProSheet from './example_chord_pro_sheet';
 import './App.css';
 
-export default class App extends Component {
+class App extends Component {
   static processChord(item, processor) {
     if (item instanceof ChordSheetJS.ChordLyricsPair && item.chords) {
       const parsedChord = Chord.parse(item.chords);
@@ -35,8 +37,6 @@ export default class App extends Component {
 
     this.state = {
       chordSheet: exampleChordProSheet,
-      textPreview: '',
-      htmlPreview: '',
       htmlPreviewActive: true,
       selectionStart: 0,
       selectionEnd: 0,
@@ -185,3 +185,21 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  chordSheet: PropTypes.string,
+  htmlPreviewActive: PropTypes.bool,
+  selectionStart: PropTypes.number,
+  selectionEnd: PropTypes.number,
+  showImportDialog: PropTypes.bool,
+};
+
+App.defaultProps = {
+  chordSheet: exampleChordProSheet,
+  htmlPreviewActive: true,
+  selectionStart: 0,
+  selectionEnd: 0,
+  showImportDialog: false,
+};
+
+export default App;
