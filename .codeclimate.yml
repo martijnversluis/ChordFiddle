@@ -41,8 +41,6 @@ checks:
 plugins:
   csslint:
     enabled: true
-    config:
-      config: .csslintrc
   duplication:
     enabled: true
   eslint:
