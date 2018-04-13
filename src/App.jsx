@@ -19,17 +19,27 @@ class App extends Component {
       const parsedChord = Chord.parse(item.chords);
 
       if (parsedChord) {
-        item.chords = processor(parsedChord).toString();
+        const processedChordLyricsPair = new ChordSheetJS.ChordLyricsPair();
+        processedChordLyricsPair.chords = processor(parsedChord).toString();
+        processedChordLyricsPair.lyrics = item.lyrics;
+        return processedChordLyricsPair;
       }
     }
+
+    return item;
   }
 
   static transitSong(song, processor) {
-    song.lines.forEach((line) => {
-      line.items.forEach((item) => {
-        App.processChord(item, processor);
-      });
+    const processedSong = new ChordSheetJS.Song();
+    processedSong.metaData = song.metaData;
+
+    processedSong.lines = song.lines.map((line) => {
+      const processedLine = new ChordSheetJS.Line();
+      processedLine.items = line.items.map(item => App.processChord(item, processor));
+      return processedLine;
     });
+
+    return processedSong;
   }
 
   constructor() {
@@ -76,8 +86,8 @@ class App extends Component {
     const { selectionStart, selectionEnd } = this.state;
     const { selection, prefix, suffix } = this.getTextRanges();
     const song = new ChordSheetJS.ChordProParser().parse(selection);
-    App.transitSong(song, processor);
-    const replacement = new ChordSheetJS.ChordProFormatter().format(song);
+    const processedSong = App.transitSong(song, processor);
+    const replacement = new ChordSheetJS.ChordProFormatter().format(processedSong);
 
     this.setState({
       chordSheet: prefix + replacement + suffix,
