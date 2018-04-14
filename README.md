@@ -10,16 +10,15 @@ ChordFiddle is an online playground for ChordPro chord sheets. It currently supp
 - transposing the ChordPro sheet up and down (complete sheet or selection)
 - switching between sharp (♯) and flat (♭) chords (complete sheet or selection)
 
-On the [project board](https://github.com/martijnversluis/ChordFiddle/projects/1) you can find 
-future features.
+On the [project board](https://github.com/martijnversluis/ChordFiddle/projects/1) you can find future features.
 
-Technically speaking ChordFiddle is just a user interface to the combination of 
+Technically speaking ChordFiddle is just a user interface to the combination of
 [ChordSheetJS](https://github.com/martijnversluis/ChordSheetJS) and
 [ChordJS](https://github.com/martijnversluis/ChordJS).
 
 ## Feature requests/bugs
 
-To issue a feature request or file a bug, please feel free to 
+To issue a feature request or file a bug, please feel free to
 [open an issue](https://github.com/martijnversluis/ChordFiddle/issues/new).
 
 ## Contributing

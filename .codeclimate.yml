@@ -1,6 +1,9 @@
----
+# For info about .codeclimate.yml structure see:
+# https://docs.codeclimate.com/docs/advanced-configuration
+
 version: "2"         # required to adjust maintainability checks
 
+# See: https://docs.codeclimate.com/docs/maintainability#section-checks
 checks:
   argument-count:
     config:
@@ -33,12 +36,22 @@ checks:
     config:
       threshold: # language-specific defaults. an override will affect all languages.
 
+# See: https://docs.codeclimate.com/docs/advanced-configuration#section-plugins
+# and https://docs.codeclimate.com/docs/list-of-engines
 plugins:
   duplication:
     enabled: true
   eslint:
     enabled: true
+    config:
+      config: .eslintrc.json
+      extensions:
+      - .es6
+      - .js
+      - .jsx
   fixme:
+    enabled: true
+  nodesecurity:
     enabled: true
 
 exclude_paths:

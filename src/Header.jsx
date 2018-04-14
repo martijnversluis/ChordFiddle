@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ExternalLink from './ExternalLink';
 import packageInfo from '../package.json';
 import './Header.css';
 
-export default function Header() {
-  return <header className="Header">
-    <div className="Header__wrapper">
+export default class Header extends Component {
+  static renderSiteName() {
+    return (
       <h1 className="Header__site-name">
         <a href="/">{packageInfo.name}</a>
       </h1>
+    );
+  }
 
+  static renderNavigation() {
+    return (
       <ul className="Header__navigation">
         <li>Version {packageInfo.version}</li>
 
@@ -32,6 +36,17 @@ export default function Header() {
           <ExternalLink href={packageInfo.about}>About</ExternalLink>
         </li>
       </ul>
-    </div>
-  </header>
+    );
+  }
+
+  render() {
+    return (
+      <header className="Header">
+        <div className="Header__wrapper">
+          {Header.renderSiteName()}
+          {Header.renderNavigation()}
+        </div>
+      </header>
+    );
+  }
 }
