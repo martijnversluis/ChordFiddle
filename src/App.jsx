@@ -45,29 +45,6 @@ class App extends Component {
     return processedSong;
   }
 
-  getQueryParam(name, defaultValue) {
-    this.parsedQuery || (this.parsedQuery = queryString.parse(window.location.hash));
-
-    if (name in this.parsedQuery) {
-      return this.parsedQuery[name];
-    }
-
-    return defaultValue;
-  }
-
-  updateLocationHash = debounce(() => {
-    const { htmlPreviewActive, chordSheet } = this.state;
-
-    window.location.hash = queryString.stringify({
-      preview: htmlPreviewActive ? 'html' : 'text',
-      chord_sheet: compress(chordSheet),
-    });
-  });
-
-  componentDidUpdate() {
-    this.updateLocationHash();
-  }
-
   constructor() {
     super();
 
@@ -80,6 +57,15 @@ class App extends Component {
     };
   }
 
+  componentDidUpdate = debounce(() => {
+    const { htmlPreviewActive, chordSheet } = this.state;
+
+    window.location.hash = queryString.stringify({
+      preview: htmlPreviewActive ? 'html' : 'text',
+      chord_sheet: compress(chordSheet),
+    });
+  });
+
   onChordSheetChange = (chordSheet) => {
     this.setState({ chordSheet });
   };
@@ -91,6 +77,18 @@ class App extends Component {
   onSelectionChange = ({ selectionStart, selectionEnd }) => {
     this.setState({ selectionStart, selectionEnd });
   };
+
+  getQueryParam(name, defaultValue) {
+    if (!this.parsedQuery) {
+      this.parsedQuery = queryString.parse(window.location.hash);
+    }
+
+    if (name in this.parsedQuery) {
+      return this.parsedQuery[name];
+    }
+
+    return defaultValue;
+  }
 
   getTextRanges() {
     const { chordSheet } = this.state;
