@@ -25,7 +25,7 @@ export default class Header extends Component {
         </li>
 
         <li>
-          <ExternalLink href={packageInfo.homepage}>GitHub</ExternalLink>
+          <ExternalLink href={packageInfo.githubHome}>GitHub</ExternalLink>
         </li>
 
         <li>
