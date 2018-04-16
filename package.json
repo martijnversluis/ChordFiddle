@@ -32,7 +32,7 @@
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
   "dependencies": {
     "chordjs": "^1.2.0",
-    "chordsheetjs": "^2.2.0",
+    "chordsheetjs": "^2.3.0",
     "lz-string": "^1.4.4",
     "postcss-calc": "^6.0.1",
     "postcss-custom-properties": "^7.0.0",

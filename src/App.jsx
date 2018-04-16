@@ -22,9 +22,8 @@ class App extends Component {
       const parsedChord = Chord.parse(item.chords);
 
       if (parsedChord) {
-        const processedChordLyricsPair = new ChordSheetJS.ChordLyricsPair();
+        const processedChordLyricsPair = item.clone();
         processedChordLyricsPair.chords = processor(parsedChord).toString();
-        processedChordLyricsPair.lyrics = item.lyrics;
         return processedChordLyricsPair;
       }
     }
@@ -33,11 +32,10 @@ class App extends Component {
   }
 
   static transitSong(song, processor) {
-    const processedSong = new ChordSheetJS.Song();
-    processedSong.metaData = song.metaData;
+    const processedSong = song.clone();
 
     processedSong.lines = song.lines.map((line) => {
-      const processedLine = new ChordSheetJS.Line();
+      const processedLine = line.clone();
       processedLine.items = line.items.map(item => App.processChord(item, processor));
       return processedLine;
     });
