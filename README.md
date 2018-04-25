@@ -37,3 +37,5 @@ Of course pull requests are more than welcome too. To get started:
 - `yarn build` to generate production assets
 - commit and push your changes
 - open a pull request
+
+Please make sure your contribution passes all Eslint checks.
