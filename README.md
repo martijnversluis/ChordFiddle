@@ -9,6 +9,7 @@ ChordFiddle is an online playground for ChordPro chord sheets. It currently supp
 - importing a normal chord sheet and have it converted to ChordPro
 - transposing the ChordPro sheet up and down (complete sheet or selection)
 - switching between sharp (♯) and flat (♭) chords (complete sheet or selection)
+- sharing your chord sheet by copy-pasting the automatically generated URL
 
 On the [project board](https://github.com/martijnversluis/ChordFiddle/projects/1) you can find future features.
 
