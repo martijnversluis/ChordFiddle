@@ -28,7 +28,9 @@ Of course pull requests are more than welcome too. To get started:
 
 - `git clone git@github.com:martijnversluis/ChordFiddle.git` or 
   `git clone https://github.com/martijnversluis/ChordFiddle.git`
-- `npm install` to install dependencies
-- `npm run build` to compile the Haml template, SASS files and ES2015 JavaScript files.
+- `yarn install` to install dependencies
+- `yarn start` to start the development serve
+- make your changes
+- `yarn build` to generate production assets
 - commit and push your changes
 - open a pull request
