@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Toolbar.css';
+import '../css/Toolbar.css';
 
 function Toolbar(props) {
   const { onTransposeDown, onTransposeUp, onSwitchToSharp, onSwitchToFlat, onShowImportChordSheetDialog } = props;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './ImportDialog.css';
+import '../css/ImportDialog.css';
 
 class ImportDialog extends Component {
   onSubmit = () => {

@@ -1,4 +1,4 @@
-@import './variables.css';
+@import 'variables.css';
 
 .RadioGroup {
     --radio-border-size: 1px;

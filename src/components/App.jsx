@@ -4,8 +4,8 @@ import Chord from 'chordjs';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
-import { compress, decompress } from './string_compression';
-import debounce from './debounce';
+import { compress, decompress } from '../utils/string_compression';
+import debounce from '../utils/debounce';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
@@ -13,8 +13,8 @@ import RadioGroup from './RadioGroup';
 import ChordSheetEditor from './ChordSheetEditor';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
-import exampleChordProSheet from './example_chord_pro_sheet';
-import './App.css';
+import exampleChordProSheet from '../utils/example_chord_pro_sheet';
+import '../css/App.css';
 
 class App extends Component {
   static processChord(item, processor) {

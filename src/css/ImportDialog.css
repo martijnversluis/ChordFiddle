@@ -1,4 +1,4 @@
-@import './variables.css';
+@import 'variables.css';
 
 .ImportDialog {
     --buttons-top-padding: var(--spacing-m);

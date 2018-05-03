@@ -1,4 +1,4 @@
-@import './variables.css';
+@import 'variables.css';
 
 .Toolbar {
     --toolbar-spacing: var(--spacing-m);

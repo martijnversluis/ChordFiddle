@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ExternalLink from './ExternalLink';
-import packageInfo from '../package.json';
-import './Header.css';
+import packageInfo from '../../package.json';
+import '../css/Header.css';
 
 export default class Header extends Component {
   static renderSiteName() {
