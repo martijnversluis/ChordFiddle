@@ -2,7 +2,7 @@ import React from 'react';
 import ChordSheetJS from 'chordsheetjs';
 import PropTypes from 'prop-types';
 
-import './ChordSheetTextViewer.css';
+import '../css/ChordSheetTextViewer.css';
 
 function ChordSheetTextViewer(props) {
   const { song } = props;

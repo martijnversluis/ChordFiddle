@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './ChordSheetEditor.css';
+import '../css/ChordSheetEditor.css';
 
 class ChordSheetEditor extends Component {
   componentDidUpdate() {
