@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ChordSheetJS from 'chordsheetjs';
 import Chord from 'chordjs';
 import PropTypes from 'prop-types';
@@ -14,6 +15,8 @@ import ChordSheetEditor from './ChordSheetEditor';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
 import exampleChordProSheet from '../utils/example_chord_pro_sheet';
+import store from '../store';
+import { setPreviewMode } from '../actions/ui_actions';
 import '../css/App.css';
 
 class App extends Component {
@@ -48,7 +51,6 @@ class App extends Component {
 
     this.state = {
       chordSheet: decompress(this.getQueryParam('chord_sheet', '')) || exampleChordProSheet,
-      htmlPreviewActive: this.getQueryParam('preview', 'html') === 'html',
       selectionStart: 0,
       selectionEnd: 0,
       showImportDialog: false,
@@ -56,10 +58,11 @@ class App extends Component {
   }
 
   componentDidUpdate = debounce(() => {
-    const { htmlPreviewActive, chordSheet } = this.state;
+    const { previewMode } = this.props;
+    const { chordSheet } = this.state;
 
     window.location.hash = queryString.stringify({
-      preview: htmlPreviewActive ? 'html' : 'text',
+      preview: previewMode,
       chord_sheet: compress(chordSheet),
     });
   });
@@ -69,7 +72,7 @@ class App extends Component {
   };
 
   onPreviewModeChange = (newMode) => {
-    this.setState({ htmlPreviewActive: newMode === 'html' });
+    store.dispatch(setPreviewMode(newMode));
   };
 
   onSelectionChange = ({ selectionStart, selectionEnd }) => {
@@ -180,20 +183,34 @@ class App extends Component {
   }
 
   renderViewerColumn() {
-    const { htmlPreviewActive, chordSheet } = this.state;
+    const { previewMode } = this.props;
+    const { chordSheet } = this.state;
     const song = new ChordSheetJS.ChordProParser().parse(chordSheet);
 
     return (
       <section className="App__column">
         <RadioGroup
-          selected={htmlPreviewActive ? 'html' : 'text'}
+          selected={previewMode}
           onOptionSelected={this.onPreviewModeChange}
           options={{ html: 'Markup', text: 'Plain' }}
         />
 
-        {htmlPreviewActive ? <ChordSheetHTMLViewer song={song} /> : <ChordSheetTextViewer song={song} />}
+        {this.renderViewer(song)}
       </section>
     );
+  }
+
+  renderViewer(song) {
+    const { previewMode } = this.props;
+
+    switch (previewMode) {
+      case 'html':
+        return <ChordSheetHTMLViewer song={song} />;
+      case 'text':
+        return <ChordSheetTextViewer song={song} />;
+      default:
+        return null;
+    }
   }
 
   render() {
@@ -220,7 +237,6 @@ class App extends Component {
 
 App.propTypes = {
   chordSheet: PropTypes.string,
-  htmlPreviewActive: PropTypes.bool,
   selectionStart: PropTypes.number,
   selectionEnd: PropTypes.number,
   showImportDialog: PropTypes.bool,
@@ -228,10 +244,14 @@ App.propTypes = {
 
 App.defaultProps = {
   chordSheet: exampleChordProSheet,
-  htmlPreviewActive: true,
   selectionStart: 0,
   selectionEnd: 0,
   showImportDialog: false,
+  previewMode: PropTypes.string,
 };
 
-export default App;
+const mapStateToProps = state => {
+  return { previewMode: state.ui.previewMode };
+};
+
+export default connect(mapStateToProps)(App);
