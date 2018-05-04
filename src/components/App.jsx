@@ -10,7 +10,7 @@ import debounce from '../utils/debounce';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
-import RadioGroup from './RadioGroup';
+import PreviewModeSelector from './PreviewModeSelector';
 import ChordSheetEditor from './ChordSheetEditor';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
@@ -68,10 +68,6 @@ class App extends Component {
 
   onChordSheetChange = (chordSheet) => {
     this.setState({ chordSheet });
-  };
-
-  onPreviewModeChange = (newMode) => {
-    store.dispatch(setPreviewMode(newMode));
   };
 
   onSelectionChange = ({ selectionStart, selectionEnd }) => {
@@ -173,18 +169,12 @@ class App extends Component {
   }
 
   renderViewerColumn() {
-    const { previewMode } = this.props;
     const { chordSheet } = this.state;
     const song = new ChordSheetJS.ChordProParser().parse(chordSheet);
 
     return (
       <section className="App__column">
-        <RadioGroup
-          selected={previewMode}
-          onOptionSelected={this.onPreviewModeChange}
-          options={{ html: 'Markup', text: 'Plain' }}
-        />
-
+        <PreviewModeSelector />
         {this.renderViewer(song)}
       </section>
     );
