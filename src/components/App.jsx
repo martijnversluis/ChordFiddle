@@ -208,10 +208,6 @@ class App extends Component {
 
 App.propTypes = {
   chordSheet: PropTypes.string,
-};
-
-App.defaultProps = {
-  chordSheet: exampleChordProSheet,
   previewMode: PropTypes.string,
 };
 
