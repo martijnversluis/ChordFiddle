@@ -1,7 +1,8 @@
 import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../action_types/ui_action_types';
+import getQueryParam from '../utils/get_query_param';
 
 const initialState = {
-  previewMode: 'html',
+  previewMode: getQueryParam('preview', 'html'),
   showImportDialog: false,
 };
 
