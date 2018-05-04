@@ -16,7 +16,7 @@ import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
 import exampleChordProSheet from '../utils/example_chord_pro_sheet';
 import store from '../store';
-import { setPreviewMode } from '../actions/ui_actions';
+import { hideImportDialog, setPreviewMode } from '../actions/ui_actions';
 import '../css/App.css';
 
 class App extends Component {
@@ -53,7 +53,6 @@ class App extends Component {
       chordSheet: decompress(this.getQueryParam('chord_sheet', '')) || exampleChordProSheet,
       selectionStart: 0,
       selectionEnd: 0,
-      showImportDialog: false,
     };
   }
 
@@ -142,16 +141,8 @@ class App extends Component {
     this.transitChords(chord => chord.useModifier('b'));
   };
 
-  showImportChordSheetDialog = () => {
-    this.setState({ showImportDialog: true });
-  };
-
-  hideImportChordSheetDialog = () => {
-    this.setState({ showImportDialog: false });
-  };
-
   importChordSheet = (sheet) => {
-    this.hideImportChordSheetDialog();
+    store.dispatch(hideImportDialog());
     const song = new ChordSheetJS.ChordSheetParser({ preserveWhitespace: false }).parse(sheet);
     const chordSheet = new ChordSheetJS.ChordProFormatter().format(song);
 
@@ -168,7 +159,6 @@ class App extends Component {
           onTransposeUp={this.transposeUp}
           onSwitchToSharp={this.switchToSharp}
           onSwitchToFlat={this.switchToFlat}
-          onShowImportChordSheetDialog={this.showImportChordSheetDialog}
         />
 
         <ChordSheetEditor
@@ -225,11 +215,7 @@ class App extends Component {
           </div>
         </main>
 
-        <ImportDialog
-          onSubmit={this.importChordSheet}
-          onCancel={this.hideImportChordSheetDialog}
-          show={this.state.showImportDialog}
-        />
+        <ImportDialog onSubmit={this.importChordSheet} />
       </div>
     );
   }
@@ -239,19 +225,18 @@ App.propTypes = {
   chordSheet: PropTypes.string,
   selectionStart: PropTypes.number,
   selectionEnd: PropTypes.number,
-  showImportDialog: PropTypes.bool,
 };
 
 App.defaultProps = {
   chordSheet: exampleChordProSheet,
   selectionStart: 0,
   selectionEnd: 0,
-  showImportDialog: false,
   previewMode: PropTypes.string,
 };
 
 const mapStateToProps = state => {
-  return { previewMode: state.ui.previewMode };
+  const { previewMode } = state.ui;
+  return { previewMode };
 };
 
 export default connect(mapStateToProps)(App);

@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import store from '../store';
+import { showImportDialog } from '../actions/ui_actions';
 import '../css/Toolbar.css';
 
 function Toolbar(props) {
-  const { onTransposeDown, onTransposeUp, onSwitchToSharp, onSwitchToFlat, onShowImportChordSheetDialog } = props;
+  const { onTransposeDown, onTransposeUp, onSwitchToSharp, onSwitchToFlat } = props;
 
   return (
     <ul className="Toolbar">
@@ -25,7 +27,7 @@ function Toolbar(props) {
       </li>
 
       <li>
-        <button onClick={onShowImportChordSheetDialog}>Import chord sheet</button>
+        <button onClick={() => store.dispatch(showImportDialog())}>Import chord sheet</button>
       </li>
     </ul>
   );
@@ -36,7 +38,6 @@ Toolbar.propTypes = {
   onTransposeUp: PropTypes.func.isRequired,
   onSwitchToSharp: PropTypes.func.isRequired,
   onSwitchToFlat: PropTypes.func.isRequired,
-  onShowImportChordSheetDialog: PropTypes.func.isRequired,
 };
 
 export default Toolbar;
