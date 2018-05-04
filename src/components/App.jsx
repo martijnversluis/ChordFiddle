@@ -18,6 +18,7 @@ import exampleChordProSheet from '../utils/example_chord_pro_sheet';
 import store from '../store';
 import { hideImportDialog } from '../actions/ui_actions';
 import '../css/App.css';
+import { setSelectionRange } from "../actions/chord_sheet_actions";
 
 class App extends Component {
   static processChord(item, processor) {
@@ -51,8 +52,6 @@ class App extends Component {
 
     this.state = {
       chordSheet: decompress(this.getQueryParam('chord_sheet', '')) || exampleChordProSheet,
-      selectionStart: 0,
-      selectionEnd: 0,
     };
   }
 
@@ -70,10 +69,6 @@ class App extends Component {
     this.setState({ chordSheet });
   };
 
-  onSelectionChange = ({ selectionStart, selectionEnd }) => {
-    this.setState({ selectionStart, selectionEnd });
-  };
-
   getQueryParam(name, defaultValue) {
     if (!this.parsedQuery) {
       this.parsedQuery = queryString.parse(window.location.hash);
@@ -88,7 +83,7 @@ class App extends Component {
 
   getTextRanges() {
     const { chordSheet } = this.state;
-    let { selectionStart, selectionEnd } = this.state;
+    let { selectionStart, selectionEnd } = this.props;
 
     if (selectionStart === selectionEnd) {
       selectionStart = 0;
@@ -103,7 +98,7 @@ class App extends Component {
   }
 
   transitChords(processor) {
-    const { selectionStart, selectionEnd } = this.state;
+    const { selectionStart, selectionEnd } = this.props;
     const { selection, prefix, suffix } = this.getTextRanges();
     const song = new ChordSheetJS.ChordProParser().parse(selection);
     const processedSong = App.transitSong(song, processor);
@@ -114,10 +109,10 @@ class App extends Component {
     });
 
     if (selectionStart !== selectionEnd) {
-      this.setState({
-        selectionStart: prefix.length,
-        selectionEnd: prefix.length + replacement.length,
-      });
+      store.dispatch(setSelectionRange({
+        start: prefix.length,
+        end: prefix.length + replacement.length,
+      }));
     }
   }
 
@@ -146,7 +141,8 @@ class App extends Component {
   };
 
   renderEditorColumn() {
-    const { chordSheet, selectionStart, selectionEnd } = this.state;
+    const { chordSheet } = this.state;
+    const { selectionStart, selectionEnd } = this.props;
 
     return (
       <section className="App__column">
@@ -162,7 +158,6 @@ class App extends Component {
           selectionStart={selectionStart}
           selectionEnd={selectionEnd}
           onChange={this.onChordSheetChange}
-          onSelect={this.onSelectionChange}
         />
       </section>
     );
@@ -213,20 +208,17 @@ class App extends Component {
 
 App.propTypes = {
   chordSheet: PropTypes.string,
-  selectionStart: PropTypes.number,
-  selectionEnd: PropTypes.number,
 };
 
 App.defaultProps = {
   chordSheet: exampleChordProSheet,
-  selectionStart: 0,
-  selectionEnd: 0,
   previewMode: PropTypes.string,
 };
 
 const mapStateToProps = state => {
   const { previewMode } = state.ui;
-  return { previewMode };
+  const { selectionStart, selectionEnd } = state.chordSheet;
+  return { previewMode, selectionStart, selectionEnd };
 };
 
 export default connect(mapStateToProps)(App);

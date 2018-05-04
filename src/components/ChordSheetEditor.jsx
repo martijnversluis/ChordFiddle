@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import store from '../store/index';
+import { setSelectionRange } from '../actions/chord_sheet_actions';
 import '../css/ChordSheetEditor.css';
 
 class ChordSheetEditor extends Component {
   componentDidUpdate() {
     const { selectionStart, selectionEnd } = this.props;
 
-    if (selectionStart !== null && selectionEnd !== null) {
+    if (selectionStart !== selectionEnd) {
       this.chordSheetEditor.focus();
       this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
     }
@@ -19,15 +21,8 @@ class ChordSheetEditor extends Component {
   };
 
   onSelectionChange = () => {
-    const { onSelect } = this.props;
-    let { selectionStart, selectionEnd } = this.chordSheetEditor;
-
-    if (selectionStart === selectionEnd) {
-      selectionStart = null;
-      selectionEnd = null;
-    }
-
-    onSelect({ selectionStart, selectionEnd });
+    const { selectionStart: start, selectionEnd: end } = this.chordSheetEditor;
+    store.dispatch(setSelectionRange({ start, end }));
   };
 
   render() {
@@ -49,7 +44,6 @@ ChordSheetEditor.propTypes = {
   selectionStart: PropTypes.number,
   selectionEnd: PropTypes.number,
   onChange: PropTypes.func.isRequired,
-  onSelect: PropTypes.func.isRequired,
   chordSheet: PropTypes.string.isRequired,
 };
 
