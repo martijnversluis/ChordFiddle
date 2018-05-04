@@ -16,7 +16,7 @@ import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
 import exampleChordProSheet from '../utils/example_chord_pro_sheet';
 import store from '../store';
-import { hideImportDialog, setPreviewMode } from '../actions/ui_actions';
+import { hideImportDialog } from '../actions/ui_actions';
 import '../css/App.css';
 
 class App extends Component {
