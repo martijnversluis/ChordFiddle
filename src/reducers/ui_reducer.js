@@ -9,7 +9,8 @@ const initialState = {
 const uiReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_PREVIEW_MODE:
-      return { ...state, previewMode: action.payload };
+      const { previewMode } = action;
+      return { ...state, previewMode };
 
     case SHOW_IMPORT_DIALOG:
       return { ...state, showImportDialog: true };

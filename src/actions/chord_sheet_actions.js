@@ -9,12 +9,13 @@ import {
 
 export const setSelectionRange = ({start, end}) => ({
   type: SET_SELECTION_RANGE,
-  payload: { start, end }
+  start,
+  end
 });
 
 export const setChordSheet = (chordSheet) => ({
   type: SET_CHORD_SHEET,
-  payload: chordSheet
+  chordSheet
 });
 
 export const transposeUp = () => ({

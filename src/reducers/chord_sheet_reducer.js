@@ -55,11 +55,12 @@ const initialState = {
 const chordSheetReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SELECTION_RANGE:
-      const { start: selectionStart, end: selectionEnd } = action.payload;
+      const { start: selectionStart, end: selectionEnd } = action;
       return { ...state, selectionStart, selectionEnd };
 
     case SET_CHORD_SHEET:
-      return { ...state, chordSheet: action.payload };
+      const { chordSheet } = action;
+      return { ...state, chordSheet };
 
     case TRANSPOSE_UP:
       return transformChordSheet(state, transposeUp);
