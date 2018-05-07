@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 
 import store from '../store';
 import { hideImportDialog } from '../actions/ui_actions';
+import { importChordSheet } from '../actions/chord_sheet_actions';
+
 import '../css/ImportDialog.css';
 
 class ImportDialog extends Component {
   onSubmit = () => {
-    const { onSubmit } = this.props;
-    onSubmit(this.importChordSheetEditor.value);
+    store.dispatch(importChordSheet(this.importChordSheetEditor.value));
+    store.dispatch(hideImportDialog());
   };
 
   render() {
@@ -40,7 +42,6 @@ class ImportDialog extends Component {
 }
 
 ImportDialog.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
 };
 

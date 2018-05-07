@@ -1,4 +1,16 @@
+import exampleChordProSheet from '../utils/example_chord_pro_sheet';
+import { decompress } from '../utils/string_compression';
+import getQueryParam from '../utils/get_query_param';
 import {
+  importChordSheet,
+  switchToFlat,
+  switchToSharp,
+  transposeDown,
+  transposeUp
+} from '../utils/chord_sheet_transformations';
+
+import {
+  IMPORT_CHORD_SHEET,
   SET_CHORD_SHEET,
   SET_SELECTION_RANGE,
   SWITCH_TO_FLAT,
@@ -6,11 +18,6 @@ import {
   TRANSPOSE_DOWN,
   TRANSPOSE_UP
 } from '../action_types/chord_sheet_action_types';
-
-import exampleChordProSheet from '../utils/example_chord_pro_sheet';
-import { decompress } from '../utils/string_compression';
-import getQueryParam from '../utils/get_query_param';
-import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../utils/chord_sheet_transformations';
 
 const getTextRanges = (state) => {
   const { chordSheet } = state;
@@ -59,8 +66,10 @@ const chordSheetReducer = (state = initialState, action) => {
       return { ...state, selectionStart, selectionEnd };
 
     case SET_CHORD_SHEET:
-      const { chordSheet } = action;
-      return { ...state, chordSheet };
+      return { ...state, chordSheet: action.chordSheet };
+
+    case IMPORT_CHORD_SHEET:
+      return { ...state, chordSheet: importChordSheet(action.chordSheet) };
 
     case TRANSPOSE_UP:
       return transformChordSheet(state, transposeUp);

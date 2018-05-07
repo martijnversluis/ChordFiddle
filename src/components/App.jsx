@@ -13,10 +13,8 @@ import PreviewModeSelector from './PreviewModeSelector';
 import ChordSheetEditor from './ChordSheetEditor';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
-import store from '../store';
-import { hideImportDialog } from '../actions/ui_actions';
+
 import '../css/App.css';
-import { setChordSheet } from '../actions/chord_sheet_actions';
 
 class App extends Component {
   componentDidUpdate = debounce(() => {
@@ -27,13 +25,6 @@ class App extends Component {
       chord_sheet: compress(chordSheet),
     });
   });
-
-  importChordSheet = (sheet) => {
-    store.dispatch(hideImportDialog());
-    const song = new ChordSheetJS.ChordSheetParser({ preserveWhitespace: false }).parse(sheet);
-    const chordSheet = new ChordSheetJS.ChordProFormatter().format(song);
-    store.dispatch(setChordSheet(chordSheet));
-  };
 
   renderEditorColumn() {
     const { chordSheet, selectionStart, selectionEnd } = this.props;
@@ -89,7 +80,7 @@ class App extends Component {
           </div>
         </main>
 
-        <ImportDialog onSubmit={this.importChordSheet} />
+        <ImportDialog />
       </div>
     );
   }

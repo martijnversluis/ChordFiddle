@@ -1,4 +1,5 @@
 import {
+  IMPORT_CHORD_SHEET,
   SET_CHORD_SHEET,
   SET_SELECTION_RANGE,
   SWITCH_TO_FLAT,
@@ -15,6 +16,11 @@ export const setSelectionRange = ({start, end}) => ({
 
 export const setChordSheet = (chordSheet) => ({
   type: SET_CHORD_SHEET,
+  chordSheet
+});
+
+export const importChordSheet = (chordSheet) => ({
+  type: IMPORT_CHORD_SHEET,
   chordSheet
 });
 
