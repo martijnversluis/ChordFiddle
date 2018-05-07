@@ -1,29 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import store from '../store';
 import { showImportDialog } from '../actions/ui_actions';
 import '../css/Toolbar.css';
+import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../actions/chord_sheet_actions';
 
-function Toolbar(props) {
-  const { onTransposeDown, onTransposeUp, onSwitchToSharp, onSwitchToFlat } = props;
-
+function Toolbar() {
   return (
     <ul className="Toolbar">
       <li>
-        <button onClick={onTransposeDown}>Transpose down</button>
+        <button onClick={() => store.dispatch(transposeDown())}>Transpose down</button>
       </li>
 
       <li>
-        <button onClick={onTransposeUp}>Transpose up</button>
+        <button onClick={() => store.dispatch(transposeUp())}>Transpose up</button>
       </li>
 
       <li>
-        <button onClick={onSwitchToSharp}>Use ♯</button>
+        <button onClick={() => store.dispatch(switchToSharp())}>Use ♯</button>
       </li>
 
       <li>
-        <button onClick={onSwitchToFlat}>Use ♭</button>
+        <button onClick={() => store.dispatch(switchToFlat())}>Use ♭</button>
       </li>
 
       <li>
@@ -32,12 +30,5 @@ function Toolbar(props) {
     </ul>
   );
 }
-
-Toolbar.propTypes = {
-  onTransposeDown: PropTypes.func.isRequired,
-  onTransposeUp: PropTypes.func.isRequired,
-  onSwitchToSharp: PropTypes.func.isRequired,
-  onSwitchToFlat: PropTypes.func.isRequired,
-};
 
 export default Toolbar;

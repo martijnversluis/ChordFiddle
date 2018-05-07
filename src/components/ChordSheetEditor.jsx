@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import store from '../store/index';
-import { setSelectionRange } from '../actions/chord_sheet_actions';
+import { setChordSheet, setSelectionRange } from '../actions/chord_sheet_actions';
 import '../css/ChordSheetEditor.css';
 
 class ChordSheetEditor extends Component {
@@ -16,8 +16,7 @@ class ChordSheetEditor extends Component {
   }
 
   onChange = () => {
-    const { onChange } = this.props;
-    onChange(this.chordSheetEditor.value);
+    store.dispatch(setChordSheet(this.chordSheetEditor.value));
   };
 
   onSelectionChange = () => {
@@ -43,7 +42,6 @@ class ChordSheetEditor extends Component {
 ChordSheetEditor.propTypes = {
   selectionStart: PropTypes.number,
   selectionEnd: PropTypes.number,
-  onChange: PropTypes.func.isRequired,
   chordSheet: PropTypes.string.isRequired,
 };
 
