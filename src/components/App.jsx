@@ -17,16 +17,7 @@ import ChordSheetTextViewer from './ChordSheetTextViewer';
 import '../css/App.css';
 
 class App extends Component {
-  componentDidUpdate = debounce(() => {
-    const { chordSheet, previewMode } = this.props;
-
-    window.location.hash = queryString.stringify({
-      preview: previewMode,
-      chord_sheet: compress(chordSheet),
-    });
-  });
-
-  renderEditorColumn() {
+  static renderEditorColumn() {
     return (
       <section className="App__column">
         <Toolbar />
@@ -34,6 +25,19 @@ class App extends Component {
       </section>
     );
   }
+
+  componentDidUpdate() {
+    this.updateLocationHash();
+  }
+
+  updateLocationHash = debounce(() => {
+    const { chordSheet, previewMode } = this.props;
+
+    window.location.hash = queryString.stringify({
+      preview: previewMode,
+      chord_sheet: compress(chordSheet),
+    });
+  });
 
   renderViewerColumn() {
     const { chordSheet } = this.props;
@@ -67,7 +71,7 @@ class App extends Component {
 
         <main className="App__container">
           <div className="App__columns">
-            { this.renderEditorColumn() }
+            { App.renderEditorColumn() }
             { this.renderViewerColumn() }
           </div>
         </main>
@@ -79,11 +83,11 @@ class App extends Component {
 }
 
 App.propTypes = {
-  chordSheet: PropTypes.string,
-  previewMode: PropTypes.string,
+  chordSheet: PropTypes.string.isRequired,
+  previewMode: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { previewMode } = state.ui;
   const { chordSheet } = state.chordSheet;
   return { chordSheet, previewMode };

@@ -6,7 +6,7 @@ import {
   switchToFlat,
   switchToSharp,
   transposeDown,
-  transposeUp
+  transposeUp,
 } from '../utils/chord_sheet_transformations';
 
 import {
@@ -16,7 +16,7 @@ import {
   SWITCH_TO_FLAT,
   SWITCH_TO_SHARP,
   TRANSPOSE_DOWN,
-  TRANSPOSE_UP
+  TRANSPOSE_UP,
 } from '../action_types/chord_sheet_action_types';
 
 const getTextRanges = (state) => {
@@ -43,14 +43,14 @@ const transformChordSheet = (state, processor) => {
 
   if (selectionStart === selectionEnd) {
     return { ...state, chordSheet };
-  } else {
-    return {
-      ...state,
-      chordSheet,
-      selectionStart: prefix.length,
-      selectionEnd: prefix.length + replacement.length
-    };
   }
+
+  return {
+    ...state,
+    chordSheet,
+    selectionStart: prefix.length,
+    selectionEnd: prefix.length + replacement.length,
+  };
 };
 
 const initialState = {
@@ -62,18 +62,24 @@ const initialState = {
 const chordSheetReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SELECTION_RANGE:
-      const { start: selectionStart, end: selectionEnd } = action;
-      return { ...state, selectionStart, selectionEnd };
+      return {
+        ...state,
+        selectionStart: action.start,
+        selectionEnd: action.end,
+      };
 
     case SET_CHORD_SHEET:
-      return { ...state, chordSheet: action.chordSheet };
+      return {
+        ...state,
+        chordSheet: action.chordSheet,
+      };
 
     case IMPORT_CHORD_SHEET:
       return {
         ...state,
         chordSheet: importChordSheet(action.chordSheet),
         selectionStart: 0,
-        selectionEnd: 0
+        selectionEnd: 0,
       };
 
     case TRANSPOSE_UP:

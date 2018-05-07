@@ -9,14 +9,22 @@ const initialState = {
 const uiReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_PREVIEW_MODE:
-      const { previewMode } = action;
-      return { ...state, previewMode };
+      return {
+        ...state,
+        previewMode: action.previewMode,
+      };
 
     case SHOW_IMPORT_DIALOG:
-      return { ...state, showImportDialog: true };
+      return {
+        ...state,
+        showImportDialog: true,
+      };
 
     case HIDE_IMPORT_DIALOG:
-      return { ...state, showImportDialog: false };
+      return {
+        ...state,
+        showImportDialog: false,
+      };
 
     default:
       return state;

@@ -45,7 +45,7 @@ ImportDialog.propTypes = {
   show: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { showImportDialog: show } = state.ui;
   return { show };
 };

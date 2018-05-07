@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import RadioGroup from './RadioGroup';
 import { setPreviewMode } from '../actions/ui_actions';
 import store from '../store';
 
 class PreviewModeSelector extends Component {
+  onPreviewModeChange = (newMode) => {
+    store.dispatch(setPreviewMode(newMode));
+  };
+
   render() {
     const { previewMode } = this.props;
 
@@ -17,13 +22,13 @@ class PreviewModeSelector extends Component {
       />
     );
   }
+}
 
-  onPreviewModeChange = (newMode) => {
-    store.dispatch(setPreviewMode(newMode));
-  };
+PreviewModeSelector.propTypes = {
+  previewMode: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { previewMode } = state.ui;
   return { previewMode };
 };

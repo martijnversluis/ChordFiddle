@@ -33,21 +33,21 @@ const transformChordSheet = (chordSheet, processor) => {
   return new ChordSheetJS.ChordProFormatter().format(processedSong);
 };
 
-export const transposeUp = (chordSheet) => {
-  return transformChordSheet(chordSheet, chord => chord.transposeUp());
-};
+export const transposeUp = chordSheet => (
+  transformChordSheet(chordSheet, chord => chord.transposeUp())
+);
 
-export const transposeDown = (chordSheet) => {
-  return transformChordSheet(chordSheet, chord => chord.transposeDown());
-};
+export const transposeDown = chordSheet => (
+  transformChordSheet(chordSheet, chord => chord.transposeDown())
+);
 
-export const switchToSharp = (chordSheet) => {
-  return transformChordSheet(chordSheet, chord => chord.useModifier('#'));
-};
+export const switchToSharp = chordSheet => (
+  transformChordSheet(chordSheet, chord => chord.useModifier('#'))
+);
 
-export const switchToFlat = (chordSheet) => {
-  return transformChordSheet(chordSheet, chord => chord.useModifier('b'));
-};
+export const switchToFlat = chordSheet => (
+  transformChordSheet(chordSheet, chord => chord.useModifier('b'))
+);
 
 export const importChordSheet = (chordSheet) => {
   const parser = new ChordSheetJS.ChordSheetParser({ preserveWhitespace: false });

@@ -41,12 +41,12 @@ class ChordSheetEditor extends Component {
 }
 
 ChordSheetEditor.propTypes = {
-  selectionStart: PropTypes.number,
-  selectionEnd: PropTypes.number,
-  chordSheet: PropTypes.string,
+  selectionStart: PropTypes.number.isRequired,
+  selectionEnd: PropTypes.number.isRequired,
+  chordSheet: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { chordSheet, selectionStart, selectionEnd } = state.chordSheet;
   return { chordSheet, selectionStart, selectionEnd };
 };

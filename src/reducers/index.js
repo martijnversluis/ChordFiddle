@@ -5,7 +5,7 @@ import chordSheetReducer from './chord_sheet_reducer';
 
 const rootReducer = combineReducers({
   ui: uiReducer,
-  chordSheet: chordSheetReducer
+  chordSheet: chordSheetReducer,
 });
 
 export default rootReducer;
