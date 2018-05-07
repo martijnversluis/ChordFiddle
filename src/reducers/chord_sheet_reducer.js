@@ -69,7 +69,12 @@ const chordSheetReducer = (state = initialState, action) => {
       return { ...state, chordSheet: action.chordSheet };
 
     case IMPORT_CHORD_SHEET:
-      return { ...state, chordSheet: importChordSheet(action.chordSheet) };
+      return {
+        ...state,
+        chordSheet: importChordSheet(action.chordSheet),
+        selectionStart: 0,
+        selectionEnd: 0
+      };
 
     case TRANSPOSE_UP:
       return transformChordSheet(state, transposeUp);
