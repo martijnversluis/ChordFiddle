@@ -1,8 +1,9 @@
 import exampleChordProSheet from '../utils/example_chord_pro_sheet';
 import { decompress } from '../utils/string_compression';
 import getQueryParam from '../utils/get_query_param';
+
 import {
-  importChordSheet,
+  convertChordSheetToChordPro,
   switchToFlat,
   switchToSharp,
   transposeDown,
@@ -53,6 +54,24 @@ const transformChordSheet = (state, processor) => {
   };
 };
 
+const setSelectionRange = (state, action) => ({
+  ...state,
+  selectionStart: action.start,
+  selectionEnd: action.end,
+});
+
+const setChordSheet = (state, action) => ({
+  ...state,
+  chordSheet: action.chordSheet,
+});
+
+const importChordSheet = (state, action) => ({
+  ...state,
+  chordSheet: convertChordSheetToChordPro(action.chordSheet),
+  selectionStart: 0,
+  selectionEnd: 0,
+});
+
 const initialState = {
   selectionStart: 0,
   selectionEnd: 0,
@@ -62,25 +81,13 @@ const initialState = {
 const chordSheetReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SELECTION_RANGE:
-      return {
-        ...state,
-        selectionStart: action.start,
-        selectionEnd: action.end,
-      };
+      return setSelectionRange(state, action);
 
     case SET_CHORD_SHEET:
-      return {
-        ...state,
-        chordSheet: action.chordSheet,
-      };
+      return setChordSheet(state, action);
 
     case IMPORT_CHORD_SHEET:
-      return {
-        ...state,
-        chordSheet: importChordSheet(action.chordSheet),
-        selectionStart: 0,
-        selectionEnd: 0,
-      };
+      return importChordSheet(state, action);
 
     case TRANSPOSE_UP:
       return transformChordSheet(state, transposeUp);

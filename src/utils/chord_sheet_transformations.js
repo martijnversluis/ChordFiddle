@@ -49,7 +49,7 @@ export const switchToFlat = chordSheet => (
   transformChordSheet(chordSheet, chord => chord.useModifier('b'))
 );
 
-export const importChordSheet = (chordSheet) => {
+export const convertChordSheetToChordPro = (chordSheet) => {
   const parser = new ChordSheetJS.ChordSheetParser({ preserveWhitespace: false });
   const formatter = new ChordSheetJS.ChordProFormatter();
   const song = parser.parse(chordSheet);
