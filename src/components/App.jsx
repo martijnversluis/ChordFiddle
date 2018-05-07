@@ -27,18 +27,10 @@ class App extends Component {
   });
 
   renderEditorColumn() {
-    const { chordSheet, selectionStart, selectionEnd } = this.props;
-
     return (
       <section className="App__column">
         <Toolbar />
-
-        <ChordSheetEditor
-          chordSheet={chordSheet}
-          selectionStart={selectionStart}
-          selectionEnd={selectionEnd}
-          onChange={this.onChordSheetChange}
-        />
+        <ChordSheetEditor />
       </section>
     );
   }
@@ -93,8 +85,8 @@ App.propTypes = {
 
 const mapStateToProps = state => {
   const { previewMode } = state.ui;
-  const { chordSheet, selectionStart, selectionEnd } = state.chordSheet;
-  return { chordSheet, previewMode, selectionStart, selectionEnd };
+  const { chordSheet } = state.chordSheet;
+  return { chordSheet, previewMode };
 };
 
 export default connect(mapStateToProps)(App);
