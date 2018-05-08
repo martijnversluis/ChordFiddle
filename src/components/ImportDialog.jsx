@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import store from '../store';
 import { hideImportDialog } from '../actions/ui_actions';
 import { importChordSheet } from '../actions/chord_sheet_actions';
 
@@ -10,12 +9,13 @@ import '../css/ImportDialog.css';
 
 class ImportDialog extends Component {
   onSubmit = () => {
-    store.dispatch(importChordSheet(this.importChordSheetEditor.value));
-    store.dispatch(hideImportDialog());
+    const { hideImportDialog, importChordSheet } = this.props;
+    importChordSheet(this.importChordSheetEditor.value);
+    hideImportDialog();
   };
 
   render() {
-    const { show } = this.props;
+    const { hideImportDialog, show } = this.props;
 
     if (!show) {
       return null;
@@ -23,7 +23,7 @@ class ImportDialog extends Component {
 
     return (
       <section className="ImportDialog">
-        <button className="ImportDialog__close-button" onClick={() => store.dispatch(hideImportDialog())}>×</button>
+        <button className="ImportDialog__close-button" onClick={() => hideImportDialog()}>×</button>
 
         <div className="ImportDialog__contents">
           <h1>Import chord sheet</h1>
@@ -50,4 +50,8 @@ const mapStateToProps = (state) => {
   return { show };
 };
 
-export default connect(mapStateToProps)(ImportDialog);
+const mapDispatchToProps = {
+  hideImportDialog, importChordSheet
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImportDialog);

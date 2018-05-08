@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import store from '../store/index';
 import { setChordSheet, setSelectionRange } from '../actions/chord_sheet_actions';
 import '../css/ChordSheetEditor.css';
 
@@ -16,22 +15,19 @@ class ChordSheetEditor extends Component {
     }
   }
 
-  onChange = () => {
-    store.dispatch(setChordSheet(this.chordSheetEditor.value));
-  };
-
-  onSelectionChange = () => {
-    const { selectionStart: start, selectionEnd: end } = this.chordSheetEditor;
-    store.dispatch(setSelectionRange({ start, end }));
+  onSelectionChange = (event) => {
+    const { selectionStart: start, selectionEnd: end } = event.target;
+    const { setSelectionRange } = this.props;
+    setSelectionRange({ start, end });
   };
 
   render() {
-    const { chordSheet } = this.props;
+    const { chordSheet, setChordSheet } = this.props;
 
     return (
       <textarea
         className="ChordSheetTextViewer"
-        onChange={this.onChange}
+        onChange={event => setChordSheet(event.target.value)}
         onSelect={this.onSelectionChange}
         ref={textarea => (this.chordSheetEditor = textarea)}
         value={chordSheet}
@@ -51,4 +47,8 @@ const mapStateToProps = (state) => {
   return { chordSheet, selectionStart, selectionEnd };
 };
 
-export default connect(mapStateToProps)(ChordSheetEditor);
+const mapDispatchToProps = {
+  setChordSheet, setSelectionRange
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChordSheetEditor);

@@ -1,30 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import store from '../store';
 import { showImportDialog } from '../actions/ui_actions';
 import '../css/Toolbar.css';
 import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../actions/chord_sheet_actions';
 
-const buttons = [
-  ['Transpose down', transposeDown],
-  ['Transpose up', transposeUp],
-  ['Use ♯', switchToSharp],
-  ['Use ♭', switchToFlat],
-  ['Import chord sheet', showImportDialog],
-];
+class Toolbar extends Component {
+  getButtons() {
+    const {
+      transposeDown,
+      transposeUp,
+      switchToSharp,
+      switchToFlat,
+      showImportDialog,
+    } = this.props;
 
-function Toolbar() {
-  return (
-    <ul className="Toolbar">
-      {
-        buttons.map(([buttonText, action]) => (
-          <li>
-            <button onClick={() => store.dispatch(action())}>{buttonText}</button>
-          </li>
-        ))
-      }
-    </ul>
-  );
+    return [
+      ['Transpose down', transposeDown],
+      ['Transpose up', transposeUp],
+      ['Use ♯', switchToSharp],
+      ['Use ♭', switchToFlat],
+      ['Import chord sheet', showImportDialog],
+    ];
+  }
+
+
+  render() {
+    const buttons = this.getButtons();
+
+    return (
+      <ul className="Toolbar">
+        {
+          buttons.map(([buttonText, action]) => (
+            <li>
+              <button onClick={() => action()}>{buttonText}</button>
+            </li>
+          ))
+        }
+      </ul>
+    );
+  }
 }
 
-export default Toolbar;
+const mapDispatchToProps = {
+  transposeDown,
+  transposeUp,
+  switchToSharp,
+  switchToFlat,
+  showImportDialog
+};
+
+export default connect(null, mapDispatchToProps)(Toolbar);
