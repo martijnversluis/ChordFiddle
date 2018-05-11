@@ -34,6 +34,7 @@ Of course pull requests are more than welcome too. To get started:
 - `yarn install` to install dependencies
 - `yarn start` to start the development serve
 - make your changes
+- run `yarn test` to run the tests
 - `yarn build` to generate production assets
 - commit and push your changes
 - open a pull request
