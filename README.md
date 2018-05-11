@@ -1,4 +1,4 @@
-# ChordFiddle
+# ChordFiddle [![Build Status](https://travis-ci.org/martijnversluis/ChordFiddle.svg?branch=master)](https://travis-ci.org/martijnversluis/ChordFiddle)
 
 ## [martijnversluis.github.io/ChordFiddle](https://martijnversluis.github.io/ChordFiddle/)
 
