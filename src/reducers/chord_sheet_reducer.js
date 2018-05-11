@@ -1,14 +1,7 @@
 import exampleChordProSheet from '../utils/example_chord_pro_sheet';
 import { decompress } from '../utils/string_compression';
 import getQueryParam from '../utils/get_query_param';
-
-import {
-  convertChordSheetToChordPro,
-  switchToFlat,
-  switchToSharp,
-  transposeDown,
-  transposeUp,
-} from '../utils/chord_sheet_transformations';
+import * as chordSheetTransformations from '../utils/chord_sheet_transformations';
 
 import {
   IMPORT_CHORD_SHEET,
@@ -65,9 +58,9 @@ const setChordSheet = (state, action) => ({
   chordSheet: action.chordSheet,
 });
 
-const importChordSheet = (state, action) => ({
+const importChordSheet = (state, action, converter) => ({
   ...state,
-  chordSheet: convertChordSheetToChordPro(action.chordSheet),
+  chordSheet: converter(action.chordSheet),
   selectionStart: 0,
   selectionEnd: 0,
 });
@@ -78,32 +71,36 @@ const initialState = {
   chordSheet: decompress(getQueryParam('chord_sheet', '')) || exampleChordProSheet,
 };
 
-const chordSheetReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SET_SELECTION_RANGE:
-      return setSelectionRange(state, action);
+export const createChordSheetReducer = (chordSheetTransforms) => {
+  const { convertChordSheetToChordPro, switchToFlat, switchToSharp, transposeDown, transposeUp } = chordSheetTransforms;
 
-    case SET_CHORD_SHEET:
-      return setChordSheet(state, action);
+  return (state = initialState, action) => {
+    switch (action.type) {
+      case SET_SELECTION_RANGE:
+        return setSelectionRange(state, action);
 
-    case IMPORT_CHORD_SHEET:
-      return importChordSheet(state, action);
+      case SET_CHORD_SHEET:
+        return setChordSheet(state, action);
 
-    case TRANSPOSE_UP:
-      return transformChordSheet(state, transposeUp);
+      case IMPORT_CHORD_SHEET:
+        return importChordSheet(state, action, convertChordSheetToChordPro);
 
-    case TRANSPOSE_DOWN:
-      return transformChordSheet(state, transposeDown);
+      case TRANSPOSE_UP:
+        return transformChordSheet(state, transposeUp);
 
-    case SWITCH_TO_SHARP:
-      return transformChordSheet(state, switchToSharp);
+      case TRANSPOSE_DOWN:
+        return transformChordSheet(state, transposeDown);
 
-    case SWITCH_TO_FLAT:
-      return transformChordSheet(state, switchToFlat);
+      case SWITCH_TO_SHARP:
+        return transformChordSheet(state, switchToSharp);
 
-    default:
-      return state;
-  }
+      case SWITCH_TO_FLAT:
+        return transformChordSheet(state, switchToFlat);
+
+      default:
+        return state;
+    }
+  };
 };
 
-export default chordSheetReducer;
+export default createChordSheetReducer(chordSheetTransformations);
