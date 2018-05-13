@@ -17,7 +17,7 @@ describe('ui actions', () => {
   it('generates an action for setting the preview mode', () => {
     const expectedAction = {
       type: SET_PREVIEW_MODE,
-      previewMode: 'foobar'
+      previewMode: 'foobar',
     };
 
     expect(setPreviewMode('foobar')).toEqual(expectedAction);

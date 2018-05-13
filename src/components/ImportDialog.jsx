@@ -8,14 +8,8 @@ import { importChordSheet } from '../actions/chord_sheet_actions';
 import '../css/ImportDialog.css';
 
 class ImportDialog extends Component {
-  onSubmit = () => {
-    const { hideImportDialog, importChordSheet } = this.props;
-    importChordSheet(this.importChordSheetEditor.value);
-    hideImportDialog();
-  };
-
   render() {
-    const { hideImportDialog, show } = this.props;
+    const { onCloseButtonClick, onImportButtonClick, show } = this.props;
 
     if (!show) {
       return null;
@@ -23,7 +17,7 @@ class ImportDialog extends Component {
 
     return (
       <section className="ImportDialog">
-        <button className="ImportDialog__close-button" onClick={() => hideImportDialog()}>×</button>
+        <button className="ImportDialog__close-button" onClick={onCloseButtonClick}>×</button>
 
         <div className="ImportDialog__contents">
           <h1>Import chord sheet</h1>
@@ -33,7 +27,7 @@ class ImportDialog extends Component {
           />
 
           <div className="ImportDialog__buttons">
-            <button className="large" onClick={this.onSubmit}>Import chord sheet</button>
+            <button className="large" onClick={onImportButtonClick}>Import chord sheet</button>
           </div>
         </div>
       </section>
@@ -43,6 +37,8 @@ class ImportDialog extends Component {
 
 ImportDialog.propTypes = {
   show: PropTypes.bool.isRequired,
+  onCloseButtonClick: PropTypes.func.isRequired,
+  onImportButtonClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -50,8 +46,15 @@ const mapStateToProps = (state) => {
   return { show };
 };
 
-const mapDispatchToProps = {
-  hideImportDialog, importChordSheet
-};
+const mapDispatchToProps = dispatch => ({
+  onCloseButtonClick() {
+    dispatch(hideImportDialog());
+  },
+
+  onImportButtonClick() {
+    dispatch(importChordSheet(this.importChordSheetEditor.value));
+    dispatch(hideImportDialog());
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImportDialog);

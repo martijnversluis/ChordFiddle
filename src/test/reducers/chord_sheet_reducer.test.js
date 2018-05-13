@@ -4,19 +4,21 @@ import chordSheetReducer, { createChordSheetReducer } from '../../reducers/chord
 import {
   importChordSheet,
   setChordSheet,
-  setSelectionRange, switchToFlat, switchToSharp,
+  setSelectionRange,
+  switchToFlat,
+  switchToSharp,
   transposeDown,
-  transposeUp
+  transposeUp,
 } from '../../actions/chord_sheet_actions';
 
 describe('ChordSheetReducer', () => {
   it('sets the selection range', () => {
     const previousState = {
       selectionStart: 5,
-      selectionEnd: 10
+      selectionEnd: 10,
     };
 
-    const action = setSelectionRange({ start: 20, end: 30 });
+    const action = setSelectionRange(20, 30);
     const newState = chordSheetReducer(previousState, action);
 
     expect(newState.selectionStart).toEqual(20);
@@ -35,7 +37,7 @@ describe('ChordSheetReducer', () => {
     const stubbedTransformations = {
       convertChordSheetToChordPro(chordSheet) {
         return `${chordSheet.substr(3)}${chordSheet.substr(0, 3)}`;
-      }
+      },
     };
 
     const reducer = createChordSheetReducer(stubbedTransformations);
@@ -50,7 +52,7 @@ describe('ChordSheetReducer', () => {
     const stubbedTransformations = {
       transposeUp(chordSheet) {
         return `up ${chordSheet.substr(3)}${chordSheet.substr(0, 3)}`;
-      }
+      },
     };
 
     const reducer = createChordSheetReducer(stubbedTransformations);
@@ -65,7 +67,7 @@ describe('ChordSheetReducer', () => {
     const stubbedTransformations = {
       transposeDown(chordSheet) {
         return `down ${chordSheet.substr(3)}${chordSheet.substr(0, 3)}`;
-      }
+      },
     };
 
     const reducer = createChordSheetReducer(stubbedTransformations);
@@ -80,7 +82,7 @@ describe('ChordSheetReducer', () => {
     const stubbedTransformations = {
       switchToSharp(chordSheet) {
         return `sharp ${chordSheet.substr(3)}${chordSheet.substr(0, 3)}`;
-      }
+      },
     };
 
     const reducer = createChordSheetReducer(stubbedTransformations);
@@ -95,7 +97,7 @@ describe('ChordSheetReducer', () => {
     const stubbedTransformations = {
       switchToFlat(chordSheet) {
         return `flat ${chordSheet.substr(3)}${chordSheet.substr(0, 3)}`;
-      }
+      },
     };
 
     const reducer = createChordSheetReducer(stubbedTransformations);

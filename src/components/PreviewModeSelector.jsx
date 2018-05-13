@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import RadioGroup from './RadioGroup';
 import { setPreviewMode } from '../actions/ui_actions';
 
-class PreviewModeSelector extends Component {
-  render() {
-    const { setPreviewMode, previewMode } = this.props;
+const PreviewModeSelector = (props) => {
+  const { onOptionSelected, previewMode } = props;
 
-    return (
-      <RadioGroup
-        selected={previewMode}
-        onOptionSelected={() => setPreviewMode()}
-        options={{ html: 'Markup', text: 'Plain' }}
-      />
-    );
-  }
-}
+  return (
+    <RadioGroup
+      selected={previewMode}
+      onOptionSelected={onOptionSelected}
+      options={{ html: 'Markup', text: 'Plain' }}
+    />
+  );
+};
 
 PreviewModeSelector.propTypes = {
   previewMode: PropTypes.string.isRequired,
+  onOptionSelected: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -28,8 +27,10 @@ const mapStateToProps = (state) => {
   return { previewMode };
 };
 
-const mapDispatchToProps = {
-  setPreviewMode
-};
+const mapDispatchToProps = dispatch => ({
+  onOptionSelected(previewMode) {
+    dispatch(setPreviewMode(previewMode));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PreviewModeSelector);

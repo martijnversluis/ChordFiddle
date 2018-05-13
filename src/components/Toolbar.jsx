@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { showImportDialog } from '../actions/ui_actions';
-import '../css/Toolbar.css';
 import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../actions/chord_sheet_actions';
 
-class Toolbar extends Component {
-  getButtons() {
-    const {
-      transposeDown,
-      transposeUp,
-      switchToSharp,
-      switchToFlat,
-      showImportDialog,
-    } = this.props;
+import '../css/Toolbar.css';
 
+class Toolbar extends Component {
+  static getButtons() {
     return [
       ['Transpose down', transposeDown],
       ['Transpose up', transposeUp],
@@ -26,14 +20,15 @@ class Toolbar extends Component {
 
 
   render() {
-    const buttons = this.getButtons();
+    const buttons = Toolbar.getButtons();
+    const { onButtonClicked } = this.props;
 
     return (
       <ul className="Toolbar">
         {
           buttons.map(([buttonText, action]) => (
             <li>
-              <button onClick={() => action()}>{buttonText}</button>
+              <button onClick={() => onButtonClicked(action)}>{buttonText}</button>
             </li>
           ))
         }
@@ -42,12 +37,14 @@ class Toolbar extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  transposeDown,
-  transposeUp,
-  switchToSharp,
-  switchToFlat,
-  showImportDialog
+Toolbar.propTypes = {
+  onButtonClicked: PropTypes.func.isRequired,
 };
+
+const mapDispatchToProps = dispatch => ({
+  onButtonClicked(action) {
+    dispatch(action());
+  },
+});
 
 export default connect(null, mapDispatchToProps)(Toolbar);

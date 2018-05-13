@@ -7,7 +7,7 @@ import {
   SWITCH_TO_FLAT,
   SWITCH_TO_SHARP,
   TRANSPOSE_DOWN,
-  TRANSPOSE_UP
+  TRANSPOSE_UP,
 } from '../../action_types/chord_sheet_action_types';
 
 import {
@@ -15,7 +15,7 @@ import {
   setChordSheet,
   setSelectionRange, switchToFlat, switchToSharp,
   transposeDown,
-  transposeUp
+  transposeUp,
 } from '../../actions/chord_sheet_actions';
 
 describe('chord sheet actions', () => {
@@ -23,16 +23,16 @@ describe('chord sheet actions', () => {
     const expectedAction = {
       type: SET_SELECTION_RANGE,
       start: 5,
-      end: 10
+      end: 10,
     };
 
-    expect(setSelectionRange({ start: 5, end: 10 })).toEqual(expectedAction);
+    expect(setSelectionRange(5, 10)).toEqual(expectedAction);
   });
 
   it('generates an action to set the chord sheet', () => {
     const expectedAction = {
       type: SET_CHORD_SHEET,
-      chordSheet: 'foo'
+      chordSheet: 'foo',
     };
 
     expect(setChordSheet('foo')).toEqual(expectedAction);
@@ -41,7 +41,7 @@ describe('chord sheet actions', () => {
   it('generates an action to import a chord sheet', () => {
     const expectedAction = {
       type: IMPORT_CHORD_SHEET,
-      chordSheet: 'bar'
+      chordSheet: 'bar',
     };
 
     expect(importChordSheet('bar')).toEqual(expectedAction);
