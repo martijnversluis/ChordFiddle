@@ -15,14 +15,25 @@ class ChordSheetEditor extends Component {
     }
   }
 
+  onChordSheetChange = (event) => {
+    const { onChordSheetChange } = this.props;
+    onChordSheetChange(event.target.value);
+  };
+
+  onSelectionChange = (event) => {
+    const { onSelectionChange } = this.props;
+    const { selectionStart, selectionEnd } = event.target;
+    onSelectionChange(selectionStart, selectionEnd);
+  };
+
   render() {
-    const { chordSheet, onChordSheetChange, onSelectionChange } = this.props;
+    const { chordSheet } = this.props;
 
     return (
       <textarea
         className="ChordSheetTextViewer"
-        onChange={onChordSheetChange}
-        onSelect={onSelectionChange}
+        onChange={this.onChordSheetChange}
+        onSelect={this.onSelectionChange}
         ref={textarea => (this.chordSheetEditor = textarea)}
         value={chordSheet}
       />
@@ -43,15 +54,9 @@ const mapStateToProps = (state) => {
   return { chordSheet, selectionStart, selectionEnd };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onChordSheetChange(event) {
-    dispatch(setChordSheet(event.target.value));
-  },
-
-  onSelectionChange(event) {
-    const { selectionStart, selectionEnd } = event.target;
-    dispatch(setSelectionRange(selectionStart, selectionEnd));
-  },
-});
+const mapDispatchToProps = {
+  onChordSheetChange: setChordSheet,
+  onSelectionChange: setSelectionRange,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChordSheetEditor);

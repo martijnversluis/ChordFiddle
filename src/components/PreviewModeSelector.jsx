@@ -27,10 +27,8 @@ const mapStateToProps = (state) => {
   return { previewMode };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onOptionSelected(previewMode) {
-    dispatch(setPreviewMode(previewMode));
-  },
-});
+const mapDispatchToProps = {
+  onOptionSelected: setPreviewMode,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PreviewModeSelector);

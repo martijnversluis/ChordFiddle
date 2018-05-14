@@ -8,13 +8,13 @@ import { importChordSheet, setImportableChordSheet } from '../actions/chord_shee
 import '../css/ImportDialog.css';
 
 class ImportDialog extends Component {
+  onImportableChordSheetChange = (event) => {
+    const { onImportableChordSheetChange } = this.props;
+    onImportableChordSheetChange(event.target.value);
+  };
+
   render() {
-    const {
-      onCloseButtonClick,
-      onImportButtonClick,
-      onImportableChordSheetChange,
-      show,
-    } = this.props;
+    const { onCloseButtonClick, onImportButtonClick, show } = this.props;
 
     if (!show) {
       return null;
@@ -26,7 +26,7 @@ class ImportDialog extends Component {
 
         <div className="ImportDialog__contents">
           <h1>Import chord sheet</h1>
-          <textarea className="ChordSheetEditor" onChange={onImportableChordSheetChange} />
+          <textarea className="ChordSheetEditor" onChange={this.onImportableChordSheetChange} />
 
           <div className="ImportDialog__buttons">
             <button className="large" onClick={onImportButtonClick}>Import chord sheet</button>
@@ -49,19 +49,10 @@ const mapStateToProps = (state) => {
   return { show };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onCloseButtonClick() {
-    dispatch(hideImportDialog());
-  },
-
-  onImportableChordSheetChange(event) {
-    dispatch(setImportableChordSheet(event.target.value));
-  },
-
-  onImportButtonClick() {
-    dispatch(importChordSheet());
-    dispatch(hideImportDialog());
-  },
-});
+const mapDispatchToProps = {
+  onCloseButtonClick: hideImportDialog,
+  onImportButtonClick: importChordSheet,
+  onImportableChordSheetChange: setImportableChordSheet,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImportDialog);

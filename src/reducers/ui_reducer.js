@@ -1,5 +1,6 @@
 import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../action_types/ui_action_types';
 import getQueryParam from '../utils/get_query_param';
+import { IMPORT_CHORD_SHEET } from '../action_types/chord_sheet_action_types';
 
 const initialState = {
   previewMode: getQueryParam('preview', 'html'),
@@ -21,6 +22,12 @@ const uiReducer = (state = initialState, action) => {
       };
 
     case HIDE_IMPORT_DIALOG:
+      return {
+        ...state,
+        showImportDialog: false,
+      };
+
+    case IMPORT_CHORD_SHEET:
       return {
         ...state,
         showImportDialog: false,

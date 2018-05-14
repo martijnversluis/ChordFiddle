@@ -2,6 +2,7 @@ import expect from 'expect';
 
 import uiReducer from '../../reducers/ui_reducer';
 import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../../action_types/ui_action_types';
+import { IMPORT_CHORD_SHEET } from '../../action_types/chord_sheet_action_types';
 
 describe('uiReducer', () => {
   it('sets the preview mode', () => {
@@ -28,6 +29,14 @@ describe('uiReducer', () => {
   it('sets the import dialog visibility to hidden', () => {
     const previousState = { showImportDialog: true };
     const action = { type: HIDE_IMPORT_DIALOG };
+    const newState = uiReducer(previousState, action);
+
+    expect(newState.showImportDialog).toBe(false);
+  });
+
+  it('hides the import dialog on import', () => {
+    const previousState = { showImportDialog: true };
+    const action = { type: IMPORT_CHORD_SHEET };
     const newState = uiReducer(previousState, action);
 
     expect(newState.showImportDialog).toBe(false);

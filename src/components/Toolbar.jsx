@@ -27,7 +27,7 @@ class Toolbar extends Component {
       <ul className="Toolbar">
         {
           buttons.map(([buttonText, action]) => (
-            <li>
+            <li key={buttonText}>
               <button onClick={() => onButtonClicked(action)}>{buttonText}</button>
             </li>
           ))
