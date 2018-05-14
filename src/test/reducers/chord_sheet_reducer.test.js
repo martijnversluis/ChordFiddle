@@ -138,6 +138,49 @@ describe('ChordSheetReducer', () => {
     expect(newState.chordSheet).toEqual('flat barfoo');
   });
 
+  it('only transforms the selection when a selection is present', () => {
+    const stubbedTransformations = {
+      switchToFlat(chordSheet) {
+        return `flat ${chordSheet.substr(3)}${chordSheet.substr(0, 3)}`;
+      },
+    };
+
+    const reducer = createChordSheetReducer(stubbedTransformations);
+
+    const previousState = {
+      chordSheet: 'prefix foobar suffix',
+      selectionStart: 7,
+      selectionEnd: 13,
+    };
+
+    const action = { type: SWITCH_TO_FLAT };
+    const newState = reducer(previousState, action);
+
+    expect(newState.chordSheet).toEqual('prefix flat barfoo suffix');
+  });
+
+  it('recovers the selection when transforming a chord sheet', () => {
+    const stubbedTransformations = {
+      switchToFlat(chordSheet) {
+        return `flat ${chordSheet.substr(3)}${chordSheet.substr(0, 3)}`;
+      },
+    };
+
+    const reducer = createChordSheetReducer(stubbedTransformations);
+
+    const previousState = {
+      chordSheet: 'prefix foobar suffix',
+      selectionStart: 7,
+      selectionEnd: 13,
+    };
+
+    const action = { type: SWITCH_TO_FLAT };
+    const newState = reducer(previousState, action);
+
+    expect(newState.selectionStart).toEqual(7);
+    expect(newState.selectionEnd).toEqual(18);
+  });
+
   it('returns the previous state when receiving an unknown action', () => {
     const previousState = { foo: 'bar' };
     const action = { type: 'FOOBAR' };
