@@ -137,4 +137,12 @@ describe('ChordSheetReducer', () => {
 
     expect(newState.chordSheet).toEqual('flat barfoo');
   });
+
+  it('returns the previous state when receiving an unknown action', () => {
+    const previousState = { foo: 'bar' };
+    const action = { type: 'FOOBAR' };
+    const newState = chordSheetReducer(previousState, action);
+
+    expect(newState).toBe(previousState);
+  });
 });

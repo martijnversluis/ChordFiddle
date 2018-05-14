@@ -32,4 +32,12 @@ describe('uiReducer', () => {
 
     expect(newState.showImportDialog).toBe(false);
   });
+
+  it('returns the previous state when receiving an unknown action', () => {
+    const previousState = { foo: 'bar' };
+    const action = { type: 'FOOBAR' };
+    const newState = uiReducer(previousState, action);
+
+    expect(newState).toBe(previousState);
+  });
 });
