@@ -3,15 +3,15 @@ import expect from 'expect';
 import chordSheetReducer, { createChordSheetReducer } from '../../reducers/chord_sheet_reducer';
 
 import {
-  importChordSheet,
-  setChordSheet,
-  setImportableChordSheet,
-  setSelectionRange,
-  switchToFlat,
-  switchToSharp,
-  transposeDown,
-  transposeUp,
-} from '../../actions/chord_sheet_actions';
+  IMPORT_CHORD_SHEET,
+  SET_CHORD_SHEET,
+  SET_IMPORTABLE_CHORD_SHEET,
+  SET_SELECTION_RANGE,
+  SWITCH_TO_FLAT,
+  SWITCH_TO_SHARP,
+  TRANSPOSE_DOWN,
+  TRANSPOSE_UP,
+} from '../../action_types/chord_sheet_action_types';
 
 describe('ChordSheetReducer', () => {
   it('sets the selection range', () => {
@@ -20,7 +20,12 @@ describe('ChordSheetReducer', () => {
       selectionEnd: 10,
     };
 
-    const action = setSelectionRange(20, 30);
+    const action = {
+      type: SET_SELECTION_RANGE,
+      start: 20,
+      end: 30,
+    };
+
     const newState = chordSheetReducer(previousState, action);
 
     expect(newState.selectionStart).toEqual(20);
@@ -29,7 +34,12 @@ describe('ChordSheetReducer', () => {
 
   it('sets the chord sheet', () => {
     const previousState = { chordSheet: 'foo' };
-    const action = setChordSheet('bar');
+
+    const action = {
+      type: SET_CHORD_SHEET,
+      chordSheet: 'bar',
+    };
+
     const newState = chordSheetReducer(previousState, action);
 
     expect(newState.chordSheet).toEqual('bar');
@@ -37,7 +47,12 @@ describe('ChordSheetReducer', () => {
 
   it('sets the importable chord sheet', () => {
     const previousState = { importableChordSheet: 'foo' };
-    const action = setImportableChordSheet('bar');
+
+    const action = {
+      type: SET_IMPORTABLE_CHORD_SHEET,
+      importableChordSheet: 'bar',
+    };
+
     const newState = chordSheetReducer(previousState, action);
 
     expect(newState.importableChordSheet).toEqual('bar');
@@ -57,7 +72,7 @@ describe('ChordSheetReducer', () => {
       importableChordSheet: 'foobar',
     };
 
-    const action = importChordSheet();
+    const action = { type: IMPORT_CHORD_SHEET };
     const newState = reducer(previousState, action);
 
     expect(newState.chordSheet).toEqual('barfoo');
@@ -72,7 +87,7 @@ describe('ChordSheetReducer', () => {
 
     const reducer = createChordSheetReducer(stubbedTransformations);
     const previousState = { chordSheet: 'foobar' };
-    const action = transposeUp();
+    const action = { type: TRANSPOSE_UP };
     const newState = reducer(previousState, action);
 
     expect(newState.chordSheet).toEqual('up barfoo');
@@ -87,7 +102,7 @@ describe('ChordSheetReducer', () => {
 
     const reducer = createChordSheetReducer(stubbedTransformations);
     const previousState = { chordSheet: 'foobar' };
-    const action = transposeDown();
+    const action = { type: TRANSPOSE_DOWN };
     const newState = reducer(previousState, action);
 
     expect(newState.chordSheet).toEqual('down barfoo');
@@ -102,7 +117,7 @@ describe('ChordSheetReducer', () => {
 
     const reducer = createChordSheetReducer(stubbedTransformations);
     const previousState = { chordSheet: 'foobar' };
-    const action = switchToSharp();
+    const action = { type: SWITCH_TO_SHARP };
     const newState = reducer(previousState, action);
 
     expect(newState.chordSheet).toEqual('sharp barfoo');
@@ -117,7 +132,7 @@ describe('ChordSheetReducer', () => {
 
     const reducer = createChordSheetReducer(stubbedTransformations);
     const previousState = { chordSheet: 'foobar' };
-    const action = switchToFlat();
+    const action = { type: SWITCH_TO_FLAT };
     const newState = reducer(previousState, action);
 
     expect(newState.chordSheet).toEqual('flat barfoo');
