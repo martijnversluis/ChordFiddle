@@ -2,7 +2,7 @@ import expect from 'expect';
 
 import {
   IMPORT_CHORD_SHEET,
-  SET_CHORD_SHEET,
+  SET_CHORD_SHEET, SET_IMPORTABLE_CHORD_SHEET,
   SET_SELECTION_RANGE,
   SWITCH_TO_FLAT,
   SWITCH_TO_SHARP,
@@ -13,7 +13,10 @@ import {
 import {
   importChordSheet,
   setChordSheet,
-  setSelectionRange, switchToFlat, switchToSharp,
+  setImportableChordSheet,
+  setSelectionRange,
+  switchToFlat,
+  switchToSharp,
   transposeDown,
   transposeUp,
 } from '../../actions/chord_sheet_actions';
@@ -36,6 +39,15 @@ describe('chord sheet actions', () => {
     };
 
     expect(setChordSheet('foo')).toEqual(expectedAction);
+  });
+
+  it('generates an action for setting the importable chord sheet', () => {
+    const expectedAction = {
+      type: SET_IMPORTABLE_CHORD_SHEET,
+      importableChordSheet: 'foobar',
+    };
+
+    expect(setImportableChordSheet('foobar')).toEqual(expectedAction);
   });
 
   it('generates an action to import a chord sheet', () => {

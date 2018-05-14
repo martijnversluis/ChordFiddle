@@ -6,6 +6,7 @@ import * as chordSheetTransformations from '../utils/chord_sheet_transformations
 import {
   IMPORT_CHORD_SHEET,
   SET_CHORD_SHEET,
+  SET_IMPORTABLE_CHORD_SHEET,
   SET_SELECTION_RANGE,
   SWITCH_TO_FLAT,
   SWITCH_TO_SHARP,
@@ -58,9 +59,14 @@ const setChordSheet = (state, action) => ({
   chordSheet: action.chordSheet,
 });
 
-const importChordSheet = (state, action, converter) => ({
+const setImportableChordSheet = (state, action) => ({
   ...state,
-  chordSheet: converter(action.chordSheet),
+  importableChordSheet: action.importableChordSheet,
+});
+
+const importChordSheet = (state, converter) => ({
+  ...state,
+  chordSheet: converter(state.importableChordSheet),
   selectionStart: 0,
   selectionEnd: 0,
 });
@@ -82,8 +88,11 @@ export const createChordSheetReducer = (chordSheetTransforms) => {
       case SET_CHORD_SHEET:
         return setChordSheet(state, action);
 
+      case SET_IMPORTABLE_CHORD_SHEET:
+        return setImportableChordSheet(state, action);
+
       case IMPORT_CHORD_SHEET:
-        return importChordSheet(state, action, convertChordSheetToChordPro);
+        return importChordSheet(state, convertChordSheetToChordPro);
 
       case TRANSPOSE_UP:
         return transformChordSheet(state, transposeUp);

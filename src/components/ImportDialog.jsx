@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { hideImportDialog } from '../actions/ui_actions';
-import { importChordSheet } from '../actions/chord_sheet_actions';
+import { importChordSheet, setImportableChordSheet } from '../actions/chord_sheet_actions';
 
 import '../css/ImportDialog.css';
 
 class ImportDialog extends Component {
   render() {
-    const { onCloseButtonClick, onImportButtonClick, show } = this.props;
+    const {
+      onCloseButtonClick,
+      onImportButtonClick,
+      onImportableChordSheetChange,
+      show,
+    } = this.props;
 
     if (!show) {
       return null;
@@ -21,10 +26,7 @@ class ImportDialog extends Component {
 
         <div className="ImportDialog__contents">
           <h1>Import chord sheet</h1>
-          <textarea
-            className="ChordSheetEditor"
-            ref={importChordSheetEditor => (this.importChordSheetEditor = importChordSheetEditor)}
-          />
+          <textarea className="ChordSheetEditor" onChange={onImportableChordSheetChange} />
 
           <div className="ImportDialog__buttons">
             <button className="large" onClick={onImportButtonClick}>Import chord sheet</button>
@@ -39,6 +41,7 @@ ImportDialog.propTypes = {
   show: PropTypes.bool.isRequired,
   onCloseButtonClick: PropTypes.func.isRequired,
   onImportButtonClick: PropTypes.func.isRequired,
+  onImportableChordSheetChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -51,8 +54,12 @@ const mapDispatchToProps = dispatch => ({
     dispatch(hideImportDialog());
   },
 
+  onImportableChordSheetChange(event) {
+    dispatch(setImportableChordSheet(event.target.value));
+  },
+
   onImportButtonClick() {
-    dispatch(importChordSheet(this.importChordSheetEditor.value));
+    dispatch(importChordSheet());
     dispatch(hideImportDialog());
   },
 });

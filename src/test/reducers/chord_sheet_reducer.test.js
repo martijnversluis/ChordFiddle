@@ -1,9 +1,11 @@
 import expect from 'expect';
 
 import chordSheetReducer, { createChordSheetReducer } from '../../reducers/chord_sheet_reducer';
+
 import {
   importChordSheet,
   setChordSheet,
+  setImportableChordSheet,
   setSelectionRange,
   switchToFlat,
   switchToSharp,
@@ -33,6 +35,14 @@ describe('ChordSheetReducer', () => {
     expect(newState.chordSheet).toEqual('bar');
   });
 
+  it('sets the importable chord sheet', () => {
+    const previousState = { importableChordSheet: 'foo' };
+    const action = setImportableChordSheet('bar');
+    const newState = chordSheetReducer(previousState, action);
+
+    expect(newState.importableChordSheet).toEqual('bar');
+  });
+
   it('imports a chord sheet', () => {
     const stubbedTransformations = {
       convertChordSheetToChordPro(chordSheet) {
@@ -41,8 +51,13 @@ describe('ChordSheetReducer', () => {
     };
 
     const reducer = createChordSheetReducer(stubbedTransformations);
-    const previousState = { chordSheet: 'something' };
-    const action = importChordSheet('foobar');
+
+    const previousState = {
+      chordSheet: 'something',
+      importableChordSheet: 'foobar',
+    };
+
+    const action = importChordSheet();
     const newState = reducer(previousState, action);
 
     expect(newState.chordSheet).toEqual('barfoo');
