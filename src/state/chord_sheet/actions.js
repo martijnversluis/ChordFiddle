@@ -7,7 +7,7 @@ import {
   SWITCH_TO_SHARP,
   TRANSPOSE_DOWN,
   TRANSPOSE_UP,
-} from '../action_types/chord_sheet_action_types';
+} from './constants';
 
 export const setSelectionRange = (start, end) => ({
   type: SET_SELECTION_RANGE,

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import RadioGroup from './RadioGroup';
-import { setPreviewMode } from '../actions/ui_actions';
+import { setPreviewMode } from '../state/ui/actions';
 
 const PreviewModeSelector = (props) => {
   const { onOptionSelected, previewMode } = props;

@@ -1,8 +1,8 @@
 import expect from 'expect';
 
-import uiReducer from '../../reducers/ui_reducer';
-import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../../action_types/ui_action_types';
-import { IMPORT_CHORD_SHEET } from '../../action_types/chord_sheet_action_types';
+import uiReducer from '../../state/ui/reducer';
+import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../../state/ui/constants';
+import { IMPORT_CHORD_SHEET } from '../../state/chord_sheet/constants';
 
 describe('uiReducer', () => {
   it('sets the preview mode', () => {

@@ -1,4 +1,4 @@
-import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../action_types/ui_action_types';
+import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from './constants';
 
 export const showImportDialog = () => ({
   type: SHOW_IMPORT_DIALOG,

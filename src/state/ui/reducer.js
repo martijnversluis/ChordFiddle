@@ -1,6 +1,6 @@
-import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../action_types/ui_action_types';
-import getQueryParam from '../utils/get_query_param';
-import { IMPORT_CHORD_SHEET } from '../action_types/chord_sheet_action_types';
+import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from './constants';
+import getQueryParam from '../../utils/get_query_param';
+import { IMPORT_CHORD_SHEET } from '../chord_sheet/constants';
 
 const initialState = {
   previewMode: getQueryParam('preview', 'html'),

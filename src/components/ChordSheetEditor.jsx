@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setChordSheet, setSelectionRange } from '../actions/chord_sheet_actions';
+import { setChordSheet, setSelectionRange } from '../state/chord_sheet/actions';
 import '../css/ChordSheetEditor.css';
 
 class ChordSheetEditor extends Component {

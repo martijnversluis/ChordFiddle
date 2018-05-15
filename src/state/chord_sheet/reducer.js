@@ -1,7 +1,7 @@
-import exampleChordProSheet from '../utils/example_chord_pro_sheet';
-import { decompress } from '../utils/string_compression';
-import getQueryParam from '../utils/get_query_param';
-import * as chordSheetTransformations from '../utils/chord_sheet_transformations';
+import exampleChordProSheet from '../../utils/example_chord_pro_sheet';
+import { decompress } from '../../utils/string_compression';
+import getQueryParam from '../../utils/get_query_param';
+import * as chordSheetTransformations from '../../utils/chord_sheet_transformations';
 
 import {
   IMPORT_CHORD_SHEET,
@@ -12,7 +12,7 @@ import {
   SWITCH_TO_SHARP,
   TRANSPOSE_DOWN,
   TRANSPOSE_UP,
-} from '../action_types/chord_sheet_action_types';
+} from './constants';
 
 const getTextRanges = (state) => {
   const { chordSheet } = state;

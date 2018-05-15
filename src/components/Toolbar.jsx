@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { showImportDialog } from '../actions/ui_actions';
-import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../actions/chord_sheet_actions';
+import { showImportDialog } from '../state/ui/actions';
+import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../state/chord_sheet/actions';
 
 import '../css/Toolbar.css';
 

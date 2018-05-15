@@ -1,6 +1,6 @@
 import expect from 'expect';
 
-import chordSheetReducer, { createChordSheetReducer } from '../../reducers/chord_sheet_reducer';
+import chordSheetReducer, { createChordSheetReducer } from '../../state/chord_sheet/reducer';
 
 import {
   IMPORT_CHORD_SHEET,
@@ -11,7 +11,7 @@ import {
   SWITCH_TO_SHARP,
   TRANSPOSE_DOWN,
   TRANSPOSE_UP,
-} from '../../action_types/chord_sheet_action_types';
+} from '../../state/chord_sheet/constants';
 
 describe('ChordSheetReducer', () => {
   it('sets the selection range', () => {

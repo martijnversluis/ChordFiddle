@@ -1,7 +1,7 @@
 import expect from 'expect';
 
-import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../../action_types/ui_action_types';
-import { hideImportDialog, setPreviewMode, showImportDialog } from '../../actions/ui_actions';
+import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from '../../state/ui/constants';
+import { hideImportDialog, setPreviewMode, showImportDialog } from '../../state/ui/actions';
 
 describe('ui actions', () => {
   it('generates an action for showing the import dialog', () => {

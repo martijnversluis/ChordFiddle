@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { hideImportDialog } from '../actions/ui_actions';
-import { importChordSheet, setImportableChordSheet } from '../actions/chord_sheet_actions';
+import { hideImportDialog } from '../state/ui/actions';
+import { importChordSheet, setImportableChordSheet } from '../state/chord_sheet/actions';
 
 import '../css/ImportDialog.css';
 

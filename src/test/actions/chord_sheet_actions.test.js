@@ -8,7 +8,7 @@ import {
   SWITCH_TO_SHARP,
   TRANSPOSE_DOWN,
   TRANSPOSE_UP,
-} from '../../action_types/chord_sheet_action_types';
+} from '../../state/chord_sheet/constants';
 
 import {
   importChordSheet,
@@ -19,7 +19,7 @@ import {
   switchToSharp,
   transposeDown,
   transposeUp,
-} from '../../actions/chord_sheet_actions';
+} from '../../state/chord_sheet/actions';
 
 describe('chord sheet actions', () => {
   it('generates an action to set the selected range', () => {
