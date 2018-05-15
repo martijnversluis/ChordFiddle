@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { hideImportDialog } from '../state/ui/actions';
+import { importChordSheet, setImportableChordSheet } from '../state/chord_sheet/actions';
 
 import '../css/ImportDialog.css';
 
 class ImportDialog extends Component {
-  onSubmit = () => {
-    const { onSubmit } = this.props;
-    onSubmit(this.importChordSheetEditor.value);
+  onImportableChordSheetChange = (event) => {
+    const { onImportableChordSheetChange } = this.props;
+    onImportableChordSheetChange(event.target.value);
   };
 
   render() {
-    const { show, onCancel } = this.props;
+    const { onCloseButtonClick, onImportButtonClick, show } = this.props;
 
     if (!show) {
       return null;
@@ -18,17 +22,14 @@ class ImportDialog extends Component {
 
     return (
       <section className="ImportDialog">
-        <button className="ImportDialog__close-button" onClick={onCancel}>×</button>
+        <button className="ImportDialog__close-button" onClick={onCloseButtonClick}>×</button>
 
         <div className="ImportDialog__contents">
           <h1>Import chord sheet</h1>
-          <textarea
-            className="ChordSheetEditor"
-            ref={importChordSheetEditor => (this.importChordSheetEditor = importChordSheetEditor)}
-          />
+          <textarea className="ChordSheetEditor" onChange={this.onImportableChordSheetChange} />
 
           <div className="ImportDialog__buttons">
-            <button className="large" onClick={this.onSubmit}>Import chord sheet</button>
+            <button className="large" onClick={onImportButtonClick}>Import chord sheet</button>
           </div>
         </div>
       </section>
@@ -37,9 +38,21 @@ class ImportDialog extends Component {
 }
 
 ImportDialog.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  onCloseButtonClick: PropTypes.func.isRequired,
+  onImportButtonClick: PropTypes.func.isRequired,
+  onImportableChordSheetChange: PropTypes.func.isRequired,
 };
 
-export default ImportDialog;
+const mapStateToProps = (state) => {
+  const { showImportDialog: show } = state.ui;
+  return { show };
+};
+
+const mapDispatchToProps = {
+  onCloseButtonClick: hideImportDialog,
+  onImportButtonClick: importChordSheet,
+  onImportableChordSheetChange: setImportableChordSheet,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImportDialog);

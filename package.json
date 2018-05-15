@@ -1,8 +1,9 @@
 {
   "name": "ChordFiddle",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "main": "index.html",
+
   "scripts": {
     "start": "REACT_APP_DESCRIPTION=$(node -p 'require(\"./package.json\").description') REACT_APP_NAME=$(node -p 'require(\"./package.json\").name') REACT_APP_KEYWORDS=$(node -p 'require(\"./package.json\").keywords.join(\", \")') react-scripts-x start",
     "build": "rm -rf static/ && REACT_APP_DESCRIPTION=$(node -p 'require(\"./package.json\").description') REACT_APP_NAME=$(node -p 'require(\"./package.json\").name') REACT_APP_KEYWORDS=$(node -p 'require(\"./package.json\").keywords.join(\", \")') react-scripts-x build && mv ./build/* ./ && rm -rf build/ service-worker.js",
@@ -10,10 +11,12 @@
     "eject": "react-scripts-x eject",
     "lint": "eslint ."
   },
+
   "repository": {
     "type": "git",
     "url": "https://github.com/martijnversluis/chordfiddle.git"
   },
+
   "keywords": [
     "javascript",
     "chords",
@@ -22,14 +25,18 @@
     "chord-sheet",
     "chordpro"
   ],
+
   "author": "martijnversluis@gmail.com",
   "license": "GPL-3.0",
+
   "bugs": {
     "url": "https://github.com/martijnversluis/chordfiddle/issues"
   },
+
   "homepage": ".",
   "githubHome": "https://github.com/martijnversluis/ChordFiddle",
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
+
   "dependencies": {
     "chordjs": "^1.2.0",
     "chordsheetjs": "^2.3.0",
@@ -40,13 +47,20 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.0.17",
-    "react-scripts-x": "^0.1.3"
+    "react-scripts-x": "^0.1.3",
+    "redux": "^4.0.0"
   },
+
   "devDependencies": {
     "babel-eslint": "^8.2.2",
-    "eslint": "^4.19.0"
+    "babel-jest": "^22.4.3",
+    "eslint": "^4.19.0",
+    "expect": "^22.4.3",
+    "redux-mock-store": "^1.5.1"
   },
+
   "react-scripts-x": {
     "postcss": [
       {
@@ -62,5 +76,10 @@
         "name": "postcss-calc"
       }
     ]
+  },
+
+  "jest": {
+    "collectCoverageFrom": ["src/**/*.js", "!**/*.test.js"],
+    "coverageReporters": ["lcov", "text"]
   }
 }

@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import { setChordSheet, setSelectionRange } from '../state/chord_sheet/actions';
 import '../css/ChordSheetEditor.css';
 
 class ChordSheetEditor extends Component {
   componentDidUpdate() {
     const { selectionStart, selectionEnd } = this.props;
 
-    if (selectionStart !== null && selectionEnd !== null) {
+    if (selectionStart !== selectionEnd) {
       this.chordSheetEditor.focus();
       this.chordSheetEditor.setSelectionRange(selectionStart, selectionEnd);
     }
   }
 
-  onChange = () => {
-    const { onChange } = this.props;
-    onChange(this.chordSheetEditor.value);
+  onChordSheetChange = (event) => {
+    const { onChordSheetChange } = this.props;
+    onChordSheetChange(event.target.value);
   };
 
-  onSelectionChange = () => {
-    const { onSelect } = this.props;
-    let { selectionStart, selectionEnd } = this.chordSheetEditor;
-
-    if (selectionStart === selectionEnd) {
-      selectionStart = null;
-      selectionEnd = null;
-    }
-
-    onSelect({ selectionStart, selectionEnd });
+  onSelectionChange = (event) => {
+    const { onSelectionChange } = this.props;
+    const { selectionStart, selectionEnd } = event.target;
+    onSelectionChange(selectionStart, selectionEnd);
   };
 
   render() {
@@ -36,7 +32,7 @@ class ChordSheetEditor extends Component {
     return (
       <textarea
         className="ChordSheetTextViewer"
-        onChange={this.onChange}
+        onChange={this.onChordSheetChange}
         onSelect={this.onSelectionChange}
         ref={textarea => (this.chordSheetEditor = textarea)}
         value={chordSheet}
@@ -46,16 +42,21 @@ class ChordSheetEditor extends Component {
 }
 
 ChordSheetEditor.propTypes = {
-  selectionStart: PropTypes.number,
-  selectionEnd: PropTypes.number,
-  onChange: PropTypes.func.isRequired,
-  onSelect: PropTypes.func.isRequired,
+  selectionStart: PropTypes.number.isRequired,
+  selectionEnd: PropTypes.number.isRequired,
   chordSheet: PropTypes.string.isRequired,
+  onChordSheetChange: PropTypes.func.isRequired,
+  onSelectionChange: PropTypes.func.isRequired,
 };
 
-ChordSheetEditor.defaultProps = {
-  selectionStart: null,
-  selectionEnd: null,
+const mapStateToProps = (state) => {
+  const { chordSheet, selectionStart, selectionEnd } = state.chordSheet;
+  return { chordSheet, selectionStart, selectionEnd };
 };
 
-export default ChordSheetEditor;
+const mapDispatchToProps = {
+  onChordSheetChange: setChordSheet,
+  onSelectionChange: setSelectionRange,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChordSheetEditor);

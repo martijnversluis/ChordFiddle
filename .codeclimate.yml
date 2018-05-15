@@ -41,6 +41,8 @@ checks:
 plugins:
   duplication:
     enabled: true
+    exclude_patterns:
+      - "src/test/"
   eslint:
     enabled: true
     config:

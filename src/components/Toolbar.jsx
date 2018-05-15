@@ -1,42 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { showImportDialog } from '../state/ui/actions';
+import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../state/chord_sheet/actions';
 
 import '../css/Toolbar.css';
 
-function Toolbar(props) {
-  const { onTransposeDown, onTransposeUp, onSwitchToSharp, onSwitchToFlat, onShowImportChordSheetDialog } = props;
+class Toolbar extends Component {
+  static getButtons() {
+    return [
+      ['Transpose down', transposeDown],
+      ['Transpose up', transposeUp],
+      ['Use ♯', switchToSharp],
+      ['Use ♭', switchToFlat],
+      ['Import chord sheet', showImportDialog],
+    ];
+  }
 
-  return (
-    <ul className="Toolbar">
-      <li>
-        <button onClick={onTransposeDown}>Transpose down</button>
-      </li>
 
-      <li>
-        <button onClick={onTransposeUp}>Transpose up</button>
-      </li>
+  render() {
+    const buttons = Toolbar.getButtons();
+    const { onButtonClicked } = this.props;
 
-      <li>
-        <button onClick={onSwitchToSharp}>Use ♯</button>
-      </li>
-
-      <li>
-        <button onClick={onSwitchToFlat}>Use ♭</button>
-      </li>
-
-      <li>
-        <button onClick={onShowImportChordSheetDialog}>Import chord sheet</button>
-      </li>
-    </ul>
-  );
+    return (
+      <ul className="Toolbar">
+        {
+          buttons.map(([buttonText, action]) => (
+            <li key={buttonText}>
+              <button onClick={() => onButtonClicked(action)}>{buttonText}</button>
+            </li>
+          ))
+        }
+      </ul>
+    );
+  }
 }
 
 Toolbar.propTypes = {
-  onTransposeDown: PropTypes.func.isRequired,
-  onTransposeUp: PropTypes.func.isRequired,
-  onSwitchToSharp: PropTypes.func.isRequired,
-  onSwitchToFlat: PropTypes.func.isRequired,
-  onShowImportChordSheetDialog: PropTypes.func.isRequired,
+  onButtonClicked: PropTypes.func.isRequired,
 };
 
-export default Toolbar;
+const mapDispatchToProps = dispatch => ({
+  onButtonClicked(action) {
+    dispatch(action());
+  },
+});
+
+export default connect(null, mapDispatchToProps)(Toolbar);
