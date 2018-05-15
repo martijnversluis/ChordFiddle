@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ChordSheetJS from 'chordsheetjs';
 import PropTypes from 'prop-types';
-import queryString from 'query-string';
 
-import { compress } from '../utils/string_compression';
-import debounce from '../utils/debounce';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
@@ -25,19 +22,6 @@ class App extends Component {
       </section>
     );
   }
-
-  componentDidUpdate() {
-    this.updateLocationHash();
-  }
-
-  updateLocationHash = debounce(() => {
-    const { chordSheet, previewMode } = this.props;
-
-    window.location.hash = queryString.stringify({
-      preview: previewMode,
-      chord_sheet: compress(chordSheet),
-    });
-  });
 
   renderViewerColumn() {
     const { chordSheet } = this.props;

@@ -4,7 +4,7 @@ import { getPreviewMode } from '../initial_state';
 
 const initialState = {
   showImportDialog: false,
-  previewMode: getPreviewMode() || 'html'
+  previewMode: getPreviewMode() || 'html',
 };
 
 const uiReducer = (state = initialState, action) => {

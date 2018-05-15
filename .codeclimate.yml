@@ -59,4 +59,6 @@ plugins:
 exclude_paths:
 - node_modules/
 - static/
+- coverage/
+- .idea/
 - index.html
