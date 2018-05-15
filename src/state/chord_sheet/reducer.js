@@ -1,7 +1,5 @@
-import exampleChordProSheet from '../../utils/example_chord_pro_sheet';
-import { decompress } from '../../utils/string_compression';
-import getQueryParam from '../../utils/get_query_param';
 import * as chordSheetTransformations from '../../utils/chord_sheet_transformations';
+import { getChordSheet } from '../initial_state';
 
 import {
   IMPORT_CHORD_SHEET,
@@ -74,7 +72,7 @@ const importChordSheet = (state, converter) => ({
 const initialState = {
   selectionStart: 0,
   selectionEnd: 0,
-  chordSheet: decompress(getQueryParam('chord_sheet', '')) || exampleChordProSheet,
+  chordSheet: getChordSheet(),
 };
 
 export const createChordSheetReducer = (chordSheetTransforms) => {

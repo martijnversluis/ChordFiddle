@@ -1,10 +1,10 @@
 import { HIDE_IMPORT_DIALOG, SET_PREVIEW_MODE, SHOW_IMPORT_DIALOG } from './constants';
-import getQueryParam from '../../utils/get_query_param';
 import { IMPORT_CHORD_SHEET } from '../chord_sheet/constants';
+import { getPreviewMode } from '../initial_state';
 
 const initialState = {
-  previewMode: getQueryParam('preview', 'html'),
   showImportDialog: false,
+  previewMode: getPreviewMode() || 'html'
 };
 
 const uiReducer = (state = initialState, action) => {
