@@ -71,8 +71,8 @@ class App extends Component {
 
         <main className="App__container">
           <div className="App__columns">
-            { App.renderEditorColumn() }
-            { this.renderViewerColumn() }
+            {App.renderEditorColumn()}
+            {this.renderViewerColumn()}
           </div>
         </main>
 
