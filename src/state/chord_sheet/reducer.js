@@ -1,5 +1,4 @@
 import * as chordSheetTransformations from '../../utils/chord_sheet_transformations';
-import { getChordSheet } from '../initial_state';
 
 import {
   IMPORT_CHORD_SHEET,
@@ -72,7 +71,7 @@ const importChordSheet = (state, converter) => ({
 const initialState = {
   selectionStart: 0,
   selectionEnd: 0,
-  chordSheet: getChordSheet(),
+  chordSheet: null,
 };
 
 export const createChordSheetReducer = (chordSheetTransforms) => {
