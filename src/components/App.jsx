@@ -3,7 +3,7 @@ import ChordSheetJS from 'chordsheetjs';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
-import Toolbar from './Toolbar';
+import ToolbarContainer from '../containers/ToolbarContainer';
 import ImportDialogContainer from '../containers/ImportDialogContainer';
 import PreviewModeSelectorContainer from '../containers/PreviewModeSelectorContainer';
 import ChordSheetEditorContainer from '../containers/ChordSheetEditorContainer';
@@ -18,7 +18,7 @@ class App extends Component {
   static renderEditorColumn() {
     return (
       <section className="App__column">
-        <Toolbar buttons={
+        <ToolbarContainer buttons={
           [
             ['Transpose down', transposeDown],
             ['Transpose up', transposeUp],
