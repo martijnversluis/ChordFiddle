@@ -12,12 +12,22 @@ import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
 
 import '../css/App.css';
+import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../state/chord_sheet/actions';
+import { showImportDialog } from '../state/ui/actions';
 
 class App extends Component {
   static renderEditorColumn() {
     return (
       <section className="App__column">
-        <Toolbar />
+        <Toolbar buttons={
+          [
+            ['Transpose down', transposeDown],
+            ['Transpose up', transposeUp],
+            ['Use ♯', switchToSharp],
+            ['Use ♭', switchToFlat],
+            ['Import chord sheet', showImportDialog],
+          ]
+        }/>
         <ChordSheetEditor />
       </section>
     );

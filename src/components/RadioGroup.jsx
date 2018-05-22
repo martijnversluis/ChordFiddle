@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import '../css/RadioGroup.css';
+import propCollectionValidator from '../utils/prop_collection_validator';
 
 let instanceCount = 0;
 
@@ -51,40 +52,21 @@ class RadioGroup extends Component {
   }
 }
 
-function validateRadioGroupOption(optionKey, optionLabel) {
-  const errors = [];
-
-  if (typeof optionKey !== 'string') {
-    errors.push(`key ${optionKey} is not a string`);
-  }
-
-  if (typeof optionLabel !== 'string') {
-    errors.push(`label ${optionLabel} is not a string`);
-  }
-
-  return errors;
-}
-
 RadioGroup.propTypes = {
   onOptionSelected: PropTypes.func.isRequired,
   selected: PropTypes.string.isRequired,
 
-  options(props, propName, componentName) {
-    const radioGroupOptions = props[propName];
-    let errors = [];
+  options: propCollectionValidator((optionKey, optionLabel) => ([
+    [
+      typeof optionKey === 'string',
+      `key ${optionKey} is not a string`,
+    ],
 
-    Object.keys(radioGroupOptions).forEach((optionKey) => {
-      const optionLabel = radioGroupOptions[optionKey];
-      const optionErrors = validateRadioGroupOption(optionKey, optionLabel);
-      errors = errors.concat(optionErrors);
-    });
-
-    if (errors.length > 0) {
-      return Error(`Invalid prop ${propName} supplied to component ${componentName}:\n${errors.join('\n')}`);
-    }
-
-    return null;
-  },
+    [
+      typeof optionLabel === 'string',
+      `label ${optionLabel} is not a string`,
+    ],
+  ])),
 };
 
 RadioGroup.defaultProps = {

@@ -1,50 +1,47 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
-import { showImportDialog } from '../state/ui/actions';
-import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../state/chord_sheet/actions';
 
 import '../css/Toolbar.css';
+import propCollectionValidator from '../utils/prop_collection_validator';
 
 class Toolbar extends Component {
-  static getButtons() {
-    return [
-      ['Transpose down', transposeDown],
-      ['Transpose up', transposeUp],
-      ['Use ♯', switchToSharp],
-      ['Use ♭', switchToFlat],
-      ['Import chord sheet', showImportDialog],
-    ];
+  renderButtons() {
+    const { buttons, onButtonClicked } = this.props;
+
+    return buttons.map(([buttonText, action]) => (
+      <li key={buttonText}>
+        <button onClick={() => onButtonClicked(action)}>{buttonText}</button>
+      </li>
+    ));
   }
 
-
   render() {
-    const buttons = Toolbar.getButtons();
-    const { onButtonClicked } = this.props;
-
     return (
       <ul className="Toolbar">
-        {
-          buttons.map(([buttonText, action]) => (
-            <li key={buttonText}>
-              <button onClick={() => onButtonClicked(action)}>{buttonText}</button>
-            </li>
-          ))
-        }
+        {this.renderButtons()}
       </ul>
     );
   }
 }
 
 Toolbar.propTypes = {
+  buttons: propCollectionValidator((i, [buttonText, buttonAction]) => ([
+    [
+      typeof buttonText === 'string',
+      `button text ${buttonText} is not a string`,
+    ],
+
+    [
+      typeof buttonAction === 'function',
+      `button action ${buttonAction} is not a function`,
+    ],
+  ])),
+
   onButtonClicked: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  onButtonClicked(action) {
-    dispatch(action());
-  },
-});
+Toolbar.defaultProps = {
+  buttons: [],
+};
 
-export default connect(null, mapDispatchToProps)(Toolbar);
+export default Toolbar;
