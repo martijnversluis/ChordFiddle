@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialogContainer from '../containers/ImportDialogContainer';
-import PreviewModeSelector from './PreviewModeSelector';
+import PreviewModeSelectorContainer from '../containers/PreviewModeSelectorContainer';
 import ChordSheetEditorContainer from '../containers/ChordSheetEditorContainer';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
@@ -38,7 +38,7 @@ class App extends Component {
 
     return (
       <section className="App__column">
-        <PreviewModeSelector />
+        <PreviewModeSelectorContainer />
         {this.renderViewer(song)}
       </section>
     );
