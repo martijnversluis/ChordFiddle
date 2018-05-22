@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
-import { hideImportDialog } from '../state/ui/actions';
-import { importChordSheet, setImportableChordSheet } from '../state/chord_sheet/actions';
 
 import '../css/ImportDialog.css';
 
@@ -44,15 +40,4 @@ ImportDialog.propTypes = {
   onImportableChordSheetChange: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  const { showImportDialog: show } = state.ui;
-  return { show };
-};
-
-const mapDispatchToProps = {
-  onCloseButtonClick: hideImportDialog,
-  onImportButtonClick: importChordSheet,
-  onImportableChordSheetChange: setImportableChordSheet,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ImportDialog);
+export default ImportDialog;

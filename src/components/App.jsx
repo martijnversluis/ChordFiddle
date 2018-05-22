@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Header from './Header';
 import Toolbar from './Toolbar';
-import ImportDialog from './ImportDialog';
+import ImportDialogContainer from '../containers/ImportDialogContainer';
 import PreviewModeSelector from './PreviewModeSelector';
 import ChordSheetEditorContainer from '../containers/ChordSheetEditorContainer';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
@@ -69,7 +69,7 @@ class App extends Component {
           </div>
         </main>
 
-        <ImportDialog />
+        <ImportDialogContainer />
       </div>
     );
   }
