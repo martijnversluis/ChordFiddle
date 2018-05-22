@@ -3,34 +3,27 @@ import ChordSheetJS from 'chordsheetjs';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
-import ToolbarContainer from '../containers/ToolbarContainer';
 import ImportDialogContainer from '../containers/ImportDialogContainer';
 import PreviewModeSelectorContainer from '../containers/PreviewModeSelectorContainer';
-import ChordSheetEditorContainer from '../containers/ChordSheetEditorContainer';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
+import EditorColumn from './EditorColumn';
 
 import '../css/App.css';
-import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../state/chord_sheet/actions';
-import { showImportDialog } from '../state/ui/actions';
 
 class App extends Component {
-  static renderEditorColumn() {
-    return (
-      <section className="App__column">
-        <ToolbarContainer buttons={
-          [
-            ['Transpose down', transposeDown],
-            ['Transpose up', transposeUp],
-            ['Use ♯', switchToSharp],
-            ['Use ♭', switchToFlat],
-            ['Import chord sheet', showImportDialog],
-          ]
-        }/>
-        <ChordSheetEditorContainer />
-      </section>
-    );
+  componentDidUpdate() {
+    this.updateLocationHash();
   }
+
+  updateLocationHash = debounce(() => {
+    const { chordSheet, previewMode } = this.props;
+
+    window.location.hash = queryString.stringify({
+      preview: previewMode,
+      chord_sheet: compress(chordSheet),
+    });
+  });
 
   renderViewerColumn() {
     const { chordSheet } = this.props;
@@ -64,7 +57,7 @@ class App extends Component {
 
         <main className="App__container">
           <div className="App__columns">
-            {App.renderEditorColumn()}
+            <EditorColumn />
             {this.renderViewerColumn()}
           </div>
         </main>
