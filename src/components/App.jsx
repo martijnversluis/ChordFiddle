@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ChordSheetJS from 'chordsheetjs';
 import PropTypes from 'prop-types';
 
@@ -81,10 +80,4 @@ App.propTypes = {
   previewMode: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  const { previewMode } = state.ui;
-  const { chordSheet } = state.chordSheet;
-  return { chordSheet, previewMode };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
