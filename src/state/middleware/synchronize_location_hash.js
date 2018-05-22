@@ -1,6 +1,5 @@
-import { setQueryParams } from '../../utils/query_param';
-import { compress } from '../../utils/string_compression';
 import debounce from '../../utils/debounce';
+import { write as writeLocationHash } from '../../utils/location_hash';
 
 const updateLocationHash = debounce((store) => {
   const {
@@ -8,10 +7,7 @@ const updateLocationHash = debounce((store) => {
     ui: { previewMode },
   } = store.getState();
 
-  setQueryParams({
-    chord_sheet: compress(chordSheet),
-    preview: previewMode,
-  });
+  writeLocationHash({ chordSheet, previewMode });
 });
 
 const synchronizeLocationHash = store => next => (action) => {
