@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import { setChordSheet, setSelectionRange } from '../state/chord_sheet/actions';
 import '../css/ChordSheetEditor.css';
 
 class ChordSheetEditor extends Component {
@@ -49,14 +47,4 @@ ChordSheetEditor.propTypes = {
   onSelectionChange: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  const { chordSheet, selectionStart, selectionEnd } = state.chordSheet;
-  return { chordSheet, selectionStart, selectionEnd };
-};
-
-const mapDispatchToProps = {
-  onChordSheetChange: setChordSheet,
-  onSelectionChange: setSelectionRange,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChordSheetEditor);
+export default ChordSheetEditor;

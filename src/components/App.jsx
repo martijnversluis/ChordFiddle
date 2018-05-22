@@ -6,7 +6,7 @@ import Header from './Header';
 import Toolbar from './Toolbar';
 import ImportDialog from './ImportDialog';
 import PreviewModeSelector from './PreviewModeSelector';
-import ChordSheetEditor from './ChordSheetEditor';
+import ChordSheetEditorContainer from '../containers/ChordSheetEditorContainer';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
 
@@ -27,7 +27,7 @@ class App extends Component {
             ['Import chord sheet', showImportDialog],
           ]
         }/>
-        <ChordSheetEditor />
+        <ChordSheetEditorContainer />
       </section>
     );
   }
