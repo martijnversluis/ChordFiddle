@@ -8,6 +8,7 @@ const PreviewModeSelector = (props) => {
 
   return (
     <RadioGroup
+      id={'preview_mode'}
       selected={previewMode}
       onOptionSelected={onOptionSelected}
       options={{ html: 'Markup', text: 'Plain' }}
