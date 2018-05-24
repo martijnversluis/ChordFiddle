@@ -1,25 +1,13 @@
 import React from 'react';
 
-import { switchToFlat, switchToSharp, transposeDown, transposeUp } from '../state/chord_sheet/actions';
-import { showImportDialog } from '../state/ui/actions';
 import ToolbarContainer from '../containers/ToolbarContainer';
 import ChordSheetEditorContainer from '../containers/ChordSheetEditorContainer';
 
-const EditorColumn = () => {
-  return (
-    <section className="App__column">
-      <ToolbarContainer
-        buttons={[
-          ['Transpose down', transposeDown],
-          ['Transpose up', transposeUp],
-          ['Use ♯', switchToSharp],
-          ['Use ♭', switchToFlat],
-          ['Import chord sheet', showImportDialog],
-        ]}
-      />
-      <ChordSheetEditorContainer />
-    </section>
-  );
-};
+const EditorColumn = () => (
+  <section className="App__column">
+    <ToolbarContainer />
+    <ChordSheetEditorContainer />
+  </section>
+);
 
 export default EditorColumn;
