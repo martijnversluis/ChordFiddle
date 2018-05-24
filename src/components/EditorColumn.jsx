@@ -5,7 +5,7 @@ import { showImportDialog } from '../state/ui/actions';
 import ToolbarContainer from '../containers/ToolbarContainer';
 import ChordSheetEditorContainer from '../containers/ChordSheetEditorContainer';
 
-function EditorColumn() {
+const EditorColumn = () => {
   return (
     <section className="App__column">
       <ToolbarContainer
@@ -20,6 +20,6 @@ function EditorColumn() {
       <ChordSheetEditorContainer />
     </section>
   );
-}
+};
 
 export default EditorColumn;

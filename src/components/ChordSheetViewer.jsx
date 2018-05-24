@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ChordSheetHTMLViewer from './ChordSheetHTMLViewer';
 import ChordSheetTextViewer from './ChordSheetTextViewer';
 
-function ChordSheetViewer(props) {
+const ChordSheetViewer = (props) => {
   const { chordSheet, previewMode } = props;
   const song = new ChordSheetJS.ChordProParser().parse(chordSheet);
 
@@ -17,7 +17,7 @@ function ChordSheetViewer(props) {
     default:
       return null;
   }
-}
+};
 
 ChordSheetViewer.propTypes = {
   chordSheet: PropTypes.string.isRequired,
