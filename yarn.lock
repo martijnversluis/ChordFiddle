@@ -1525,9 +1525,9 @@ chordjs@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-1.2.0.tgz#9b09d6b7840c331c1cb5016084b25aef74f41679"
 
-chordsheetjs@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.3.0.tgz#f743739988f1bf07f5236ee5375bd0307af24281"
+chordsheetjs@^2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.4.4.tgz#4427c5e26b96e0154c133bfedd5429e18dac31a0"
   dependencies:
     html-entities "^1.2.1"
 
