@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import App from './components/App';
 import store from './state/store';
+import AppContainer from './containers/AppContainer';
 
 import './css/variables.css';
 import './css/index.css';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById('root'),
 );
