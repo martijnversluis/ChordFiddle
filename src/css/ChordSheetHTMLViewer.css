@@ -26,3 +26,7 @@
 .ChordSheetHTMLViewer td {
   padding: 3px 0;
 }
+
+.ChordSheetHTMLViewer .empty-line {
+  height: 1em;
+}
