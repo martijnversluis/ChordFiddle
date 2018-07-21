@@ -48,6 +48,8 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "babel-jest": "^22.4.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.0",
     "expect": "^22.4.3",
     "jest-plugin-context": "^2.9.0",
@@ -71,8 +73,9 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.js",
-      "!**/*.test.js"
+      "src/**/*.{js,jsx}",
+      "!**/*.test.{js,jsx}",
+      "!src/test/**"
     ],
     "coverageReporters": [
       "lcov",
