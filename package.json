@@ -39,7 +39,7 @@
     "postcss-import": "^11.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.4",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.8.5",
     "react-redux": "^5.1.0",
     "react-scripts": "1.0.17",
     "react-scripts-x": "^0.1.3",
