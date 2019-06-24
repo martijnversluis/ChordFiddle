@@ -50,7 +50,7 @@
     "babel-jest": "^23.6.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "eslint": "^4.19.0",
+    "eslint": "^6.0.0",
     "expect": "^24.8.0",
     "jest-plugin-context": "^2.9.0",
     "redux-mock-store": "^1.5.3"
