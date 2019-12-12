@@ -53,7 +53,7 @@
     "eslint": "^4.19.0",
     "expect": "^24.9.0",
     "jest-plugin-context": "^2.9.0",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.4"
   },
   "react-scripts-x": {
     "postcss": [
