@@ -1635,11 +1635,11 @@ chordjs@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-1.2.0.tgz#9b09d6b7840c331c1cb5016084b25aef74f41679"
 
-chordsheetjs@^2.4.4:
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.4.5.tgz#ef9b38926a2b78a841cb8a86c75312b3c57696f9"
+chordsheetjs@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.9.1.tgz#b4239100bfc6e1dd2b509721de88f052c1ed2aac"
   dependencies:
-    html-entities "^1.2.1"
+    handlebars "^4.0.5"
 
 ci-info@^1.0.0:
   version "1.1.2"
@@ -3538,9 +3538,9 @@ handle-thing@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
 
-handlebars@^4.0.3:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.4.2.tgz#8810a9821a9d6d52cb2f57d326d6ce7c3dfe741d"
+handlebars@^4.0.3, handlebars@^4.0.5:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.2.tgz#01127b3840156a0927058779482031afe0e730d7"
   dependencies:
     neo-async "^2.6.0"
     optimist "^0.6.1"
@@ -3739,7 +3739,7 @@ html-encoding-sniffer@^1.0.1:
   dependencies:
     whatwg-encoding "^1.0.1"
 
-html-entities@^1.2.0, html-entities@^1.2.1:
+html-entities@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
 
