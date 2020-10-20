@@ -51,7 +51,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^4.19.0",
-    "expect": "^24.9.0",
+    "expect": "^26.6.0",
     "jest-plugin-context": "^2.9.0",
     "redux-mock-store": "^1.5.4"
   },
