@@ -1916,12 +1916,12 @@ chordjs@^1.2.0:
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-1.2.0.tgz#9b09d6b7840c331c1cb5016084b25aef74f41679"
   integrity sha512-XolVLJE3zS2d8oHb5otrE4YazVzvrAU37WTStaeyBtChYP8loKdikfOZhMBGTVhRf0oOjCkuAKzv4mkX6VAQ8Q==
 
-chordsheetjs@^2.4.4:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-2.9.1.tgz#b4239100bfc6e1dd2b509721de88f052c1ed2aac"
-  integrity sha512-iyes/5nBR3sLu/CrAoO3auzKsZPqbyECv5Qu3JCnbpJu93mgJ9eJc4ATNlIiT/+EjUL3x+TZhmnptmqO+Tp4hQ==
+chordsheetjs@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-3.0.0.tgz#a4d32dbc5af07bf2662f4686841a03babd451b22"
+  integrity sha512-erDybA7cDd3IcQSZGZALOQskYZc7eZxO2JPsga3jcVOp7hcmqQlX4lOrz9Z5xZ2aOPcOIYFr7D71KoImAhByYQ==
   dependencies:
-    handlebars "^4.0.5"
+    handlebars "^4.7.6"
 
 ci-info@^1.5.0:
   version "1.6.0"
@@ -4009,7 +4009,7 @@ handle-thing@^1.2.5:
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
   integrity sha1-/Xqtcmvxpf0W38KbL3pmAdJxOcQ=
 
-handlebars@^4.0.3, handlebars@^4.0.5:
+handlebars@^4.0.3, handlebars@^4.7.6:
   version "4.7.6"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.6.tgz#d4c05c1baf90e9945f77aa68a7a219aa4a7df74e"
   integrity sha512-1f2BACcBfiwAfStCKZNrUCgqNZkGsAT7UM3kkYtXuLo0KnaVfjKOyf7PRzB6++aK9STyT1Pd2ZCPe3EGOXleXA==
