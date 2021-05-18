@@ -1,1 +1,1 @@
-"{title: Let it be}\n{subtitle: ChordSheetJS example version}\n{Chorus}\n\nLet it [Am]be, let it [C/G]be, let it [F]be, let it [C]be\n[C]Whisper words of [G]wisdom, let it [F]be [C/E] [Dm] [C]\n"
+"{title: Let it be}\n{subtitle: ChordSheetJS example version}\n{composer: John Lennon}\n{composer: Paul McCartney}\n{Chorus}\n\nWritten by: %{composer}\n\nLet it [Am]be, let it [C/G]be, let it [F]be, let it [C]be\n[C]Whisper words of [G]wisdom, let it [F]be [C/E] [Dm] [C]\n"
