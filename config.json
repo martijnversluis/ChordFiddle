@@ -1,0 +1,16 @@
+{
+  "publicUrl": "/ChordFiddle",
+  "assetDir": "dist",
+  "toolbar": {
+    "transposeDown": "Transpose down",
+    "transposeUp": "Transpose up",
+    "switchToSharp": "Use ♯",
+    "switchToFlat": "Use ♭",
+    "importChordSheet": "Import chord sheet"
+  },
+  "displayModes": {
+    "html": "Markup",
+    "text": "Plain"
+  },
+  "defaultDisplayMode": "html"
+}

@@ -1,0 +1,17 @@
+.LineNumbers
+  overflow: auto
+  text-align: right
+
+  &__error
+    color: red
+    display: inline-block
+    position: relative
+
+    &:after
+      content: '⚠️'
+      font-size: 22px
+      margin-top: -1px
+      position: absolute
+      right: -26px
+      top: 50%
+      transform: translate(0, -50%)

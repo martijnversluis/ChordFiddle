@@ -1,0 +1,38 @@
+.Header
+  $header-foreground: $theme-foreground
+  $header-meta-separator-color: $theme-foreground
+  $navigation-spacing: $spacing-l
+  $site-name-foreground: $theme-primary
+  $site-name-font: $font-monospace
+  $wrapper-spacing: $spacing-m $spacing-s
+
+  color: $header-foreground
+  flex: 0 0 50px
+
+  &__wrapper
+    display: flex
+    padding: $wrapper-spacing
+
+  &__site-name
+    display: inline-block
+    flex: 1 0 auto
+    font-family: $site-name-font
+    margin: 0
+
+    a,
+    a:hover
+      color: $site-name-foreground
+      text-decoration: none
+
+  &__navigation
+    display: inline-block
+    flex: 0 0 auto
+    list-style: none
+
+    li
+      display: inline-block
+
+      & + *
+        border-left: 1px $header-meta-separator-color solid
+        margin-left: $navigation-spacing
+        padding-left: $navigation-spacing

@@ -1,0 +1,51 @@
+.ImportDialog
+  $buttons-top-padding: $spacing-m
+  $close-button-height: 16px
+  $close-button-color: $theme-grey
+  $modal-background: $theme-foreground
+  $modal-border-color: $theme-secondary
+  $modal-code-background: $theme-silver
+  $modal-foreground: $theme-background
+
+  background: $modal-background
+  border: 1px $modal-border-color solid
+  box-shadow: 0 0 5px $modal-border-color
+  bottom: 0
+  color: $modal-foreground
+  display: none
+  left: 0
+  margin: auto
+  max-height: 90vh
+  max-width: 90vw
+  padding: 30px 50px
+  position: absolute
+  right: 0
+  top: 0
+
+  &--visible
+    display: flex
+
+  &__close-button
+    background: transparent
+    color: $close-button-color
+    font-size: $close-button-height * 2.4
+    font-weight: 700
+    line-height: $close-button-height
+    position: absolute
+    right: 2.5vw
+    text-decoration: none
+    top: 2.5vw
+
+  &__contents
+    display: flex
+    flex: 1 0 auto
+    flex-direction: column
+    max-height: 100%
+    overflow: auto
+
+  &__buttons
+    padding-top: $buttons-top-padding
+
+
+  &__editor
+    border: 1px $modal-border-color solid
