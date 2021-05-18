@@ -1,0 +1,30 @@
+button, .button
+  $button-background: $theme-secondary
+  $button-foreground: $theme-foreground
+  $button-outline: $theme-secondary
+  $button-padding: $spacing-s $spacing-m
+
+  -webkit-appearance: none
+  -moz-appearance: none
+  background-color: $button-background
+  border: 0
+  color: $button-foreground
+  cursor: pointer
+  display: inline-block
+  font-family: inherit
+  font-size: inherit
+  margin: 0 $toolbar-spacing $toolbar-spacing 0
+  padding: $button-padding
+  text-decoration: none
+
+
+  &.large
+    $button-padding-large: $spacing-m $spacing-l
+
+    padding: $button-padding-large
+
+  &:focus
+    box-shadow: 0 0 3px 3px rgba($button-outline, 0.5)
+
+  &:hover
+    text-decoration: none

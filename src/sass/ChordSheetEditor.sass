@@ -1,0 +1,23 @@
+.ChordSheetEditor
+  $editor-background: $theme-foreground
+  $editor-foreground: $theme-background
+  $editor-padding: $spacing-m
+  $editor-font: $font-monospace
+  $editor-font-size: 14px
+  $editor-outline-color: rgba($theme-foreground, 0.5)
+  $editor-padding: $spacing-m
+  $editor-focus-background: $theme-foreground
+
+  background-color: $editor-background
+  border: none
+  color: $editor-foreground
+  flex: 1 1 auto
+  font-family: $editor-font
+  font-size: $editor-font-size
+  outline: none
+  padding: $editor-padding
+  transition: background-color 100ms ease-out
+
+  &:focus
+    background-color: $editor-focus-background
+    box-shadow: 0 0 3px 3px $editor-outline-color

@@ -1,0 +1,29 @@
+.App
+  display: flex
+  flex: 0 1 auto
+  flex-direction: column
+  max-height: 100%
+  overflow: hidden
+  width: 100%
+
+  &__container
+    display: flex
+    flex: 0 1 auto
+    flex-direction: column
+    height: 100%
+    overflow: hidden
+
+  &__columns
+    $column-space-between: $spacing-m
+
+    display: grid
+    flex: 0 1 auto
+    gap: $column-space-between
+    grid-template-columns: repeat(2, 1fr)
+    height: 100%
+
+  &__column
+    display: flex
+    flex-direction: column
+    max-height: 100%
+    overflow: hidden

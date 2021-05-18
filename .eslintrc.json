@@ -6,16 +6,17 @@
   },
 
   "env": {
-    "amd": true,
-    "browser": true,
-    "es6": true,
-    "jest": true
+    "browser": true
   },
 
-  "extends": "airbnb",
+  "extends": "airbnb-base",
 
   "rules": {
     "max-len": [2, 120, 2],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "func-names": "off",
+    "arrow-parens": ["error", "always"]
   }
 }
