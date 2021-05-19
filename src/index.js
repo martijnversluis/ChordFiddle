@@ -3,7 +3,7 @@ import chordsheetjs from 'chordsheetjs';
 import './sass/main.sass';
 
 import { convertChordSheetToChordPro } from './js/chord_sheet_transformations';
-import { getQueryParams, setQueryParams } from './js/location_hash';
+import { getQueryParams, setChordSheet, setDisplayMode } from './js/location_hash';
 import ChordSheetEditor from './js/chord_sheet_editor';
 import ChordSheetViewer from './js/chord_sheet_viewer';
 import ImportDialog from './js/import_dialog';
@@ -15,7 +15,7 @@ const chordSheetEditor = new ChordSheetEditor('chordSheetEditor');
 const chordSheetViewer = new ChordSheetViewer('chordSheetViewer');
 
 function onChordSheetChange(chordSheet) {
-  setQueryParams({ chordSheet });
+  setChordSheet(chordSheet);
 
   try {
     const parser = new chordsheetjs.ChordProParser();
@@ -30,7 +30,7 @@ function onChordSheetChange(chordSheet) {
 chordSheetEditor.onChordSheetChange = onChordSheetChange;
 
 chordSheetViewer.onDisplayModeChanged = (displayMode) => {
-  setQueryParams({ displayMode });
+  setDisplayMode(displayMode);
   chordSheetViewer.render(song);
 };
 
