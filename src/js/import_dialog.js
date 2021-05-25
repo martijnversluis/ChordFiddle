@@ -12,7 +12,7 @@ class ImportDialog extends Component {
       this.onImportConfirmed(chordSheet);
     });
 
-    this.onClick('closeButton', this.close);
+    this.onClick('closeButton', () => this.close());
   }
 
   setOpen(open) {
