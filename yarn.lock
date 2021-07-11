@@ -535,10 +535,15 @@ chalk@^4.0.0:
   optionalDependencies:
     fsevents "~2.3.1"
 
-chordjs@^1.1.1, chordjs@^1.2.0:
+chordjs@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-1.2.0.tgz#9b09d6b7840c331c1cb5016084b25aef74f41679"
   integrity sha512-XolVLJE3zS2d8oHb5otrE4YazVzvrAU37WTStaeyBtChYP8loKdikfOZhMBGTVhRf0oOjCkuAKzv4mkX6VAQ8Q==
+
+chordjs@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-2.0.0.tgz#ebed930c51bd4449f5258d53657954fd9b0ad42e"
+  integrity sha512-MOV3zM2BsJRrMpwtcjuED/KHAcXSZ/lGUwB60dRmpfqA1u40K2sAnho8zZpgCVtAJZzwINnKuLPnmVOBeaHP6A==
 
 chordsheetjs@^4.7.1:
   version "4.7.1"
