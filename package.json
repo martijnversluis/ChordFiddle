@@ -34,7 +34,7 @@
     "chordjs": "^2.0.0",
     "chordsheetjs": "^4.7.1",
     "lz-string": "^1.4.4",
-    "query-string": "^7.0.0"
+    "query-string": "^7.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
