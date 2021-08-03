@@ -17,8 +17,7 @@ Technically speaking ChordFiddle is just a user interface to the combination of
 [ChordSheetJS](https://github.com/martijnversluis/ChordSheetJS) and
 [ChordJS](https://github.com/martijnversluis/ChordJS).
 
-ChordFiddle is based on [Create React app](https://github.com/facebook/create-react-app) extended with
-[`react-scripts-x`](https://www.npmjs.com/package/react-scripts-x)
+ChordFiddle is just vanilla JavaScript, with class based components inheriting from a very simple [Component class](src/js/component.js)
 
 ## Feature requests/bugs
 
