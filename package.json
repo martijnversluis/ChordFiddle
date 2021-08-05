@@ -43,7 +43,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.23.4",
     "handlebars-webpack-plugin": "^2.2.1",
-    "mini-css-extract-plugin": "^2.1.0",
+    "mini-css-extract-plugin": "^2.2.0",
     "sass": "^1.37.2",
     "sass-loader": "^12.1.0",
     "webpack": "^5.48.0",
