@@ -31,11 +31,10 @@ Of course pull requests are more than welcome too. To get started:
 - `git clone git@github.com:martijnversluis/ChordFiddle.git` or 
   `git clone https://github.com/martijnversluis/ChordFiddle.git`
 - `yarn install` to install dependencies
-- `yarn start` to start the development serve
+- `yarn start` to start the development server on http://localhost:8080 and open the default browser
 - make your changes
 - run `yarn test` to run the tests
 - `yarn build` to generate production assets
 - commit and push your changes
 - open a pull request
 
-Please make sure your contribution passes all Eslint checks.

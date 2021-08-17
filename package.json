@@ -7,8 +7,9 @@
     "test": "yarn lint",
     "lint": "node_modules/.bin/eslint --ext .js .",
     "lint:fix": "node_modules/.bin/eslint --fix --ext .js .",
-    "build": "npx webpack",
-    "prepublishOnly": "yarn install && yarn test && yarn build"
+    "build": "webpack --env production",
+    "prepublishOnly": "yarn install && yarn test && yarn build",
+    "start": "webpack serve --open"
   },
   "repository": {
     "type": "git",
@@ -43,11 +44,12 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.24.0",
     "handlebars-webpack-plugin": "^2.2.1",
-    "mini-css-extract-plugin": "^2.2.0",
     "sass": "^1.37.5",
     "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
     "webpack": "^5.50.0",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "browserify": {
     "transform": [

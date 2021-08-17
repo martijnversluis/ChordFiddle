@@ -1,9 +1,9 @@
 import ChordSheetJS from 'chordsheetjs';
-import Chord from 'chordjs';
+import { parse as parseChord } from 'chordjs';
 
 const processChord = (item, processor) => {
   if (item instanceof ChordSheetJS.ChordLyricsPair && item.chords) {
-    const parsedChord = Chord.parse(item.chords);
+    const parsedChord = parseChord(item.chords);
 
     if (parsedChord) {
       const processedChordLyricsPair = item.clone();
