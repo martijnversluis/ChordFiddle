@@ -683,22 +683,16 @@ chalk@^4.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-chordjs@^1.1.1:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-1.2.0.tgz#9b09d6b7840c331c1cb5016084b25aef74f41679"
-  integrity sha512-XolVLJE3zS2d8oHb5otrE4YazVzvrAU37WTStaeyBtChYP8loKdikfOZhMBGTVhRf0oOjCkuAKzv4mkX6VAQ8Q==
-
 chordjs@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-2.0.1.tgz#6e45be70a2d0d3558790bd8884463e7f53ca3c8d"
   integrity sha512-zlZhX6/OW+yNJTm3Jagrvps598LF0Q1XHZIxAvIk1qJXu7OzP5QDPhOAXLz99r+gESbzLnCaNtAHJqLQkfVxAw==
 
-chordsheetjs@^4.7.1:
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-4.7.1.tgz#080cec3c0c332601729df01c6eed8d51a773942f"
-  integrity sha512-llfcldnlxbFJek9EE6TXO/kgrd8HUyCY4lpuOGrZ105ENvPgGX2Nn4KJSxPPSPZopdDWeii8tS16J/0N+KcL+g==
+chordsheetjs@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-4.9.0.tgz#64f88e442aa857540ffb28a6ec4744710720858c"
+  integrity sha512-TQLNLeW8Zu75BRxIb9yPP41f02o+tpoGxeXRuXvnqjLWWeQfcnI9wYSQmC9t8UIku5RHCcCe/eK/1+bImAH9nw==
   dependencies:
-    chordjs "^1.1.1"
     handlebars "^4.7.6"
 
 chrome-trace-event@^1.0.2:
