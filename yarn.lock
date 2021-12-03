@@ -688,10 +688,10 @@ chordjs@^2.0.1:
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-2.0.1.tgz#6e45be70a2d0d3558790bd8884463e7f53ca3c8d"
   integrity sha512-zlZhX6/OW+yNJTm3Jagrvps598LF0Q1XHZIxAvIk1qJXu7OzP5QDPhOAXLz99r+gESbzLnCaNtAHJqLQkfVxAw==
 
-chordsheetjs@^4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-4.10.0.tgz#201167b298da5813282f62c3f2080841ba8764d9"
-  integrity sha512-hByEwr72RezP1DX7btV7H41NR3ynwbnSE7/cy1ksx4gpIxQLq5KvbX8iqMtN0mOaGboCP3lJM0Ryzl5hsUaPJg==
+chordsheetjs@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-5.0.0.tgz#560d81e23cfb71f921c22a642365b3693e5000b5"
+  integrity sha512-l6OhZ9cn9jh/+Siq9BUpj0YsBnAktRqTze027dOq2W+DuvvuJpInjnSkV5gerBYrHoDuZwgTUCdksSaoON/wBg==
   dependencies:
     handlebars "^4.7.6"
 
