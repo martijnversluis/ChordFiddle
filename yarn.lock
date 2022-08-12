@@ -807,12 +807,12 @@ chordjs@^2.0.1:
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-2.0.1.tgz#6e45be70a2d0d3558790bd8884463e7f53ca3c8d"
   integrity sha512-zlZhX6/OW+yNJTm3Jagrvps598LF0Q1XHZIxAvIk1qJXu7OzP5QDPhOAXLz99r+gESbzLnCaNtAHJqLQkfVxAw==
 
-chordsheetjs@^4.10.0:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-4.10.0.tgz#201167b298da5813282f62c3f2080841ba8764d9"
-  integrity sha512-hByEwr72RezP1DX7btV7H41NR3ynwbnSE7/cy1ksx4gpIxQLq5KvbX8iqMtN0mOaGboCP3lJM0Ryzl5hsUaPJg==
+chordsheetjs@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-7.6.0.tgz#da5df835e939fd9ae19e83d5bf40ee5efcec4dae"
+  integrity sha512-WCuZbaUyS/YBNMPgHmZuwNmQTlat5zR7ikXWbVgjzmj5fx2gpkBcxYGAN1miZpJvr35J/eu7eI7ThtBTm5hk6A==
   dependencies:
-    handlebars "^4.7.6"
+    lodash.get "^4.4.2"
 
 chrome-trace-event@^1.0.2:
   version "1.0.3"
@@ -1667,7 +1667,7 @@ handlebars-webpack-plugin@^2.2.1:
     handlebars "^4.0.3"
     safe-require "^1.0.4"
 
-handlebars@^4.0.3, handlebars@^4.7.6:
+handlebars@^4.0.3:
   version "4.7.7"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
   integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
@@ -2143,6 +2143,11 @@ locate-path@^6.0.0:
   integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
   dependencies:
     p-locate "^5.0.0"
+
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
 
 lodash.merge@^4.6.2:
   version "4.6.2"
