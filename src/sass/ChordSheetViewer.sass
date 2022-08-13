@@ -27,18 +27,25 @@
     h2
       font-size: $viewer-title-font-size
 
-    table
-      border-spacing: 0
-      color: inherit
+    .chord
+      font-weight: 600
 
-    td
-      padding: 3px 0
-
-    .chord:not(:last-child)
-      padding-right: $spacing-m
+      &:not(:last-child)
+        padding-right: $spacing-m
 
     .empty-line
       height: 1em
 
     .paragraph
       margin-bottom: 1em
+
+    .chord:not(:last-child)
+      padding-right: $spacing-m
+
+    .chord:after,
+    .lyrics:after
+      content: '\200b'
+
+    .row
+      display: flex
+      line-height: 150%

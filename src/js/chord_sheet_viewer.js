@@ -2,7 +2,7 @@ import chordsheetjs from 'chordsheetjs';
 import Component from './component';
 
 const formatters = {
-  html: chordsheetjs.HtmlTableFormatter,
+  html: chordsheetjs.HtmlDivFormatter,
   text: chordsheetjs.TextFormatter,
 };
 
