@@ -801,9 +801,9 @@ chordjs@^2.0.1:
   integrity sha512-zlZhX6/OW+yNJTm3Jagrvps598LF0Q1XHZIxAvIk1qJXu7OzP5QDPhOAXLz99r+gESbzLnCaNtAHJqLQkfVxAw==
 
 chordsheetjs@^7.12.0:
-  version "7.12.0"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-7.12.0.tgz#5fbae81b480933d7e0c9bf24b5a12e21bb9bdb3b"
-  integrity sha512-6n3bVfejpl9vkknyAYaU2EHGWy12xSOYBzKbGKcJcD8XKlYmFhMpcaWvdg1vb02RsZF3usEMb6S23g8RO3Elxw==
+  version "7.13.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-7.13.0.tgz#458f86fb96a7d5ac433c643c7d6f2dd3759dd0f7"
+  integrity sha512-WX5I/MkdU66VHqox/hBXbUJ3gQHlSwyMB+dzVnA872ceLO7wpv3dze3tLfZmw0GIVhwc21r4/PURH7sQpUTfrw==
   dependencies:
     lodash.get "^4.4.2"
 
