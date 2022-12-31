@@ -2,7 +2,8 @@ const path = require('path');
 const HandlebarsPlugin = require('handlebars-webpack-plugin');
 const mergeJSON = require('handlebars-webpack-plugin/utils/mergeJSON');
 
-const projectData = mergeJSON(path.join(__dirname, '{config,example_chord_pro_sheet,package}.json'));
+const projectData = mergeJSON(path.join(__dirname, '{config,package}.json'));
+const exampleChordProSheet = require('./example_chord_pro_sheet');
 
 module.exports = (env) => ({
   resolve: {
@@ -23,6 +24,7 @@ module.exports = (env) => ({
       output: path.join(process.cwd(), '[name].html'),
       data: {
         ...projectData,
+        example_chord_pro_sheet: exampleChordProSheet,
         bundlePath: `${env.production ? 'dist/' : ''}bundle.js`,
       },
       helpers: {
@@ -42,5 +44,12 @@ module.exports = (env) => ({
         ],
       },
     ],
+  },
+  devServer: {
+    static: {
+      directory: __dirname,
+    },
+    compress: true,
+    port: 9000,
   },
 });
