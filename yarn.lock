@@ -816,10 +816,10 @@ chordjs@^2.0.1:
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-2.0.1.tgz#6e45be70a2d0d3558790bd8884463e7f53ca3c8d"
   integrity sha512-zlZhX6/OW+yNJTm3Jagrvps598LF0Q1XHZIxAvIk1qJXu7OzP5QDPhOAXLz99r+gESbzLnCaNtAHJqLQkfVxAw==
 
-chordsheetjs@^7.12.0:
-  version "7.13.0"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-7.13.0.tgz#458f86fb96a7d5ac433c643c7d6f2dd3759dd0f7"
-  integrity sha512-WX5I/MkdU66VHqox/hBXbUJ3gQHlSwyMB+dzVnA872ceLO7wpv3dze3tLfZmw0GIVhwc21r4/PURH7sQpUTfrw==
+chordsheetjs@^7.16.0:
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-7.16.0.tgz#d1d55d237ed2964f536b4713c358035baaad7fac"
+  integrity sha512-6sDrHYM0n/vjTTUWOVZb0vh/5F8daxNq1mnDw/Af+S0uNKs0XWLE2yhF6Z4LGQ+SeS35t9APtU2SeTnvL8QJvw==
   dependencies:
     lodash.get "^4.4.2"
 
