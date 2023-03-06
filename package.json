@@ -34,7 +34,7 @@
   "dependencies": {
     "chordjs": "^2.0.1",
     "chordsheetjs": "^7.12.0",
-    "lz-string": "^1.4.4",
+    "lz-string": "^1.5.0",
     "query-string": "^8.1.0"
   },
   "devDependencies": {
