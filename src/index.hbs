@@ -52,10 +52,10 @@
             {{/each}}
           </ul>
           <div class="EditorContainer">
-            <div class="ChordSheetEditor LineNumbers EditorContainer__lineNumbers" id="chordSheetEditor__lineNumbers" data-mode="text"></div>
-            <textarea class="ChordSheetEditor EditorContainer__editor" id="chordSheetEditor" data-mode="text">{{example_chord_pro_sheet}}</textarea>
+            <div class="ChordSheetEditor EditorContainer__editor" id="chordSheetEditor" data-mode="text"><script type="text/template">{{example_chord_pro_sheet}}</script></textarea>
           </div>
           <div class="EditorContainer__errorMessage" id="chordSheetEditor__errorMessage"></div>
+          <small>Powered by <a href="https://github.com/chordbook/editor">@chordbook/editor</a></small>
         </section>
         <section class="App__column" id="chordSheetViewer">
           <ul class="RadioGroup">

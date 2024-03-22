@@ -1,86 +1,69 @@
+import { createEditor } from '@chordbook/editor';
+import { EditorSelection } from '@codemirror/state';
+import { linter, setDiagnostics } from "@codemirror/lint"
 import Component from './component';
-import valueWithHistory from './value_with_history';
-import debounce from './debounce';
 
 class ChordSheetEditor extends Component {
   onChordSheetChange = () => {};
 
-  errorLineNumber = valueWithHistory(null);
-
   setup() {
-    this.container.addEventListener('input', debounce(() => {
-      this.onChordSheetChange(this.getValue());
-      this.updateLineNumbers();
-    }));
+    this.editor = createEditor({
+      doc: this.container.querySelector('*').innerText,
+      parent: this.container,
+      extensions: [
+        linter()
+      ]
+    });
 
-    this.container.addEventListener('scroll', () => {
-      this.lineNumbersContainer.scrollTop = this.container.scrollTop;
+    this.container.addEventListener('change', e => {
+      this.onChordSheetChange(e.detail.doc);
     });
   }
 
-  get lineNumbersContainer() {
-    return this.element('lineNumbers');
-  }
-
-  updateLineNumbers() {
-    const lineNumbers = this.lineNumbersContainer.innerText.split('\n').filter((t) => t);
-    const editorLineCount = this.getValue().split('\n').length;
-    const previousErrorLine = this.errorLineNumber.valueWas;
-    const newErrorLine = this.errorLineNumber.value;
-
-    if (previousErrorLine) {
-      lineNumbers[previousErrorLine - 1] = `${previousErrorLine}`;
-    }
-
-    if (newErrorLine) {
-      lineNumbers[newErrorLine - 1] = `<div class="LineNumbers__error">${newErrorLine}</div>`;
-    }
-
-    if (lineNumbers.length > editorLineCount) {
-      lineNumbers.splice(editorLineCount);
-    }
-
-    while (lineNumbers.length < editorLineCount) {
-      lineNumbers.push(`${lineNumbers.length + 1}`);
-    }
-
-    this.lineNumbersContainer.innerHTML = lineNumbers.join('<br>');
-  }
-
   getSelectionRange() {
-    const { selectionStart, selectionEnd } = this.container;
-    return [selectionStart, selectionEnd];
+    const { from, to } = this.editor.state.selection.main;
+    return [ from, to ];
   }
 
   setSelectionRange(selectionStart, selectionEnd) {
-    this.container.setSelectionRange(selectionStart, selectionEnd);
+    this.editor.dispatch({
+      selection: EditorSelection.create([
+        EditorSelection.range(selectionStart, selectionEnd),
+        EditorSelection.cursor(selectionEnd)
+      ])
+    })
+
+    // view.dispatch({ changes: { from: line.from, to: line.to, insert: 'New text for the line' } })
+    // this.container.setSelectionRange(selectionStart, selectionEnd);
   }
 
   focus() {
-    this.container.focus();
+    this.editor.focus();
   }
 
   getValue() {
-    return this.container.value;
+    return this.editor.state.doc.toString();
   }
 
   setValue(value) {
-    this.container.value = value;
-    this.updateLineNumbers();
+    this.editor.dispatch({ changes: { from: 0, to: this.editor.state.doc.length, insert: value } })
   }
 
   setError(error) {
     this.element('errorMessage').innerText = error;
   }
 
-  showError(message, line) {
-    this.setError(`Line ${line}: ${message}`);
-    this.errorLineNumber.set(line);
+  showError(message, location) {
+    this.editor.dispatch(setDiagnostics(this.editor.state, [{
+      from: location.start.offset,
+      to: location.end.offset,
+      severity: "error",
+      message
+    }]))
   }
 
   resetError() {
-    this.setError('');
-    this.errorLineNumber.set(null);
+    this.editor.dispatch(setDiagnostics(this.editor.state, []))
   }
 
   transformChordSheet(transformationFunc) {

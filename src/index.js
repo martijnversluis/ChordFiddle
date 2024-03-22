@@ -23,7 +23,7 @@ function onChordSheetChange(chordSheet) {
     chordSheetViewer.render(song);
     chordSheetEditor.resetError();
   } catch ({ message, location }) {
-    chordSheetEditor.showError(message, location.start.line);
+    chordSheetEditor.showError(message, location);
   }
 }
 
@@ -58,5 +58,3 @@ if (chordSheet) {
 } else {
   onChordSheetChange(chordSheetEditor.getValue());
 }
-
-chordSheetEditor.updateLineNumbers();
