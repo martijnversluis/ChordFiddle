@@ -2,6 +2,11 @@ class Component {
   constructor(containerID) {
     this.containerID = containerID;
     this.container = document.getElementById(containerID);
+
+    if (!this.container) {
+      throw new Error(`Could not find ${this.constructor.name} container with ID: ${containerID}`);
+    }
+
     this.setup();
   }
 
