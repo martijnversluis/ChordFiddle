@@ -1,6 +1,6 @@
 import { createEditor } from '@chordbook/editor';
 import { EditorSelection } from '@codemirror/state';
-import { linter, setDiagnostics } from "@codemirror/lint"
+import { linter, setDiagnostics } from '@codemirror/lint';
 import Component from './component';
 
 class ChordSheetEditor extends Component {
@@ -11,30 +11,27 @@ class ChordSheetEditor extends Component {
       doc: this.container.querySelector('*').innerText,
       parent: this.container,
       extensions: [
-        linter()
-      ]
+        linter(),
+      ],
     });
 
-    this.container.addEventListener('change', e => {
+    this.container.addEventListener('change', (e) => {
       this.onChordSheetChange(e.detail.doc);
     });
   }
 
   getSelectionRange() {
     const { from, to } = this.editor.state.selection.main;
-    return [ from, to ];
+    return [from, to];
   }
 
   setSelectionRange(selectionStart, selectionEnd) {
     this.editor.dispatch({
       selection: EditorSelection.create([
         EditorSelection.range(selectionStart, selectionEnd),
-        EditorSelection.cursor(selectionEnd)
-      ])
-    })
-
-    // view.dispatch({ changes: { from: line.from, to: line.to, insert: 'New text for the line' } })
-    // this.container.setSelectionRange(selectionStart, selectionEnd);
+        EditorSelection.cursor(selectionEnd),
+      ]),
+    });
   }
 
   focus() {
@@ -46,7 +43,7 @@ class ChordSheetEditor extends Component {
   }
 
   setValue(value) {
-    this.editor.dispatch({ changes: { from: 0, to: this.editor.state.doc.length, insert: value } })
+    this.editor.dispatch({ changes: { from: 0, to: this.editor.state.doc.length, insert: value } });
   }
 
   setError(error) {
@@ -57,13 +54,13 @@ class ChordSheetEditor extends Component {
     this.editor.dispatch(setDiagnostics(this.editor.state, [{
       from: location.start.offset,
       to: location.end.offset,
-      severity: "error",
-      message
-    }]))
+      severity: 'error',
+      message,
+    }]));
   }
 
   resetError() {
-    this.editor.dispatch(setDiagnostics(this.editor.state, []))
+    this.editor.dispatch(setDiagnostics(this.editor.state, []));
   }
 
   transformChordSheet(transformationFunc) {
