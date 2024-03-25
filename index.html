@@ -62,8 +62,7 @@
               </li>
           </ul>
           <div class="EditorContainer">
-            <div class="ChordSheetEditor LineNumbers EditorContainer__lineNumbers" id="chordSheetEditor__lineNumbers" data-mode="text"></div>
-            <textarea class="ChordSheetEditor EditorContainer__editor" id="chordSheetEditor" data-mode="text">
+            <div class="ChordSheetEditor EditorContainer__editor" id="chordSheetEditor" data-mode="text"><script type="text/template">
 {title: Let it be}
 {subtitle: ChordSheetJS example version}
 {key: C}
@@ -88,9 +87,10 @@ Lyrics by: %{lyricist|%{}|(unknown)}
 Let it [Am]be, let it [C/G]be, let it [F]be, let it [C]be
 [C]Whisper words of [G]wisdom, let it [F]be [C/E] [Dm] [C]
 {end_of_chorus}
-</textarea>
+</script></textarea>
           </div>
           <div class="EditorContainer__errorMessage" id="chordSheetEditor__errorMessage"></div>
+          <small>Powered by <a href="https://github.com/chordbook/editor">@chordbook/editor</a></small>
         </section>
         <section class="App__column" id="chordSheetViewer">
           <ul class="RadioGroup">

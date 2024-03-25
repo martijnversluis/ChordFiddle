@@ -2,26 +2,7 @@
   $editor-padding: $spacing-m
   $editor-space-between: $spacing-m
 
-  display: flex
-  flex-direction: row
-  flex: 1 1 auto
-  max-height: 100%
-  overflow: hidden
-
-  &__editor
-    $border-color: $theme-background
-
-    border-left: 1px $border-color solid
-    flex: 1 0 auto
-
-  &__lineNumbers
-    $right-padding: 28px
-    $scrollbar-correction: 20px
-    $width: 65px
-
-    flex: 0 0 ($width + $scrollbar-correction)
-    margin-right: -1 * $scrollbar-correction
-    padding-right: $right-padding + $scrollbar-correction
+  overflow: auto
 
   &__errorMessage
     background: red
