@@ -33,7 +33,7 @@
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
   "dependencies": {
     "chordjs": "^2.0.1",
-    "chordsheetjs": "^7.17.1",
+    "chordsheetjs": "^10.11.0",
     "lz-string": "^1.5.0",
     "query-string": "^9.1.1"
   },

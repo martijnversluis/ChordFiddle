@@ -934,12 +934,10 @@ chordjs@^2.0.1:
   resolved "https://registry.yarnpkg.com/chordjs/-/chordjs-2.0.1.tgz#6e45be70a2d0d3558790bd8884463e7f53ca3c8d"
   integrity sha512-zlZhX6/OW+yNJTm3Jagrvps598LF0Q1XHZIxAvIk1qJXu7OzP5QDPhOAXLz99r+gESbzLnCaNtAHJqLQkfVxAw==
 
-chordsheetjs@^7.17.1:
-  version "7.17.1"
-  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-7.17.1.tgz#7defe9feea0b5b1115d996bed6a1b7a4a8a28f60"
-  integrity sha512-K8sBgYNonbaUHs8x7PYhDmkOrg4QS4nr456s8M7KrpBL8iqyzYU0ZZvoANOeAGXdbh95XDEHVs+0BLjxXAT2zA==
-  dependencies:
-    lodash.get "^4.4.2"
+chordsheetjs@^10.11.0:
+  version "10.11.0"
+  resolved "https://registry.yarnpkg.com/chordsheetjs/-/chordsheetjs-10.11.0.tgz#5b6906131fafebc28e93b07d641ae4e52d358f84"
+  integrity sha512-qFTeeOXVoA0Bm6w11NpsNNg6o+h9hBqlxyINfnHGjDLPY/9dyduCK5Q3ZAZhwtAS77KPC1fKOzGxN7HEDaBAiA==
 
 chrome-trace-event@^1.0.2:
   version "1.0.3"
@@ -2694,11 +2692,6 @@ locate-path@^6.0.0:
   integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
   dependencies:
     p-locate "^5.0.0"
-
-lodash.get@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
-  integrity sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==
 
 lodash.merge@^4.6.2:
   version "4.6.2"
