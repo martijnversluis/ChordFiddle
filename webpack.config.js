@@ -25,7 +25,7 @@ module.exports = (env) => ({
       data: {
         ...projectData,
         example_chord_pro_sheet: exampleChordProSheet,
-        bundlePath: `${env.production ? 'dist/' : ''}bundle.js`,
+        bundlePath: 'bundle.js',
       },
       helpers: {
         eq: (one, other) => one === other,
