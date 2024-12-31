@@ -1,6 +1,7 @@
 {
-  "name": "ChordFiddle",
-  "version": "2.3.0",
+  "name": "chordfiddle",
+  "version": "3.0.0",
+  "title": "ChordSheetJS live demo",
   "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "private": true,
   "scripts": {
@@ -31,8 +32,10 @@
   "homepage": ".",
   "githubHome": "https://github.com/martijnversluis/ChordFiddle",
   "about": "https://github.com/martijnversluis/ChordFiddle/blob/master/README.md#chordfiddle",
+  "documentation": {
+    "url": "https://martijnversluis.github.io/ChordSheetJS/"
+  },
   "dependencies": {
-    "chordjs": "^2.0.1",
     "chordsheetjs": "^10.11.0",
     "lz-string": "^1.5.0",
     "query-string": "^9.1.1"
@@ -65,5 +68,6 @@
         }
       ]
     ]
-  }
+  },
+  "packageManager": "yarn@4.2.2+sha512.c44e283c54e02de9d1da8687025b030078c1b9648d2895a65aab8e64225bfb7becba87e1809fc0b4b6778bbd47a1e2ab6ac647de4c5e383a53a7c17db6c3ff4b"
 }

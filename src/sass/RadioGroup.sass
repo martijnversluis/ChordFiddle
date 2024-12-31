@@ -16,16 +16,19 @@
 
   &__option
     display: inline-block
+    font-size: 0
 
   &__option + &__option
     margin-left: $radio-option-space-between
 
   &__radio
+    margin: 0
     opacity: 0
     width: 0
 
   &__label
     cursor: pointer
+    font-size: initial
     line-height: $radio-group-height
     padding-left: ($radio-size + $radio-right-margin) + 2 * $radio-border-size
     position: relative
