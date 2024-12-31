@@ -1,11 +1,13 @@
+@use "variables"
+
 .ImportDialog
-  $buttons-top-padding: $spacing-m
+  $buttons-top-padding: variables.$spacing-m
   $close-button-height: 16px
-  $close-button-color: $theme-grey
-  $modal-background: $theme-foreground
-  $modal-border-color: $theme-secondary
-  $modal-code-background: $theme-silver
-  $modal-foreground: $theme-background
+  $close-button-color: variables.$theme-grey
+  $modal-background: variables.$theme-foreground
+  $modal-border-color: variables.$theme-secondary
+  $modal-code-background: variables.$theme-silver
+  $modal-foreground: variables.$theme-background
 
   background: $modal-background
   border: 1px $modal-border-color solid

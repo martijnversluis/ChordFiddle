@@ -1,12 +1,14 @@
+@use "variables"
+
 .ChordSheetEditor
-  $editor-background: $theme-foreground
-  $editor-foreground: $theme-background
-  $editor-padding: $spacing-m
-  $editor-font: $font-monospace
+  $editor-background: variables.$theme-foreground
+  $editor-foreground: variables.$theme-background
+  $editor-padding: variables.$spacing-m
+  $editor-font: variables.$font-monospace
   $editor-font-size: 14px
-  $editor-outline-color: rgba($theme-foreground, 0.5)
-  $editor-padding: $spacing-m
-  $editor-focus-background: $theme-foreground
+  $editor-outline-color: rgba(variables.$theme-foreground, 0.5)
+  $editor-padding: variables.$spacing-m
+  $editor-focus-background: variables.$theme-foreground
 
   background-color: $editor-background
   border: none

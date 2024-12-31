@@ -1,8 +1,10 @@
+@use "variables"
+
 button, .button
-  $button-background: $theme-secondary
-  $button-foreground: $theme-foreground
-  $button-outline: $theme-secondary
-  $button-padding: $spacing-s $spacing-m
+  $button-background: variables.$theme-secondary
+  $button-foreground: variables.$theme-foreground
+  $button-outline: variables.$theme-secondary
+  $button-padding: variables.$spacing-s variables.$spacing-m
 
   -webkit-appearance: none
   -moz-appearance: none
@@ -13,13 +15,13 @@ button, .button
   display: inline-block
   font-family: inherit
   font-size: inherit
-  margin: 0 $toolbar-spacing $toolbar-spacing 0
+  margin: 0 variables.$toolbar-spacing variables.$toolbar-spacing 0
   padding: $button-padding
   text-decoration: none
 
 
   &.large
-    $button-padding-large: $spacing-m $spacing-l
+    $button-padding-large: variables.$spacing-m variables.$spacing-l
 
     padding: $button-padding-large
 

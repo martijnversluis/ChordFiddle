@@ -1,3 +1,5 @@
+@use "variables"
+
 .App
   display: flex
   flex: 0 1 auto
@@ -16,7 +18,7 @@
   &__columns
     display: grid
     flex: 0 1 auto
-    gap: $column-space-between
+    gap: variables.$column-space-between
     grid-template-columns: repeat(2, 1fr)
     height: 100%
 

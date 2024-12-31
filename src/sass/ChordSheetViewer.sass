@@ -1,7 +1,9 @@
+@use "variables"
+
 .ChordSheetViewer
-  $viewer-background: $theme-foreground
-  $viewer-foreground: $theme-background
-  $viewer-padding: $spacing-m
+  $viewer-background: variables.$theme-foreground
+  $viewer-foreground: variables.$theme-background
+  $viewer-padding: variables.$spacing-m
 
   background-color: $viewer-background
   color: $viewer-foreground
@@ -12,9 +14,9 @@
   width: 100%
 
   &[data-mode="text"]
-    $viewer-font: $font-monospace
+    $viewer-font: variables.$font-monospace
     $viewer-font-size: 14px
-    $viewer-outline-color: rgba($theme-foreground, 50%)
+    $viewer-outline-color: rgba(variables.$theme-foreground, 50%)
 
     font-family: $viewer-font
     font-size: $viewer-font-size
@@ -31,7 +33,7 @@
       font-weight: 600
 
       &:not(:last-child)
-        padding-right: $spacing-m
+        padding-right: variables.$spacing-m
 
     .empty-line
       height: 1em
@@ -40,7 +42,7 @@
       margin-bottom: 1em
 
     .chord:not(:last-child)
-      padding-right: $spacing-m
+      padding-right: variables.$spacing-m
 
     .chord:after,
     .lyrics:after

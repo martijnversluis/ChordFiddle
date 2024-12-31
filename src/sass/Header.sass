@@ -1,22 +1,24 @@
+@use "variables"
+
 .Header
-  $header-foreground: $theme-foreground
-  $header-meta-separator-color: $theme-foreground
-  $navigation-spacing: $spacing-l
-  $site-name-foreground: $theme-primary
-  $site-name-font: $font-monospace
-  $wrapper-spacing: $spacing-m $spacing-s
+  $header-foreground: variables.$theme-foreground
+  $header-meta-separator-color: variables.$theme-foreground
+  $navigation-spacing: variables.$spacing-l
+  $site-name-foreground: variables.$theme-primary
+  $site-name-font: variables.$font-monospace
+  $wrapper-spacing: variables.$spacing-m variables.$spacing-s
 
   color: $header-foreground
   flex: 0 0 50px
 
   &__wrapper
     display: flex
-    gap: $column-space-between
+    gap: variables.$column-space-between
     flex-wrap: wrap
     padding: $wrapper-spacing
 
     & > *
-      flex: 1 1 calc(50% - ($column-space-between / 2))
+      flex: 1 1 calc(50% - (variables.$column-space-between / 2))
 
   &__site-name
     display: inline-block

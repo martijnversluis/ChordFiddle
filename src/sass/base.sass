@@ -1,3 +1,5 @@
+@use "variables"
+
 *
   box-sizing: border-box
 
@@ -5,10 +7,10 @@ html
   height: 100%
 
 body
-    $page-background: $theme-background
-    $page-foreground: $theme-foreground
-    $page-font: $font-base
-    $page-padding: $spacing-l
+    $page-background: variables.$theme-background
+    $page-foreground: variables.$theme-foreground
+    $page-font: variables.$font-base
+    $page-padding: variables.$spacing-l
 
     background-color: $page-background
     color: $page-foreground
@@ -25,7 +27,7 @@ body
   flex: 1 1 auto
 
 a
-  $link-color: $theme-grey
+  $link-color: variables.$theme-grey
 
   color: $link-color
   text-decoration: underline

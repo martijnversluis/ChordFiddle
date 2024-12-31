@@ -1,14 +1,17 @@
+@use 'sass:math'
+@use "variables"
+
 .RadioGroup
   $radio-border-size: 1px
   $radio-size: 14px
   $radio-bullet-size: 8px
-  $radio-right-margin: $spacing-s
-  $radio-group-padding: $spacing-m
-  $radio-background: $theme-foreground
-  $radio-outline: $theme-secondary
-  $radio-foreground: $theme-secondary
+  $radio-right-margin: variables.$spacing-s
+  $radio-group-padding: variables.$spacing-m
+  $radio-background: variables.$theme-foreground
+  $radio-outline: variables.$theme-secondary
+  $radio-foreground: variables.$theme-secondary
   $radio-group-height: 31px
-  $radio-option-space-between: $spacing-l
+  $radio-option-space-between: variables.$spacing-l
 
   list-style: none
   margin: 0

@@ -1,6 +1,8 @@
+@use "variables"
+
 .EditorContainer
-  $editor-padding: $spacing-m
-  $editor-space-between: $spacing-m
+  $editor-padding: variables.$spacing-m
+  $editor-space-between: variables.$spacing-m
 
   display: flex
   flex-direction: row
@@ -9,7 +11,7 @@
   overflow: hidden
 
   &__editor
-    $border-color: $theme-background
+    $border-color: variables.$theme-background
 
     border-left: 1px $border-color solid
     flex: 1 0 auto
