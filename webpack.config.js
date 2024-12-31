@@ -21,7 +21,7 @@ module.exports = (env) => ({
   plugins: [
     new HandlebarsPlugin({
       entry: path.join(process.cwd(), 'src', '*.hbs'),
-      output: path.join(process.cwd(), '[name].html'),
+      output: path.join(path.resolve(__dirname, 'dist'), '[name].html'),
       data: {
         ...projectData,
         example_chord_pro_sheet: exampleChordProSheet,

@@ -4,3 +4,4 @@ coverage
 .idea/
 .tool-versions
 .yarn
+dist/
