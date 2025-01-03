@@ -1,29 +1,17 @@
 @use "variables"
 
 .EditorContainer
+  $creds-padding: variables.$spacing-s
   $editor-padding: variables.$spacing-m
   $editor-space-between: variables.$spacing-m
 
   display: flex
-  flex-direction: row
   flex: 1 1 auto
-  max-height: 100%
-  overflow: hidden
+  flex-direction: column
+  overflow: auto
 
   &__editor
-    $border-color: variables.$theme-background
-
-    border-left: 1px $border-color solid
-    flex: 1 0 auto
-
-  &__lineNumbers
-    $right-padding: 28px
-    $scrollbar-correction: 20px
-    $width: 65px
-
-    flex: 0 0 ($width + $scrollbar-correction)
-    margin-right: -1 * $scrollbar-correction
-    padding-right: $right-padding + $scrollbar-correction
+    flex: 1 1 auto
 
   &__errorMessage
     background: red
@@ -32,3 +20,9 @@
 
     &:empty
       display: none
+
+  &__creds
+    bottom: 0
+    padding: $creds-padding
+    position: absolute
+    right: 0
