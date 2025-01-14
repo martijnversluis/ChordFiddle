@@ -1812,7 +1812,7 @@ __metadata:
     handlebars-webpack-plugin: "npm:^2.2.1"
     lz-string: "npm:^1.5.0"
     query-string: "npm:^9.1.1"
-    sass: "npm:^1.83.1"
+    sass: "npm:^1.83.3"
     sass-loader: "npm:^16.0.4"
     style-loader: "npm:^4.0.0"
     webpack: "npm:^5.97.1"
@@ -5528,9 +5528,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.83.1":
-  version: 1.83.1
-  resolution: "sass@npm:1.83.1"
+"sass@npm:^1.83.3":
+  version: 1.83.3
+  resolution: "sass@npm:1.83.3"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -5541,7 +5541,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10c0/9772506cd8290df7b5e800055098e91a8a65100840fd9e90c660deb74b248b3ddbbd1a274b8f7f09777d472d2c873575357bd87939a40fb5a80bdf654985486f
+  checksum: 10c0/36f98f64c217dce17030b4c0cc9917ca16edb03f430cf2d56ff8d27224198a608d15316aee76fc24d19418751043c2625447e9afc930be4e422cceccf6a099fa
   languageName: node
   linkType: hard
 
