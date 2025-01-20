@@ -1805,7 +1805,7 @@ __metadata:
   dependencies:
     "@chordbook/editor": "npm:^0.0.7"
     babel-eslint: "npm:^10.1.0"
-    chordsheetjs: "npm:^11.1.2"
+    chordsheetjs: "npm:^11.2.0"
     css-loader: "npm:^7.1.2"
     eslint: "npm:^9.18.0"
     eslint-config-airbnb-base: "npm:^15.0.0"
@@ -1822,10 +1822,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"chordsheetjs@npm:^11.1.2":
-  version: 11.1.2
-  resolution: "chordsheetjs@npm:11.1.2"
-  checksum: 10c0/0e5fb5d0e5e887d6154744aba97b2abce6d454c8f8a0e8f406713a7791ebf421bc33a5950e709f0b8633462c09e47e6e7041026ea838de56bb971b979a2cc91f
+"chordsheetjs@npm:^11.2.0":
+  version: 11.2.0
+  resolution: "chordsheetjs@npm:11.2.0"
+  checksum: 10c0/a163e33a0a141aa4434509d74389df9b1b790373320e9808891570a43eb6196f166acc298abfd8a09220e79291db88f4130c8164da4fad439563ac95d78f19cc
   languageName: node
   linkType: hard
 

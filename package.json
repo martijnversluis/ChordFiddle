@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@chordbook/editor": "^0.0.7",
-    "chordsheetjs": "^11.1.2",
+    "chordsheetjs": "^11.2.0",
     "lz-string": "^1.5.0",
     "query-string": "^9.1.1"
   },
