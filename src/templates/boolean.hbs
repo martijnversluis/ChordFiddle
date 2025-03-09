@@ -1,0 +1,9 @@
+<select
+  class="ConfigEditor__select"
+  data-config-editor-attribute="{{attributeKey @../key @key}}"
+  data-config-editor-type="boolean"
+  id="configEditor__{{@key}}"
+>
+  <option value="true" {{#if (eq object.value true)}}selected{{/if}}>true</option>
+  <option value="false" {{#if (eq object.value false)}}selected{{/if}}>false</option>
+</select>

@@ -9,21 +9,18 @@ function setRawQueryParams(rawQueryParams) {
   window.location.hash = queryString.stringify(rawQueryParams);
 }
 
-export function setChordSheet(chordSheet) {
-  const { display_mode: displayMode } = getRawQueryParams();
-
+export function setQueryParams({ chordSheet, config, displayMode }) {
   setRawQueryParams({
-    display_mode: displayMode,
     chord_sheet: compress(chordSheet),
+    config: compress(JSON.stringify(config)),
+    display_mode: displayMode,
   });
 }
 
-export function setDisplayMode(displayMode) {
-  const { chord_sheet: chordSheet } = getRawQueryParams();
-  setRawQueryParams({ display_mode: displayMode, chord_sheet: chordSheet });
-}
-
 export function getQueryParams() {
-  const { display_mode: displayMode, chord_sheet: chordSheet } = getRawQueryParams();
-  return { displayMode, chordSheet: decompress(chordSheet) };
+  const { display_mode: displayMode, chord_sheet: chordSheet, config } = getRawQueryParams();
+  const decompressedConfig = decompress(config);
+  const configObject = decompressedConfig.length > 0 ? JSON.parse(decompressedConfig) : {};
+
+  return { config: configObject, displayMode, chordSheet: decompress(chordSheet) };
 }

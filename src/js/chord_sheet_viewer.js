@@ -19,12 +19,12 @@ class ChordSheetViewer extends Component {
     this.onDisplayModeChanged(displayMode);
   }
 
-  render(song) {
+  render(song, config) {
     const displayMode = this.getSelectedMode();
     const outlet = this.element('outlet');
     outlet.dataset.mode = displayMode;
 
-    const formatter = new formatters[displayMode]();
+    const formatter = new formatters[displayMode](config);
     const formattedSheet = formatter.format(song);
 
     switch (displayMode) {

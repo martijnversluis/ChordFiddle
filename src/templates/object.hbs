@@ -1,0 +1,15 @@
+<span class="ConfigEditor__punctuation">{</span><br/>
+<div class="ConfigEditor__indent">
+  {{#each object.attributes}}
+    <span class="ConfigEditor__attribute">{{@key}}</span>
+    <span class="ConfigEditor__punctuation">: </span>
+    {{> (partialPath this) object=this}}
+
+    {{#unless @last}}
+      <span class="ConfigEditor__punctuation">,</span>
+    {{/unless}}
+
+    <br/>
+  {{/each}}
+</div>
+<span class="ConfigEditor__punctuation">}</span>

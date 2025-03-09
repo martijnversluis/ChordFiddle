@@ -1,6 +1,6 @@
 {
   "name": "chordfiddle",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "title": "ChordSheetJS live demo",
   "description": "ChordPro editor. Transpose your chord sheet. Convert ChordPro to chord sheet.",
   "private": true,
@@ -48,6 +48,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.31.0",
     "handlebars-webpack-plugin": "^2.2.1",
+    "lodash.set": "^4.3.2",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",

@@ -25,6 +25,17 @@
   &__column
     display: flex
     flex-direction: column
+    gap: variables.$column-space-between
     max-height: 100%
     overflow: hidden
     position: relative
+
+  &__row
+    display: flex
+    flex-direction: column
+
+    &--grow
+      flex-grow: 1
+
+    &--relative
+      position: relative

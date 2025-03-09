@@ -1,0 +1,29 @@
+@use "variables"
+
+.ConfigEditor
+  background: variables.$theme-white
+  font-size: 0
+  line-height: 1rem
+  padding: variables.$spacing-m
+
+  &__attribute,
+  &__input,
+  &__punctuation,
+  &__select
+    font-family: variables.$font-monospace
+    font-size: 0.8rem
+
+  &__punctuation
+    color: variables.$theme-background
+
+  &__input,
+  &__select
+    background-color: variables.$theme-primary
+    color: variables.$theme-white
+    width: 4rem
+
+  &__indent
+    margin-left: variables.$spacing-l
+
+  &__attribute
+    color: variables.$theme-secondary
