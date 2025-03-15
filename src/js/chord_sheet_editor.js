@@ -15,9 +15,12 @@ class ChordSheetEditor extends Component {
       ],
     });
 
-    this.container.addEventListener('change', (e) => {
-      this.onChordSheetChange(e.detail.doc);
-    });
+    this.editor.dom.classList.add('ChordSheetEditor__editor');
+    this.container.addEventListener('change', () => this.dispatchChordSheetChange());
+  }
+
+  dispatchChordSheetChange() {
+    this.onChordSheetChange(this.editor.state.doc.toString());
   }
 
   getSelectionRange() {

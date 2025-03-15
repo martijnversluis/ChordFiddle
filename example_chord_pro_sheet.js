@@ -22,5 +22,4 @@ Lyrics by: %{lyricist|%{}|(unknown)}
 {start_of_chorus}
 Let it [Am]be, let it [C/G]be, let it [F]be, let it [C]be
 [C]Whisper words of [G]wisdom, let it [F]be [C/E] [Dm] [C]
-{end_of_chorus}
-`;
+{end_of_chorus}`.substring(1);

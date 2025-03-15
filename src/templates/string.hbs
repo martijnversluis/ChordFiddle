@@ -1,0 +1,21 @@
+{{log "string.hbs" 'object=' object 'parent=' parent 'key=' @key}}
+{{#if (eq object.options undefined)}}
+  <input
+    class="ConfigEditor__input"
+    data-config-editor-attribute="{{attributeKey @../key @key}}"
+    data-config-editor-type="string"
+    id="configEditor__{{@key}}"
+    value="{{object.value}}"
+  />
+{{else}}
+  <select
+    class="ConfigEditor__select"
+    data-config-editor-attribute="{{attributeKey @../key @key}}"
+    data-config-editor-type="string"
+    id="configEditor__{{@key}}"
+  >
+    {{#each object.options}}
+      <option value="{{this}}" {{#if (eq ../object.value this)}}selected{{/if}}>{{this}}</option>
+    {{/each}}
+  </select>
+{{/if}}

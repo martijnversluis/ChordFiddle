@@ -41,21 +41,29 @@
     <main class="App__container">
       <div class="App__columns">
         <section class="App__column">
-          <ul class="Toolbar" id="toolbar">
-            {{#each config.toolbar}}
-              <li>
-                <button id="toolbar__{{@key}}" type="button">{{this}}</button>
-              </li>
-            {{/each}}
-          </ul>
-          <div class="EditorContainer">
-            <div class="ChordSheetEditor EditorContainer__editor" id="chordSheetEditor" data-mode="text">
-              <script type="text/template">{{example_chord_pro_sheet}}</script>
+          <div class="App__row App__row--grow App__row--relative">
+            <ul class="Toolbar" id="toolbar">
+              {{#each config.toolbar}}
+                <li>
+                  <button id="toolbar__{{@key}}" type="button">{{this}}</button>
+                </li>
+              {{/each}}
+            </ul>
+            <div class="EditorContainer">
+              <div class="ChordSheetEditor EditorContainer__editor" id="chordSheetEditor" data-mode="text">
+                <script type="text/template">{{example_chord_pro_sheet}}</script>
+              </div>
+            </div>
+            <div class="EditorContainer__errorMessage" id="chordSheetEditor__errorMessage"></div>
+            <div class="EditorContainer__creds">
+              <small>Powered by <a href="https://github.com/chordbook/editor">@chordbook/editor</a></small>
             </div>
           </div>
-          <div class="EditorContainer__errorMessage" id="chordSheetEditor__errorMessage"></div>
-          <div class="EditorContainer__creds">
-            <small>Powered by <a href="https://github.com/chordbook/editor">@chordbook/editor</a></small>
+
+          <div class="App__row">
+            <div class="ConfigEditor" id="configEditor">
+              {{> templates/object object=config.formatterConfig}}
+            </div>
           </div>
         </section>
         <section class="App__column" id="chordSheetViewer">
