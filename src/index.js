@@ -10,6 +10,7 @@ import ImportDialog from './js/import_dialog';
 import Toolbar from './js/toolbar';
 import ConfigEditor from './js/config_editor';
 import debounce from './js/debounce';
+import Inspector from './js/inspector';
 
 class App {
   song;
@@ -29,6 +30,7 @@ class App {
     this.configEditor = new ConfigEditor('configEditor');
     this.importDialog = new ImportDialog('importDialog');
     this.toolbar = new Toolbar('toolbar');
+    this.inspector = new Inspector('inspector');
   }
 
   start() {
@@ -106,9 +108,12 @@ class App {
     try {
       const parser = new chordsheetjs.ChordProParser();
       this.song = parser.parse(this.chordSheet);
+      window.song = this.song;
+      this.inspector.setSong(this.song);
       this.chordSheetViewer.render(this.song, this.config);
       this.chordSheetEditor.resetError();
     } catch ({ message, location }) {
+      console.error(message);
       this.chordSheetEditor.showError(message, location);
     }
   }
@@ -122,4 +127,6 @@ class App {
   }
 }
 
+
 new App().start();
+window.ChordSheetJS = chordsheetjs;

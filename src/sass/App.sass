@@ -16,14 +16,15 @@
     overflow: hidden
 
   &__columns
-    display: grid
+    display: flex
     flex: 0 1 auto
+    flex-direction: row
     gap: variables.$column-space-between
-    grid-template-columns: repeat(2, 1fr)
     height: 100%
 
   &__column
     display: flex
+    flex: 1 1 50%
     flex-direction: column
     gap: variables.$column-space-between
     max-height: 100%

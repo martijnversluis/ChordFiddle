@@ -1,0 +1,67 @@
+@use "variables"
+
+.Inspector
+  $chevron-spacing: variables.$spacing-s
+  $title-padding: variables.$spacing-s variables.$spacing-m
+  $viewer-padding: variables.$spacing-m
+
+  background: #fff
+  display: flex
+  flex: 1 0 auto
+  flex-direction: column
+  max-height: 100%
+  max-width: 100%
+  position: relative
+  width: min(30%, 20rem)
+
+  &__title
+    background: variables.$theme-secondary
+    cursor: pointer
+    flex: 0 0 auto
+    font-size: initial
+    font-weight: 400
+    margin: 0
+    padding: $title-padding
+    position: relative
+
+    &__button
+      background-color: variables.$theme-white
+      color: variables.$theme-secondary
+      line-height: 1rem
+      margin-right: $chevron-spacing
+      position: absolute
+      right: 0
+      text-align: center
+      width: 1rem
+
+      &:before
+        content: '-'
+
+  &__wrapper
+    flex: 1 1 auto
+    max-height: 100%
+    max-width: 100%
+    overflow: auto
+
+  &__outlet
+    padding: $viewer-padding
+
+  &--collapsed
+    overflow: visible
+    width: 2rem
+
+  &--collapsed &__wrapper
+    display: none
+
+  &--collapsed &__title
+    height: 100%
+
+  &--collapsed &__title__button:before
+    content: '+'
+
+  &--collapsed &__title__wrapper
+    left: 50%
+    position: absolute
+    transform: rotate(90deg) translate(0, -50%)
+    transform-origin: left top
+    width: 10rem
