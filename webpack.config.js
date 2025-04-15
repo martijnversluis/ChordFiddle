@@ -49,6 +49,10 @@ module.exports = (env) => ({
           'sass-loader',
         ],
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   devServer: {

@@ -1803,6 +1803,7 @@ __metadata:
     eslint-plugin-import: "npm:^2.31.0"
     handlebars-webpack-plugin: "npm:^2.2.1"
     lodash.set: "npm:^4.3.2"
+    luna-object-viewer: "npm:^0.3.1"
     lz-string: "npm:^1.5.0"
     query-string: "npm:^9.1.1"
     sass: "npm:^1.86.3"
@@ -4284,6 +4285,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"licia@npm:^1.39.2":
+  version: 1.48.0
+  resolution: "licia@npm:1.48.0"
+  checksum: 10c0/a18ba810963d7240d80019125c1f9758d45e021e420aa08ad497b4746337e305ea646e4a08f20c452fa36db21a50852bdbe488650cd912a1b0ea8d8d4705742a
+  languageName: node
+  linkType: hard
+
 "loader-runner@npm:^4.2.0":
   version: 4.2.0
   resolution: "loader-runner@npm:4.2.0"
@@ -4327,6 +4335,15 @@ __metadata:
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
   checksum: 10c0/ebd04fbca961e6c1d6c0af3799adcc966a1babe798f685bb84e6599266599cd95d94630b10262f5424539bc4640107e8a33aa28585374abf561d30d16f4b39fb
+  languageName: node
+  linkType: hard
+
+"luna-object-viewer@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "luna-object-viewer@npm:0.3.1"
+  dependencies:
+    licia: "npm:^1.39.2"
+  checksum: 10c0/81f1c023dda889abac1212fb4dd294251776cf7b88f3b9a101ce2c6c6a2cc5c7cf88bf334ea46f4a96adc0245cb263a59f404997313e850aef15626c6cfe8be0
   languageName: node
   linkType: hard
 
