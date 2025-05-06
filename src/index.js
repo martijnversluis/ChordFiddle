@@ -59,7 +59,8 @@ class App {
       this.render();
     };
 
-    this.chordSheetViewer.onDisplayModeChanged = () => {
+    this.chordSheetViewer.onDisplayModeChanged = (displayMode) => {
+      this.displayMode = displayMode;
       this.render();
     };
 
