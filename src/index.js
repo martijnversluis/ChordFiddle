@@ -69,7 +69,7 @@ class App {
 
     this.chordSheetEditor.onChordSheetChange = (newChordSheet) => {
       this.chordSheet = newChordSheet;
-      this.render();
+      this.debouncedRender();
     };
   }
 
@@ -100,10 +100,12 @@ class App {
     }
   }
 
-  render = debounce(() => {
+  render() {
     this.renderChordSheet();
     this.updateQueryParams();
-  }, 100);
+  }
+
+  debouncedRender = debounce(() => this.render(), 100);
 
   renderChordSheet() {
     try {
