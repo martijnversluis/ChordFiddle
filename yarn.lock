@@ -1805,7 +1805,7 @@ __metadata:
     lodash.set: "npm:^4.3.2"
     luna-object-viewer: "npm:^0.3.2"
     lz-string: "npm:^1.5.0"
-    query-string: "npm:^9.2.0"
+    query-string: "npm:^9.2.1"
     sass: "npm:^1.89.2"
     sass-loader: "npm:^16.0.5"
     style-loader: "npm:^4.0.0"
@@ -5208,14 +5208,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"query-string@npm:^9.2.0":
-  version: 9.2.0
-  resolution: "query-string@npm:9.2.0"
+"query-string@npm:^9.2.1":
+  version: 9.2.1
+  resolution: "query-string@npm:9.2.1"
   dependencies:
     decode-uri-component: "npm:^0.4.1"
     filter-obj: "npm:^5.1.0"
     split-on-first: "npm:^3.0.0"
-  checksum: 10c0/111cdc184c35d75f08c2dcb260c3cb038e7112d888a872dcbafd015d0ee790e57fd5ad8ebcad9c7a964f130c3711fef21ed2c28eb2dbf9c163bc56c144cac926
+  checksum: 10c0/ec2a1a812fb6e61b129587789c30731050e44b1e66bf77415ad075e7ff9923aa85088a8a8a36300170f6b82bcd6bda8aa64304fa168ea29116a57b597275467d
   languageName: node
   linkType: hard
 
