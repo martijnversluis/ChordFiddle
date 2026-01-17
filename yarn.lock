@@ -2041,7 +2041,7 @@ __metadata:
     luna-object-viewer: "npm:^0.3.2"
     lz-string: "npm:^1.5.0"
     query-string: "npm:^9.3.1"
-    sass: "npm:^1.96.0"
+    sass: "npm:^1.97.2"
     sass-loader: "npm:^16.0.6"
     style-loader: "npm:^4.0.0"
     webpack: "npm:^5.103.0"
@@ -5994,9 +5994,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.96.0":
-  version: 1.96.0
-  resolution: "sass@npm:1.96.0"
+"sass@npm:^1.97.2":
+  version: 1.97.2
+  resolution: "sass@npm:1.97.2"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -6007,7 +6007,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10c0/a932054bcee6935757417af6072d31b65ce3557798a53351b3e1369d7f06e24b0ec211e1617bdaaee998b429a44bf0f52acd240fd47f88422d5bc241eeb71672
+  checksum: 10c0/5622a4f9d0acf5cdfb72c73c448366b3ec7bfe2b6e1ecb62c6e9f8eaff9c02a6afd86a31ded246fc818fe660cedea6bd27335e82fc9bd7cce46c29f95774bece
   languageName: node
   linkType: hard
 
