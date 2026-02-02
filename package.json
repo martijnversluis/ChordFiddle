@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@chordbook/editor": "^0.0.7",
-    "chordsheetjs": "^12.3.1",
+    "chordsheetjs": "^13.1.0",
     "luna-object-viewer": "^0.3.2",
     "lz-string": "^1.5.0",
     "query-string": "^9.3.1"
