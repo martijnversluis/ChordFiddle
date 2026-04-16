@@ -51,7 +51,7 @@
     "handlebars-webpack-plugin": "^2.2.1",
     "lodash.set": "^4.3.2",
     "sass": "^1.98.0",
-    "sass-loader": "^16.0.6",
+    "sass-loader": "^16.0.7",
     "style-loader": "^4.0.0",
     "webpack": "^5.106.2",
     "webpack-cli": "^7.0.0",
