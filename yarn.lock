@@ -1930,7 +1930,7 @@ __metadata:
   dependencies:
     "@chordbook/editor": "npm:^0.0.7"
     babel-eslint: "npm:^10.1.0"
-    chordsheetjs: "npm:^15.4.0"
+    chordsheetjs: "npm:^15.5.1"
     css-loader: "npm:^7.1.4"
     eslint: "npm:^10.4.1"
     eslint-config-airbnb-base: "npm:^15.0.0"
@@ -1949,15 +1949,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"chordsheetjs@npm:^15.4.0":
-  version: 15.4.0
-  resolution: "chordsheetjs@npm:15.4.0"
+"chordsheetjs@npm:^15.5.1":
+  version: 15.5.1
+  resolution: "chordsheetjs@npm:15.5.1"
   peerDependencies:
     jspdf: ^4.0.0
   peerDependenciesMeta:
     jspdf:
       optional: true
-  checksum: 10c0/0aec51786f1f5b64bf2ea50b30678fab8b3b6d762855ecfbe8666c1e20cd803b18326cf3353a1d6cf960b055d149edf4db5b709128106042e6d2d2899478619b
+  checksum: 10c0/7148800906448c0484b2cb6f294c6185ce7770975eb562f1cd53a65d2935c3d5357d56d967450fab805ed1a5f72a48cdf8066255c5444ff9ac0197d50f3ec7f0
   languageName: node
   linkType: hard
 
