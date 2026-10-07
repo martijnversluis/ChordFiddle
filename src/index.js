@@ -2,8 +2,8 @@ import chordsheetjs from 'chordsheetjs';
 
 import './sass/main.sass';
 
-import { convertChordSheetToChordPro } from './js/chord_sheet_transformations';
 import { getQueryParams, setQueryParams } from './js/location_hash';
+import { convertImportedChordSheetToChordPro } from './js/import_format';
 import ChordSheetEditor from './js/chord_sheet_editor';
 import ChordSheetViewer from './js/chord_sheet_viewer';
 import ImportDialog from './js/import_dialog';
@@ -53,8 +53,8 @@ class App {
       this.render();
     };
 
-    this.importDialog.onImportConfirmed = (chordSheet) => {
-      const chordProSheet = convertChordSheetToChordPro(chordSheet);
+    this.importDialog.onImportConfirmed = (chordSheet, format) => {
+      const chordProSheet = convertImportedChordSheetToChordPro(chordSheet, format);
       this.chordSheetEditor.setValue(chordProSheet);
       this.render();
     };
