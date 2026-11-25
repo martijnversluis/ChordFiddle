@@ -1,7 +1,7 @@
 import {
   ChordProFormatter,
   ChordProParser,
-  ChordSheetParser,
+  ChordsOverWordsParser,
 } from 'chordsheetjs';
 
 const transformChordSheet = (chordSheet, processor) => {
@@ -27,7 +27,7 @@ export const switchToFlat = (chordSheet) => (
 );
 
 export const convertChordSheetToChordPro = (chordSheet) => {
-  const parser = new ChordSheetParser({ preserveWhitespace: false });
+  const parser = new ChordsOverWordsParser({ preserveWhitespace: false });
   const formatter = new ChordProFormatter();
   const song = parser.parse(chordSheet);
   return formatter.format(song);
